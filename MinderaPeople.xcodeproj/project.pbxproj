@@ -1,0 +1,672 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1245E16C28EF91EB00A6CC52 /* MinderaPeopleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E16B28EF91EB00A6CC52 /* MinderaPeopleApp.swift */; };
+		1245E16E28EF91EB00A6CC52 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E16D28EF91EB00A6CC52 /* ContentView.swift */; };
+		1245E17028EF91ED00A6CC52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1245E16F28EF91ED00A6CC52 /* Assets.xcassets */; };
+		1245E17328EF91ED00A6CC52 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1245E17228EF91ED00A6CC52 /* Preview Assets.xcassets */; };
+		1245E17D28EF91ED00A6CC52 /* MinderaPeopleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E17C28EF91ED00A6CC52 /* MinderaPeopleTests.swift */; };
+		1245E18728EF91ED00A6CC52 /* MinderaPeopleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E18628EF91ED00A6CC52 /* MinderaPeopleUITests.swift */; };
+		1245E18928EF91ED00A6CC52 /* MinderaPeopleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E18828EF91ED00A6CC52 /* MinderaPeopleUITestsLaunchTests.swift */; };
+		1245E19728EF937400A6CC52 /* Alicerce in Frameworks */ = {isa = PBXBuildFile; productRef = 1245E19628EF937400A6CC52 /* Alicerce */; };
+		1245E19928EF937400A6CC52 /* AlicerceAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1245E19828EF937400A6CC52 /* AlicerceAnalytics */; };
+		1245E19B28EF937400A6CC52 /* AlicerceLogging in Frameworks */ = {isa = PBXBuildFile; productRef = 1245E19A28EF937400A6CC52 /* AlicerceLogging */; };
+		1245E19D28EF937400A6CC52 /* AlicerceNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 1245E19C28EF937400A6CC52 /* AlicerceNetwork */; };
+		1245E19F28EF937400A6CC52 /* AlicercePerformanceMetrics in Frameworks */ = {isa = PBXBuildFile; productRef = 1245E19E28EF937400A6CC52 /* AlicercePerformanceMetrics */; };
+		1245E1A128EF937400A6CC52 /* AlicercePersistence in Frameworks */ = {isa = PBXBuildFile; productRef = 1245E1A028EF937400A6CC52 /* AlicercePersistence */; };
+		1245E1A428EF93C900A6CC52 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1245E1A328EF93C900A6CC52 /* ComposableArchitecture */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1245E17928EF91ED00A6CC52 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1245E16028EF91EB00A6CC52 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1245E16728EF91EB00A6CC52;
+			remoteInfo = MinderaPeople;
+		};
+		1245E18328EF91ED00A6CC52 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1245E16028EF91EB00A6CC52 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1245E16728EF91EB00A6CC52;
+			remoteInfo = MinderaPeople;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1245E16828EF91EB00A6CC52 /* MinderaPeople.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinderaPeople.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1245E16B28EF91EB00A6CC52 /* MinderaPeopleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleApp.swift; sourceTree = "<group>"; };
+		1245E16D28EF91EB00A6CC52 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1245E16F28EF91ED00A6CC52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1245E17228EF91ED00A6CC52 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1245E17828EF91ED00A6CC52 /* MinderaPeopleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinderaPeopleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1245E17C28EF91ED00A6CC52 /* MinderaPeopleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleTests.swift; sourceTree = "<group>"; };
+		1245E18228EF91ED00A6CC52 /* MinderaPeopleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinderaPeopleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1245E18628EF91ED00A6CC52 /* MinderaPeopleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleUITests.swift; sourceTree = "<group>"; };
+		1245E18828EF91ED00A6CC52 /* MinderaPeopleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1245E16528EF91EB00A6CC52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1245E19F28EF937400A6CC52 /* AlicercePerformanceMetrics in Frameworks */,
+				1245E19B28EF937400A6CC52 /* AlicerceLogging in Frameworks */,
+				1245E1A428EF93C900A6CC52 /* ComposableArchitecture in Frameworks */,
+				1245E1A128EF937400A6CC52 /* AlicercePersistence in Frameworks */,
+				1245E19D28EF937400A6CC52 /* AlicerceNetwork in Frameworks */,
+				1245E19728EF937400A6CC52 /* Alicerce in Frameworks */,
+				1245E19928EF937400A6CC52 /* AlicerceAnalytics in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1245E17528EF91ED00A6CC52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1245E17F28EF91ED00A6CC52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1245E15F28EF91EB00A6CC52 = {
+			isa = PBXGroup;
+			children = (
+				1245E16A28EF91EB00A6CC52 /* MinderaPeople */,
+				1245E17B28EF91ED00A6CC52 /* MinderaPeopleTests */,
+				1245E18528EF91ED00A6CC52 /* MinderaPeopleUITests */,
+				1245E16928EF91EB00A6CC52 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1245E16928EF91EB00A6CC52 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1245E16828EF91EB00A6CC52 /* MinderaPeople.app */,
+				1245E17828EF91ED00A6CC52 /* MinderaPeopleTests.xctest */,
+				1245E18228EF91ED00A6CC52 /* MinderaPeopleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1245E16A28EF91EB00A6CC52 /* MinderaPeople */ = {
+			isa = PBXGroup;
+			children = (
+				1245E16B28EF91EB00A6CC52 /* MinderaPeopleApp.swift */,
+				1245E16D28EF91EB00A6CC52 /* ContentView.swift */,
+				1245E16F28EF91ED00A6CC52 /* Assets.xcassets */,
+				1245E17128EF91ED00A6CC52 /* Preview Content */,
+			);
+			path = MinderaPeople;
+			sourceTree = "<group>";
+		};
+		1245E17128EF91ED00A6CC52 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1245E17228EF91ED00A6CC52 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1245E17B28EF91ED00A6CC52 /* MinderaPeopleTests */ = {
+			isa = PBXGroup;
+			children = (
+				1245E17C28EF91ED00A6CC52 /* MinderaPeopleTests.swift */,
+			);
+			path = MinderaPeopleTests;
+			sourceTree = "<group>";
+		};
+		1245E18528EF91ED00A6CC52 /* MinderaPeopleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1245E18628EF91ED00A6CC52 /* MinderaPeopleUITests.swift */,
+				1245E18828EF91ED00A6CC52 /* MinderaPeopleUITestsLaunchTests.swift */,
+			);
+			path = MinderaPeopleUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1245E16728EF91EB00A6CC52 /* MinderaPeople */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1245E18C28EF91ED00A6CC52 /* Build configuration list for PBXNativeTarget "MinderaPeople" */;
+			buildPhases = (
+				1245E16428EF91EB00A6CC52 /* Sources */,
+				1245E16528EF91EB00A6CC52 /* Frameworks */,
+				1245E16628EF91EB00A6CC52 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MinderaPeople;
+			packageProductDependencies = (
+				1245E19628EF937400A6CC52 /* Alicerce */,
+				1245E19828EF937400A6CC52 /* AlicerceAnalytics */,
+				1245E19A28EF937400A6CC52 /* AlicerceLogging */,
+				1245E19C28EF937400A6CC52 /* AlicerceNetwork */,
+				1245E19E28EF937400A6CC52 /* AlicercePerformanceMetrics */,
+				1245E1A028EF937400A6CC52 /* AlicercePersistence */,
+				1245E1A328EF93C900A6CC52 /* ComposableArchitecture */,
+			);
+			productName = MinderaPeople;
+			productReference = 1245E16828EF91EB00A6CC52 /* MinderaPeople.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1245E17728EF91ED00A6CC52 /* MinderaPeopleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1245E18F28EF91ED00A6CC52 /* Build configuration list for PBXNativeTarget "MinderaPeopleTests" */;
+			buildPhases = (
+				1245E17428EF91ED00A6CC52 /* Sources */,
+				1245E17528EF91ED00A6CC52 /* Frameworks */,
+				1245E17628EF91ED00A6CC52 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1245E17A28EF91ED00A6CC52 /* PBXTargetDependency */,
+			);
+			name = MinderaPeopleTests;
+			productName = MinderaPeopleTests;
+			productReference = 1245E17828EF91ED00A6CC52 /* MinderaPeopleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1245E18128EF91ED00A6CC52 /* MinderaPeopleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1245E19228EF91ED00A6CC52 /* Build configuration list for PBXNativeTarget "MinderaPeopleUITests" */;
+			buildPhases = (
+				1245E17E28EF91ED00A6CC52 /* Sources */,
+				1245E17F28EF91ED00A6CC52 /* Frameworks */,
+				1245E18028EF91ED00A6CC52 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1245E18428EF91ED00A6CC52 /* PBXTargetDependency */,
+			);
+			name = MinderaPeopleUITests;
+			productName = MinderaPeopleUITests;
+			productReference = 1245E18228EF91ED00A6CC52 /* MinderaPeopleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1245E16028EF91EB00A6CC52 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					1245E16728EF91EB00A6CC52 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					1245E17728EF91ED00A6CC52 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 1245E16728EF91EB00A6CC52;
+					};
+					1245E18128EF91ED00A6CC52 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 1245E16728EF91EB00A6CC52;
+					};
+				};
+			};
+			buildConfigurationList = 1245E16328EF91EB00A6CC52 /* Build configuration list for PBXProject "MinderaPeople" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1245E15F28EF91EB00A6CC52;
+			packageReferences = (
+				1245E19528EF937400A6CC52 /* XCRemoteSwiftPackageReference "Alicerce" */,
+				1245E1A228EF93C900A6CC52 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
+			productRefGroup = 1245E16928EF91EB00A6CC52 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1245E16728EF91EB00A6CC52 /* MinderaPeople */,
+				1245E17728EF91ED00A6CC52 /* MinderaPeopleTests */,
+				1245E18128EF91ED00A6CC52 /* MinderaPeopleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1245E16628EF91EB00A6CC52 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1245E17328EF91ED00A6CC52 /* Preview Assets.xcassets in Resources */,
+				1245E17028EF91ED00A6CC52 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1245E17628EF91ED00A6CC52 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1245E18028EF91ED00A6CC52 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1245E16428EF91EB00A6CC52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1245E16E28EF91EB00A6CC52 /* ContentView.swift in Sources */,
+				1245E16C28EF91EB00A6CC52 /* MinderaPeopleApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1245E17428EF91ED00A6CC52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1245E17D28EF91ED00A6CC52 /* MinderaPeopleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1245E17E28EF91ED00A6CC52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1245E18928EF91ED00A6CC52 /* MinderaPeopleUITestsLaunchTests.swift in Sources */,
+				1245E18728EF91ED00A6CC52 /* MinderaPeopleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1245E17A28EF91ED00A6CC52 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1245E16728EF91EB00A6CC52 /* MinderaPeople */;
+			targetProxy = 1245E17928EF91ED00A6CC52 /* PBXContainerItemProxy */;
+		};
+		1245E18428EF91ED00A6CC52 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1245E16728EF91EB00A6CC52 /* MinderaPeople */;
+			targetProxy = 1245E18328EF91ED00A6CC52 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1245E18A28EF91ED00A6CC52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1245E18B28EF91ED00A6CC52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1245E18D28EF91ED00A6CC52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MinderaPeople/Preview Content\"";
+				DEVELOPMENT_TEAM = M3FQH2799X;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Mindera.MinderaPeople;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1245E18E28EF91ED00A6CC52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MinderaPeople/Preview Content\"";
+				DEVELOPMENT_TEAM = M3FQH2799X;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Mindera.MinderaPeople;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1245E19028EF91ED00A6CC52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M3FQH2799X;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Mindera.MinderaPeopleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MinderaPeople.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MinderaPeople";
+			};
+			name = Debug;
+		};
+		1245E19128EF91ED00A6CC52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M3FQH2799X;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Mindera.MinderaPeopleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MinderaPeople.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MinderaPeople";
+			};
+			name = Release;
+		};
+		1245E19328EF91ED00A6CC52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M3FQH2799X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Mindera.MinderaPeopleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MinderaPeople;
+			};
+			name = Debug;
+		};
+		1245E19428EF91ED00A6CC52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M3FQH2799X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Mindera.MinderaPeopleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MinderaPeople;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1245E16328EF91EB00A6CC52 /* Build configuration list for PBXProject "MinderaPeople" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1245E18A28EF91ED00A6CC52 /* Debug */,
+				1245E18B28EF91ED00A6CC52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1245E18C28EF91ED00A6CC52 /* Build configuration list for PBXNativeTarget "MinderaPeople" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1245E18D28EF91ED00A6CC52 /* Debug */,
+				1245E18E28EF91ED00A6CC52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1245E18F28EF91ED00A6CC52 /* Build configuration list for PBXNativeTarget "MinderaPeopleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1245E19028EF91ED00A6CC52 /* Debug */,
+				1245E19128EF91ED00A6CC52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1245E19228EF91ED00A6CC52 /* Build configuration list for PBXNativeTarget "MinderaPeopleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1245E19328EF91ED00A6CC52 /* Debug */,
+				1245E19428EF91ED00A6CC52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1245E19528EF937400A6CC52 /* XCRemoteSwiftPackageReference "Alicerce" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Mindera/Alicerce.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+		1245E1A228EF93C900A6CC52 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1245E19628EF937400A6CC52 /* Alicerce */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1245E19528EF937400A6CC52 /* XCRemoteSwiftPackageReference "Alicerce" */;
+			productName = Alicerce;
+		};
+		1245E19828EF937400A6CC52 /* AlicerceAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1245E19528EF937400A6CC52 /* XCRemoteSwiftPackageReference "Alicerce" */;
+			productName = AlicerceAnalytics;
+		};
+		1245E19A28EF937400A6CC52 /* AlicerceLogging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1245E19528EF937400A6CC52 /* XCRemoteSwiftPackageReference "Alicerce" */;
+			productName = AlicerceLogging;
+		};
+		1245E19C28EF937400A6CC52 /* AlicerceNetwork */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1245E19528EF937400A6CC52 /* XCRemoteSwiftPackageReference "Alicerce" */;
+			productName = AlicerceNetwork;
+		};
+		1245E19E28EF937400A6CC52 /* AlicercePerformanceMetrics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1245E19528EF937400A6CC52 /* XCRemoteSwiftPackageReference "Alicerce" */;
+			productName = AlicercePerformanceMetrics;
+		};
+		1245E1A028EF937400A6CC52 /* AlicercePersistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1245E19528EF937400A6CC52 /* XCRemoteSwiftPackageReference "Alicerce" */;
+			productName = AlicercePersistence;
+		};
+		1245E1A328EF93C900A6CC52 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1245E1A228EF93C900A6CC52 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 1245E16028EF91EB00A6CC52 /* Project object */;
+}
