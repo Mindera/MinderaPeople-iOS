@@ -25,6 +25,7 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment> { state, action, _
     case .logInButtonTapped:
         state.isShowingHomePage = true
         return .none
+
     case .homePageDismiss:
         state.isShowingHomePage = false
         return .none
@@ -45,7 +46,6 @@ struct RootView: View {
                         Text("Hello, world!")
                     }
                     Spacer()
-                    
                     Button {
                         viewStore.send(.logInButtonTapped)
                     } label: {
@@ -60,16 +60,16 @@ struct RootView: View {
                 }
                 .padding()
                 .navigationDestination(
-                    isPresented: viewStore.binding(
-                        get: \.isShowingHomePage,
-                        send: .homePageDismiss
-                    )
+                    isPresented: viewStore
+                        .binding(
+                            get: \.isShowingHomePage,
+                            send: .homePageDismiss
+                        )
                 ) { homePage }
             }
-            
         }
     }
-    
+
     @ViewBuilder
     var homePage: some View {
         ZStack {
@@ -77,7 +77,7 @@ struct RootView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea()
                 .foregroundColor(.yellow)
-            
+
             Text("Welcome 🚀")
                 .font(.title)
         }
