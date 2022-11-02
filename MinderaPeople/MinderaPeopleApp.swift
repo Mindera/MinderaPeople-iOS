@@ -1,9 +1,4 @@
 //
-//  MinderaPeopleApp.swift
-//  MinderaPeople
-//
-//  Created by Mindera on 06/10/2022.
-//
 
 import ComposableArchitecture
 import SwiftUI
