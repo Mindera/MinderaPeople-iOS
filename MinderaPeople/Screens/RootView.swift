@@ -3,32 +3,36 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct AppState: Equatable {
-    var isShowingHomePage = false
-}
+struct RootFeature: ReducerProtocol {
+    struct State: Equatable {
+        var isShowingHomePage = false
+    }
 
-struct AppEnvironment {
-}
+    enum Action: Equatable {
+        case logInButtonTapped
+        case homePageDismiss
+    }
 
-enum AppAction: Equatable {
-    case logInButtonTapped
-    case homePageDismiss
-}
+//    Dependency example:
+//    @Dependency(\.date) var date
 
-let appReducer = Reducer<AppState, AppAction, AppEnvironment> { state, action, _ in
-    switch action {
-    case .logInButtonTapped:
-        state.isShowingHomePage = true
-        return .none
+    var body: some ReducerProtocol<State, Action> {
+        Reduce { state, action in
+            switch action {
+            case .logInButtonTapped:
+                state.isShowingHomePage = true
+                return .none
 
-    case .homePageDismiss:
-        state.isShowingHomePage = false
-        return .none
+            case .homePageDismiss:
+                state.isShowingHomePage = false
+                return .none
+            }
+        }
     }
 }
 
 struct RootView: View {
-    let store: Store<AppState, AppAction>
+    let store: StoreOf<RootFeature>
     var body: some View {
         NavigationStack {
             WithViewStore(store) { viewStore in
@@ -79,14 +83,15 @@ struct RootView: View {
     }
 }
 
+extension RootFeature.State {
+    static func mock(isShowingHomePage: Bool = false) -> Self {
+        .init(isShowingHomePage: isShowingHomePage)
+    }
+}
+
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView(
-            store: .init(
-                initialState: AppState(),
-                reducer: appReducer,
-                environment: AppEnvironment()
-            )
-        )
+        let feature = RootFeature()
+        RootView(store: .init(initialState: .mock(), reducer: feature.body))
     }
 }

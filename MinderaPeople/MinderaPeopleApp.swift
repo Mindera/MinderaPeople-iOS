@@ -5,12 +5,11 @@ import SwiftUI
 
 @main
 struct MinderaPeopleApp: App {
-    private let state = AppState()
-    private let environment = AppEnvironment()
+    private let feature = RootFeature()
 
     var body: some Scene {
         WindowGroup {
-            RootView(store: .init(initialState: state, reducer: appReducer, environment: environment))
+            RootView(store: .init(initialState: .init(), reducer: feature.body))
         }
     }
 }
