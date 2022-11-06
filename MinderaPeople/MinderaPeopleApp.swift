@@ -3,11 +3,11 @@ import SwiftUI
 
 @main
 struct MinderaPeopleApp: App {
-    private let feature = RootFeature()
+    private let store = StoreOf<RootReducer>(initialState: .init(), reducer: RootReducer())
 
     var body: some Scene {
         WindowGroup {
-            RootView(store: .init(initialState: .init(), reducer: feature.body))
+            RootView(store: store)
         }
     }
 }

@@ -1,7 +1,7 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct RootFeature: ReducerProtocol {
+struct RootReducer: ReducerProtocol {
     struct State: Equatable {
         var isShowingHomePage = false
     }
@@ -30,40 +30,43 @@ struct RootFeature: ReducerProtocol {
 }
 
 struct RootView: View {
-    let store: StoreOf<RootFeature>
+    @ObservedObject var viewStore: ViewStore<RootReducer.State, RootReducer.Action>
+
+    init(store: StoreOf<RootReducer>) {
+        viewStore = .init(store)
+    }
+
     var body: some View {
         NavigationStack {
-            WithViewStore(store) { viewStore in
+            VStack {
+                Spacer()
                 VStack {
-                    Spacer()
-                    VStack {
-                        Image(systemName: "globe")
-                            .imageScale(.large)
-                            .foregroundColor(.accentColor)
-                        Text("Hello, world!")
-                    }
-                    Spacer()
-                    Button {
-                        viewStore.send(.logInButtonTapped)
-                    } label: {
-                        Text("Log In with google")
-                            .foregroundColor(.black)
-                            .padding()
-                            .background {
-                                Capsule()
-                                    .foregroundColor(.yellow)
-                            }
-                    }
+                    Image(systemName: "globe")
+                        .imageScale(.large)
+                        .foregroundColor(.accentColor)
+                    Text("Hello, world!")
                 }
-                .padding()
-                .navigationDestination(
-                    isPresented: viewStore
-                        .binding(
-                            get: \.isShowingHomePage,
-                            send: .homePageDismiss
-                        )
-                ) { homePage }
+                Spacer()
+                Button {
+                    viewStore.send(.logInButtonTapped)
+                } label: {
+                    Text("Log In with google")
+                        .foregroundColor(.black)
+                        .padding()
+                        .background {
+                            Capsule()
+                                .foregroundColor(.yellow)
+                        }
+                }
             }
+            .padding()
+            .navigationDestination(
+                isPresented: viewStore
+                    .binding(
+                        get: \.isShowingHomePage,
+                        send: .homePageDismiss
+                    )
+            ) { homePage }
         }
     }
 
@@ -81,15 +84,18 @@ struct RootView: View {
     }
 }
 
-extension RootFeature.State {
-    static func mock(isShowingHomePage: Bool = false) -> Self {
-        .init(isShowingHomePage: isShowingHomePage)
-    }
-}
+#if DEBUG
 
-struct RootView_Previews: PreviewProvider {
-    static var previews: some View {
-        let feature = RootFeature()
-        RootView(store: .init(initialState: .mock(), reducer: feature.body))
+    extension RootReducer.State {
+        static func mock(isShowingHomePage: Bool = false) -> Self {
+            .init(isShowingHomePage: isShowingHomePage)
+        }
     }
-}
+
+    struct RootView_Previews: PreviewProvider {
+        static var previews: some View {
+            RootView(store: .init(initialState: .init(), reducer: RootReducer()))
+        }
+    }
+
+#endif
