@@ -1,5 +1,3 @@
-//
-
 @testable import MinderaPeople
 import XCTest
 
