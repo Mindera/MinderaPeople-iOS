@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+    Text macros reference:
+    https://help.apple.com/xcode/mac/9.0/index.html?localePath=en.lproj#/dev91a7a31fc
+    https://help.apple.com/xcode/mac/9.0/index.html?localePath=en.lproj#/dev7fe737ce0
+
+    Examples:
+    https://oleb.net/blog/2017/07/xcode-9-text-macros/
+-->
+<plist version="1.0">
+<dict>
+    <key>FILEHEADER</key>
+    <string></string>
+</dict>
+</plist>

@@ -1,10 +1,3 @@
-//
-//  MinderaPeopleTests.swift
-//  MinderaPeopleTests
-//
-//  Created by Mindera on 06/10/2022.
-//
-
 @testable import MinderaPeople
 import XCTest
 

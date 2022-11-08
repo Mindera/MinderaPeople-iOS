@@ -1,17 +1,13 @@
-//
-//  MinderaPeopleApp.swift
-//  MinderaPeople
-//
-//  Created by Mindera on 06/10/2022.
-//
-
+import ComposableArchitecture
 import SwiftUI
 
 @main
 struct MinderaPeopleApp: App {
+    private let store = StoreOf<RootReducer>(initialState: .init(), reducer: RootReducer())
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView(store: store)
         }
     }
 }

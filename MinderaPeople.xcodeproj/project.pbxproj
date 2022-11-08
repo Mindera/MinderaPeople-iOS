@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1245E16C28EF91EB00A6CC52 /* MinderaPeopleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E16B28EF91EB00A6CC52 /* MinderaPeopleApp.swift */; };
-		1245E16E28EF91EB00A6CC52 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E16D28EF91EB00A6CC52 /* ContentView.swift */; };
+		1245E16E28EF91EB00A6CC52 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E16D28EF91EB00A6CC52 /* RootView.swift */; };
 		1245E17028EF91ED00A6CC52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1245E16F28EF91ED00A6CC52 /* Assets.xcassets */; };
 		1245E17328EF91ED00A6CC52 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1245E17228EF91ED00A6CC52 /* Preview Assets.xcassets */; };
 		1245E17D28EF91ED00A6CC52 /* MinderaPeopleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E17C28EF91ED00A6CC52 /* MinderaPeopleTests.swift */; };
@@ -43,7 +43,7 @@
 /* Begin PBXFileReference section */
 		1245E16828EF91EB00A6CC52 /* MinderaPeople.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinderaPeople.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1245E16B28EF91EB00A6CC52 /* MinderaPeopleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleApp.swift; sourceTree = "<group>"; };
-		1245E16D28EF91EB00A6CC52 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1245E16D28EF91EB00A6CC52 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1245E16F28EF91ED00A6CC52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1245E17228EF91ED00A6CC52 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1245E17828EF91ED00A6CC52 /* MinderaPeopleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinderaPeopleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,9 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				1245E16B28EF91EB00A6CC52 /* MinderaPeopleApp.swift */,
-				1245E16D28EF91EB00A6CC52 /* ContentView.swift */,
-				1245E16F28EF91ED00A6CC52 /* Assets.xcassets */,
-				1245E17128EF91ED00A6CC52 /* Preview Content */,
+				12AE5BC428F7895600BD2744 /* Screens */,
+				12AE5BC328F788DD00BD2744 /* Resources */,
 			);
 			path = MinderaPeople;
 			sourceTree = "<group>";
@@ -139,6 +138,23 @@
 				1245E18828EF91ED00A6CC52 /* MinderaPeopleUITestsLaunchTests.swift */,
 			);
 			path = MinderaPeopleUITests;
+			sourceTree = "<group>";
+		};
+		12AE5BC328F788DD00BD2744 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1245E16F28EF91ED00A6CC52 /* Assets.xcassets */,
+				1245E17128EF91ED00A6CC52 /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		12AE5BC428F7895600BD2744 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				1245E16D28EF91EB00A6CC52 /* RootView.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,7 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1245E16E28EF91EB00A6CC52 /* ContentView.swift in Sources */,
+				1245E16E28EF91EB00A6CC52 /* RootView.swift in Sources */,
 				1245E16C28EF91EB00A6CC52 /* MinderaPeopleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,7 +459,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MinderaPeople/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MinderaPeople/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = M3FQH2799X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -472,7 +488,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MinderaPeople/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MinderaPeople/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = M3FQH2799X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

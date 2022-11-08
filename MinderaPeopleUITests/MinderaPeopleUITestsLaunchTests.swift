@@ -1,10 +1,3 @@
-//
-//  MinderaPeopleUITestsLaunchTests.swift
-//  MinderaPeopleUITests
-//
-//  Created by Mindera on 06/10/2022.
-//
-
 import XCTest
 
 final class MinderaPeopleUITestsLaunchTests: XCTestCase {
