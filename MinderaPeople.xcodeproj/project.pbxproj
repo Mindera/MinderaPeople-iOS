@@ -22,6 +22,11 @@
 		1245E1A128EF937400A6CC52 /* AlicercePersistence in Frameworks */ = {isa = PBXBuildFile; productRef = 1245E1A028EF937400A6CC52 /* AlicercePersistence */; };
 		1245E1A428EF93C900A6CC52 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1245E1A328EF93C900A6CC52 /* ComposableArchitecture */; };
 		12B72C1D29141BC7009963B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B72C1C29141BC7009963B8 /* AppDelegate.swift */; };
+		9A7D37A4291A694300151691 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9A7D37A3291A694300151691 /* FirebaseAuth */; };
+		9A7D37A7291A6A5900151691 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9A7D37A6291A6A5900151691 /* GoogleSignIn */; };
+		9A7D37A9291A6A5900151691 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9A7D37A8291A6A5900151691 /* GoogleSignInSwift */; };
+		9A7D37AB291A742B00151691 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D37AA291A742B00151691 /* GoogleService-Info.plist */; };
+		9A7E8711291D3102005B50B4 /* UserAuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7E8710291D3102005B50B4 /* UserAuthModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,9 @@
 		1245E18628EF91ED00A6CC52 /* MinderaPeopleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleUITests.swift; sourceTree = "<group>"; };
 		1245E18828EF91ED00A6CC52 /* MinderaPeopleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		12B72C1C29141BC7009963B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9A7D37AA291A742B00151691 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9A7D37AC291A744B00151691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9A7E8710291D3102005B50B4 /* UserAuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +73,11 @@
 				1245E1A428EF93C900A6CC52 /* ComposableArchitecture in Frameworks */,
 				1245E1A128EF937400A6CC52 /* AlicercePersistence in Frameworks */,
 				1245E19D28EF937400A6CC52 /* AlicerceNetwork in Frameworks */,
+				9A7D37A9291A6A5900151691 /* GoogleSignInSwift in Frameworks */,
 				1245E19728EF937400A6CC52 /* Alicerce in Frameworks */,
 				1245E19928EF937400A6CC52 /* AlicerceAnalytics in Frameworks */,
+				9A7D37A4291A694300151691 /* FirebaseAuth in Frameworks */,
+				9A7D37A7291A6A5900151691 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,8 +121,11 @@
 		1245E16A28EF91EB00A6CC52 /* MinderaPeople */ = {
 			isa = PBXGroup;
 			children = (
+				9A7D37AC291A744B00151691 /* Info.plist */,
+				9A7D37AA291A742B00151691 /* GoogleService-Info.plist */,
 				1245E16B28EF91EB00A6CC52 /* MinderaPeopleApp.swift */,
 				12B72C1C29141BC7009963B8 /* AppDelegate.swift */,
+				9A7E8710291D3102005B50B4 /* UserAuthModel.swift */,
 				12AE5BC428F7895600BD2744 /* Screens */,
 				12AE5BC328F788DD00BD2744 /* Resources */,
 			);
@@ -184,6 +198,9 @@
 				1245E19E28EF937400A6CC52 /* AlicercePerformanceMetrics */,
 				1245E1A028EF937400A6CC52 /* AlicercePersistence */,
 				1245E1A328EF93C900A6CC52 /* ComposableArchitecture */,
+				9A7D37A3291A694300151691 /* FirebaseAuth */,
+				9A7D37A6291A6A5900151691 /* GoogleSignIn */,
+				9A7D37A8291A6A5900151691 /* GoogleSignInSwift */,
 			);
 			productName = MinderaPeople;
 			productReference = 1245E16828EF91EB00A6CC52 /* MinderaPeople.app */;
@@ -260,6 +277,8 @@
 			packageReferences = (
 				1245E19528EF937400A6CC52 /* XCRemoteSwiftPackageReference "Alicerce" */,
 				1245E1A228EF93C900A6CC52 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				9A7D37A2291A694300151691 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				9A7D37A5291A6A5900151691 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 1245E16928EF91EB00A6CC52 /* Products */;
 			projectDirPath = "";
@@ -279,6 +298,7 @@
 			files = (
 				1245E17328EF91ED00A6CC52 /* Preview Assets.xcassets in Resources */,
 				1245E17028EF91ED00A6CC52 /* Assets.xcassets in Resources */,
+				9A7D37AB291A742B00151691 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A7E8711291D3102005B50B4 /* UserAuthModel.swift in Sources */,
 				12B72C1D29141BC7009963B8 /* AppDelegate.swift in Sources */,
 				1245E16E28EF91EB00A6CC52 /* RootView.swift in Sources */,
 				1245E16C28EF91EB00A6CC52 /* MinderaPeopleApp.swift in Sources */,
@@ -464,9 +485,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MinderaPeople/Resources/Preview Content\"";
-				DEVELOPMENT_TEAM = M3FQH2799X;
+				DEVELOPMENT_TEAM = 74L475LDQT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MinderaPeople/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -493,9 +515,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MinderaPeople/Resources/Preview Content\"";
-				DEVELOPMENT_TEAM = M3FQH2799X;
+				DEVELOPMENT_TEAM = 74L475LDQT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MinderaPeople/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -658,9 +681,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MinderaPeople/Resources/Preview Content\"";
-				DEVELOPMENT_TEAM = M3FQH2799X;
+				DEVELOPMENT_TEAM = 74L475LDQT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MinderaPeople/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -785,9 +809,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MinderaPeople/Resources/Preview Content\"";
-				DEVELOPMENT_TEAM = M3FQH2799X;
+				DEVELOPMENT_TEAM = 74L475LDQT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MinderaPeople/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -910,6 +935,22 @@
 				minimumVersion = 0.9.0;
 			};
 		};
+		9A7D37A2291A694300151691 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		9A7D37A5291A6A5900151691 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -947,6 +988,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1245E1A228EF93C900A6CC52 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		9A7D37A3291A694300151691 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A7D37A2291A694300151691 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		9A7D37A6291A6A5900151691 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A7D37A5291A6A5900151691 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		9A7D37A8291A6A5900151691 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A7D37A5291A6A5900151691 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
