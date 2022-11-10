@@ -21,6 +21,8 @@
 		1245E19F28EF937400A6CC52 /* AlicercePerformanceMetrics in Frameworks */ = {isa = PBXBuildFile; productRef = 1245E19E28EF937400A6CC52 /* AlicercePerformanceMetrics */; };
 		1245E1A128EF937400A6CC52 /* AlicercePersistence in Frameworks */ = {isa = PBXBuildFile; productRef = 1245E1A028EF937400A6CC52 /* AlicercePersistence */; };
 		1245E1A428EF93C900A6CC52 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1245E1A328EF93C900A6CC52 /* ComposableArchitecture */; };
+		1F9F69842919428B00F1ABDD /* LocalAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F69832919428B00F1ABDD /* LocalAuthenticator.swift */; };
+		1F9F6986291BD68400F1ABDD /* LocalAuthenticatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F6985291BD68400F1ABDD /* LocalAuthenticatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		1245E18228EF91ED00A6CC52 /* MinderaPeopleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinderaPeopleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1245E18628EF91ED00A6CC52 /* MinderaPeopleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleUITests.swift; sourceTree = "<group>"; };
 		1245E18828EF91ED00A6CC52 /* MinderaPeopleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1F9F69832919428B00F1ABDD /* LocalAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthenticator.swift; sourceTree = "<group>"; };
+		1F9F6985291BD68400F1ABDD /* LocalAuthenticatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthenticatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				1245E16B28EF91EB00A6CC52 /* MinderaPeopleApp.swift */,
+				1F9F69822919426000F1ABDD /* Utilities */,
 				12AE5BC428F7895600BD2744 /* Screens */,
 				12AE5BC328F788DD00BD2744 /* Resources */,
 			);
@@ -155,6 +160,15 @@
 				1245E16D28EF91EB00A6CC52 /* RootView.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		1F9F69822919426000F1ABDD /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1F9F69832919428B00F1ABDD /* LocalAuthenticator.swift */,
+				1F9F6985291BD68400F1ABDD /* LocalAuthenticatorView.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,8 +314,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F9F6986291BD68400F1ABDD /* LocalAuthenticatorView.swift in Sources */,
 				1245E16E28EF91EB00A6CC52 /* RootView.swift in Sources */,
 				1245E16C28EF91EB00A6CC52 /* MinderaPeopleApp.swift in Sources */,
+				1F9F69842919428B00F1ABDD /* LocalAuthenticator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +479,7 @@
 				DEVELOPMENT_TEAM = M3FQH2799X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "This app wants to use your Face ID. Plaese Hit OK to activate Face ID.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -492,6 +509,7 @@
 				DEVELOPMENT_TEAM = M3FQH2799X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "This app wants to use your Face ID. Plaese Hit OK to activate Face ID.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
