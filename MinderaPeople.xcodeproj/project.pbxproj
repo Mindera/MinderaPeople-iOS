@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		12366EB6291DB07600A920AB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 12366EB5291DB07600A920AB /* FirebaseAuth */; };
 		12366EBA291DD04A00A920AB /* AuthenticationServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12366EB9291DD04A00A920AB /* AuthenticationServiceError.swift */; };
+		12366EBC291DD38200A920AB /* GoogleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12366EBB291DD38200A920AB /* GoogleSignInButton.swift */; };
 		1245E16C28EF91EB00A6CC52 /* MinderaPeopleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E16B28EF91EB00A6CC52 /* MinderaPeopleApp.swift */; };
 		1245E16E28EF91EB00A6CC52 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E16D28EF91EB00A6CC52 /* RootView.swift */; };
 		1245E17028EF91ED00A6CC52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1245E16F28EF91ED00A6CC52 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		12366EB9291DD04A00A920AB /* AuthenticationServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceError.swift; sourceTree = "<group>"; };
+		12366EBB291DD38200A920AB /* GoogleSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInButton.swift; sourceTree = "<group>"; };
 		1245E16828EF91EB00A6CC52 /* MinderaPeople.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinderaPeople.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1245E16B28EF91EB00A6CC52 /* MinderaPeopleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleApp.swift; sourceTree = "<group>"; };
 		1245E16D28EF91EB00A6CC52 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				1245E16D28EF91EB00A6CC52 /* RootView.swift */,
+				12366EBB291DD38200A920AB /* GoogleSignInButton.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				9A7E8711291D3102005B50B4 /* AuthenticationService.swift in Sources */,
 				12B72C1D29141BC7009963B8 /* AppDelegate.swift in Sources */,
 				1245E16E28EF91EB00A6CC52 /* RootView.swift in Sources */,
+				12366EBC291DD38200A920AB /* GoogleSignInButton.swift in Sources */,
 				1245E16C28EF91EB00A6CC52 /* MinderaPeopleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

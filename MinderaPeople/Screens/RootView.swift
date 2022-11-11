@@ -76,17 +76,11 @@ struct RootView: View {
                         Text("Hello, world!")
                     }
                     Spacer()
-                    Button {
-                        viewStore.send(.logInButtonTapped)
-                    } label: {
-                        Text("Log In with google")
-                            .foregroundColor(.black)
-                            .padding()
-                            .background {
-                                Capsule()
-                                    .foregroundColor(.yellow)
-                            }
-                    }
+                    GoogleSignInButton()
+                        .frame(height: 48)
+                        .onTapGesture {
+                            viewStore.send(.logInButtonTapped)
+                        }
                 }
                 .padding()
                 .navigationDestination(
