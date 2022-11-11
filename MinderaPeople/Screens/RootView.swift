@@ -1,33 +1,61 @@
 //
 
 import ComposableArchitecture
-import SwiftUI
 import Firebase
 import GoogleSignIn
+import SwiftUI
 
 struct RootFeature: ReducerProtocol {
     struct State: Equatable {
-        var isUserSignedIn = false
+        var signInState: SignInState = .unauthorized
+    }
+
+    enum SignInState: Equatable {
+        case authorized(User)
+        case unauthorized
     }
 
     enum Action: Equatable {
         case logInButtonTapped
+        case signInResponse(TaskResult<User>)
+        case logOutButtonTapped
+        case signOutResponse
         case homePageDismiss
     }
 
-//    Dependency example:
-//    @Dependency(\.date) var date
-//    @Dependency(\.authenticationClient) var authenticationClient
+    @Dependency(\.authenticationService) var authenticationService
 
     var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
             switch action {
             case .logInButtonTapped:
-                state.isUserSignedIn = true
+                return .task {
+                    await .signInResponse(
+                        TaskResult {
+                            try await authenticationService.signIn()
+                        }
+                    )
+                }
+
+            case .signInResponse(.failure):
+                // TODO: Login failure. Add some feedback to user
+                return .none
+
+            case let .signInResponse(.success(user)):
+                state.signInState = .authorized(user)
+                return .none
+
+            case .logOutButtonTapped:
+                return .task {
+                    try? await authenticationService.signOut()
+                    return .signOutResponse
+                }
+
+            case .signOutResponse:
+                state.signInState = .unauthorized
                 return .none
 
             case .homePageDismiss:
-                state.isUserSignedIn = false
                 return .none
             }
         }
@@ -35,8 +63,6 @@ struct RootFeature: ReducerProtocol {
 }
 
 struct RootView: View {
-    @EnvironmentObject var viewModel: UserAuthModel
-    
     let store: StoreOf<RootFeature>
     var body: some View {
         NavigationStack {
@@ -51,9 +77,7 @@ struct RootView: View {
                     }
                     Spacer()
                     Button {
-                        viewModel.signIn(presentingController: getRootViewController()) {
-                            viewStore.send(.logInButtonTapped)
-                        }
+                        viewStore.send(.logInButtonTapped)
                     } label: {
                         Text("Log In with google")
                             .foregroundColor(.black)
@@ -68,7 +92,14 @@ struct RootView: View {
                 .navigationDestination(
                     isPresented: viewStore
                         .binding(
-                            get: \.isUserSignedIn,
+                            get: { state in
+                                switch state.signInState {
+                                case .unauthorized:
+                                    return false
+                                case .authorized:
+                                    return true
+                                }
+                            },
                             send: .homePageDismiss
                         )
                 ) { homePage }
@@ -76,6 +107,7 @@ struct RootView: View {
         }
     }
 
+    // TODO: this should be removed to another view / file
     @ViewBuilder
     var homePage: some View {
         ZStack {
@@ -89,8 +121,7 @@ struct RootView: View {
                         .font(.title)
                     Spacer()
                     Button {
-                        viewModel.signOut()
-                        viewStore.send(.homePageDismiss)
+                        viewStore.send(.logOutButtonTapped)
                     } label: {
                         Text("Log Out")
                             .foregroundColor(.yellow)
@@ -103,12 +134,13 @@ struct RootView: View {
                 }.padding()
             }
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
 extension RootFeature.State {
-    static func mock(isShowingHomePage: Bool = true) -> Self {
-        .init(isUserSignedIn: isShowingHomePage)
+    static func mock(signInState: RootFeature.SignInState = .unauthorized) -> Self {
+        .init(signInState: signInState)
     }
 }
 
@@ -116,19 +148,5 @@ struct RootView_Previews: PreviewProvider {
     static var previews: some View {
         let feature = RootFeature()
         RootView(store: .init(initialState: .mock(), reducer: feature.body))
-    }
-}
-
-extension View {
-    func getRootViewController() -> UIViewController {
-        guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
-            return .init()
-        }
-        
-        guard let root = screen.windows.first?.rootViewController else {
-            return .init()
-        }
-        
-        return root
     }
 }
