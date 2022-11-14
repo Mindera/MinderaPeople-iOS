@@ -3,7 +3,7 @@ import SwiftUI
 
 @main
 struct MinderaPeopleApp: App {
-    private let store = StoreOf<LocalAuthenticatorFeature>(initialState: .init(), reducer: LocalAuthenticatorFeature().body)
+    private let store = StoreOf<BiometricAuthenticatorFeature>(initialState: .init(), reducer: BiometricAuthenticatorFeature().body)
 
     var body: some Scene {
         WindowGroup {
