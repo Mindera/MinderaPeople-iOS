@@ -4,7 +4,7 @@ import SwiftUI
 import ComposableArchitecture
 
 struct LocalAuthenticatorView: View {
-    let store: StoreOf<BiometricAuthenticatorFeature>
+    let store: StoreOf<BiometricAuthenticationFeature>
     
     var body: some View {
         WithViewStore(store) { viewStore in
@@ -12,24 +12,25 @@ struct LocalAuthenticatorView: View {
                 Text(viewStore.text)
                     .foregroundColor(viewStore.textColor)
                 Toggle("Enable biometric authentication",
-                       isOn: viewStore.binding(get: \.authenticationEnabled, send: BiometricAuthenticatorFeature.Action.enableAuthenticationChanged))
+                       isOn: viewStore.binding(get: \.authenticationEnabled, send: BiometricAuthenticationFeature.Action.enableAuthenticationChanged))
                     .padding()
             }
             .onAppear {
                 viewStore.send(.onAppear)
+                viewStore.send(.authenticate)
             }
         }
     }
 }
 
-extension BiometricAuthenticatorFeature.State {
+extension BiometricAuthenticationFeature.State {
     static func mock(isAuthenticated: Bool = true) -> Self {
         .init(isAuthenticated: isAuthenticated)
     }
 }
 struct LocalAuthenticatorView_Previews: PreviewProvider {
     static var previews: some View {
-        let feature = BiometricAuthenticatorFeature()
+        let feature = BiometricAuthenticationFeature()
         LocalAuthenticatorView(store: .init(initialState: .mock(),
                                             reducer: feature.body))
     }
