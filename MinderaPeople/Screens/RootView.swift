@@ -119,7 +119,7 @@ struct RootView: View {
                         }
                         .alert(
                             self.store.scope(state: \.alert),
-                            dismiss: .logInButtonTapped
+                            dismiss: .alertDismissTapped
                         )
                 }
                 .padding()
