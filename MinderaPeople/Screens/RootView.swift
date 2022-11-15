@@ -8,6 +8,9 @@ import SwiftUI
 struct RootFeature: ReducerProtocol {
     struct State: Equatable {
         var signInState: SignInState = .unauthorized
+        var alert: AlertState<Action>?
+        
+        var homeState: HomeFeature.State?
     }
 
     enum SignInState: Equatable {
@@ -21,6 +24,9 @@ struct RootFeature: ReducerProtocol {
         case logOutButtonTapped
         case signOutResponse
         case homePageDismiss
+        case alertDismissTapped
+        
+        case home(HomeFeature.Action)
     }
 
     @Dependency(\.authenticationService) var authenticationService
@@ -37,11 +43,31 @@ struct RootFeature: ReducerProtocol {
                     )
                 }
 
-            case .signInResponse(.failure):
+            case .signInResponse(let .failure(error)):
+                state.homeState = nil
+                print(error)
+                guard let authError = error as? AuthenticationServiceError else { return .none }
+                var errorText = ""
+                switch authError {
+                case let .googleSignInFailure(error):
+                    errorText = error
+                case .noAuthenticationToken:
+                    errorText = "noAuthenticationToken"
+                case .noUserFound:
+                    errorText = "noUserFound"
+                case .missingFirebaseClientId:
+                    errorText = "missingFirebaseClientId"
+                }
+                state.alert = AlertState(
+                    title: TextState(errorText),
+                    primaryButton: .default(TextState("Retry"), action: .send(.logInButtonTapped)),
+                    secondaryButton: .cancel(TextState("Ok"), action: .send(.alertDismissTapped))
+                )
                 // TODO: Login failure. Add some feedback to user
                 return .none
 
             case let .signInResponse(.success(user)):
+                state.homeState = HomeFeature.State()
                 state.signInState = .authorized(user)
                 return .none
 
@@ -57,6 +83,16 @@ struct RootFeature: ReducerProtocol {
 
             case .homePageDismiss:
                 return .none
+                
+            case .alertDismissTapped:
+//                state.alert = nil
+                return .none
+                
+            case .home(.logOutButtonTapped):
+                return .task {
+                    try? await authenticationService.signOut()
+                    return .signOutResponse
+                }
             }
         }
     }
@@ -81,6 +117,10 @@ struct RootView: View {
                         .onTapGesture {
                             viewStore.send(.logInButtonTapped)
                         }
+                        .alert(
+                            self.store.scope(state: \.alert),
+                            dismiss: .logInButtonTapped
+                        )
                 }
                 .padding()
                 .navigationDestination(
@@ -96,7 +136,11 @@ struct RootView: View {
                             },
                             send: .homePageDismiss
                         )
-                ) { homePage }
+                ) {
+                    let feature = HomeFeature()
+                    HomeView(store: .init(initialState: .init(), reducer: feature.body))
+                    
+                }
             }
         }
     }
