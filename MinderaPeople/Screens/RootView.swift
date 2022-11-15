@@ -9,8 +9,8 @@ struct RootFeature: ReducerProtocol {
     struct State: Equatable {
         var signInState: SignInState = .unauthorized
         var alert: AlertState<Action>?
-        
-        var homeState: HomeFeature.State?
+//
+//        var homeState: HomeFeature.State?
     }
 
     enum SignInState: Equatable {
@@ -26,7 +26,7 @@ struct RootFeature: ReducerProtocol {
         case homePageDismiss
         case alertDismissTapped
         
-        case home(HomeFeature.Action)
+//        case home(HomeFeature.Action)
     }
 
     @Dependency(\.authenticationService) var authenticationService
@@ -44,7 +44,7 @@ struct RootFeature: ReducerProtocol {
                 }
 
             case .signInResponse(let .failure(error)):
-                state.homeState = nil
+//                state.homeState = nil
                 print(error)
                 guard let authError = error as? AuthenticationServiceError else { return .none }
                 var errorText = ""
@@ -67,7 +67,7 @@ struct RootFeature: ReducerProtocol {
                 return .none
 
             case let .signInResponse(.success(user)):
-                state.homeState = HomeFeature.State()
+//                state.homeState = HomeFeature.State()
                 state.signInState = .authorized(user)
                 return .none
 
@@ -85,14 +85,14 @@ struct RootFeature: ReducerProtocol {
                 return .none
                 
             case .alertDismissTapped:
-//                state.alert = nil
+                state.alert = nil
                 return .none
                 
-            case .home(.logOutButtonTapped):
-                return .task {
-                    try? await authenticationService.signOut()
-                    return .signOutResponse
-                }
+//            case .home(.logOutButtonTapped):
+//                return .task {
+//                    try? await authenticationService.signOut()
+//                    return .signOutResponse
+//                }
             }
         }
     }
@@ -139,7 +139,7 @@ struct RootView: View {
                 ) {
                     let feature = HomeFeature()
                     HomeView(store: .init(initialState: .init(), reducer: feature.body))
-                    
+//                    homePage
                 }
             }
         }
