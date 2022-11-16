@@ -12,6 +12,30 @@
 				<string>com.googleusercontent.apps.856677742822-li0fdfpk5t48ul2vuedqjulkcuulnjrd</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.856677742822-9orgfh852oq1jbv6l4qn1bgj1l20u74e</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.856677742822-apmh5uv71poh9tfgsr02m2vv94jb81rk</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.856677742822-fut3k2595paqpognak34jgo1kjao7tsj</string>
+			</array>
+		</dict>
 	</array>
 </dict>
 </plist>

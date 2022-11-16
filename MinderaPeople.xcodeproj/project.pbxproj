@@ -27,7 +27,6 @@
 		12B72C1D29141BC7009963B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B72C1C29141BC7009963B8 /* AppDelegate.swift */; };
 		9A7D37A7291A6A5900151691 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9A7D37A6291A6A5900151691 /* GoogleSignIn */; };
 		9A7D37A9291A6A5900151691 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9A7D37A8291A6A5900151691 /* GoogleSignInSwift */; };
-		9A7D37AB291A742B00151691 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D37AA291A742B00151691 /* GoogleService-Info.plist */; };
 		9A7E8711291D3102005B50B4 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7E8710291D3102005B50B4 /* AuthenticationService.swift */; };
 		9AE4EBE1291E93170098BCA3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE4EBE0291E93170098BCA3 /* HomeView.swift */; };
 /* End PBXBuildFile section */
@@ -63,10 +62,12 @@
 		1245E18628EF91ED00A6CC52 /* MinderaPeopleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleUITests.swift; sourceTree = "<group>"; };
 		1245E18828EF91ED00A6CC52 /* MinderaPeopleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		12B72C1C29141BC7009963B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9A7D37AA291A742B00151691 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		9A7D37AC291A744B00151691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9A7E8710291D3102005B50B4 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		9AE4EBE0291E93170098BCA3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9AE4EBF529253CBE0098BCA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9AE4EBF729253CBE0098BCA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9AE4EBF929253CBE0098BCA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9AE4EBFB29253CBE0098BCA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,8 +145,7 @@
 		1245E16A28EF91EB00A6CC52 /* MinderaPeople */ = {
 			isa = PBXGroup;
 			children = (
-				9A7D37AC291A744B00151691 /* Info.plist */,
-				9A7D37AA291A742B00151691 /* GoogleService-Info.plist */,
+				9AE4EBF329253CBE0098BCA3 /* Firebase */,
 				1245E16B28EF91EB00A6CC52 /* MinderaPeopleApp.swift */,
 				12B72C1C29141BC7009963B8 /* AppDelegate.swift */,
 				12AE5BC428F7895600BD2744 /* Screens */,
@@ -199,6 +199,49 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
+		9AE4EBF329253CBE0098BCA3 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				9AE4EBF429253CBE0098BCA3 /* Beta */,
+				9AE4EBF629253CBE0098BCA3 /* Release */,
+				9AE4EBF829253CBE0098BCA3 /* Alpha */,
+				9AE4EBFA29253CBE0098BCA3 /* Debug */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		9AE4EBF429253CBE0098BCA3 /* Beta */ = {
+			isa = PBXGroup;
+			children = (
+				9AE4EBF529253CBE0098BCA3 /* GoogleService-Info.plist */,
+			);
+			path = Beta;
+			sourceTree = "<group>";
+		};
+		9AE4EBF629253CBE0098BCA3 /* Release */ = {
+			isa = PBXGroup;
+			children = (
+				9AE4EBF729253CBE0098BCA3 /* GoogleService-Info.plist */,
+			);
+			path = Release;
+			sourceTree = "<group>";
+		};
+		9AE4EBF829253CBE0098BCA3 /* Alpha */ = {
+			isa = PBXGroup;
+			children = (
+				9AE4EBF929253CBE0098BCA3 /* GoogleService-Info.plist */,
+			);
+			path = Alpha;
+			sourceTree = "<group>";
+		};
+		9AE4EBFA29253CBE0098BCA3 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				9AE4EBFB29253CBE0098BCA3 /* GoogleService-Info.plist */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -208,6 +251,7 @@
 			buildPhases = (
 				1245E16428EF91EB00A6CC52 /* Sources */,
 				1245E16528EF91EB00A6CC52 /* Frameworks */,
+				9AE4EBFC29253D990098BCA3 /* Setup Firebase Environment GoogleService-Info.plist */,
 				1245E16628EF91EB00A6CC52 /* Resources */,
 			);
 			buildRules = (
@@ -323,7 +367,6 @@
 			files = (
 				1245E17328EF91ED00A6CC52 /* Preview Assets.xcassets in Resources */,
 				1245E17028EF91ED00A6CC52 /* Assets.xcassets in Resources */,
-				9A7D37AB291A742B00151691 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +385,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9AE4EBFC29253D990098BCA3 /* Setup Firebase Environment GoogleService-Info.plist */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Setup Firebase Environment GoogleService-Info.plist";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "GOOGLESERVICE_INFO_PLIST=GoogleService-Info.plist\n\nGOOGLESERVICE_INFO_DEBUG=${PROJECT_DIR}/${TARGET_NAME}/Firebase/Debug/${GOOGLESERVICE_INFO_PLIST}\nGOOGLESERVICE_INFO_RELEASE=${PROJECT_DIR}/${TARGET_NAME}/Firebase/Release/${GOOGLESERVICE_INFO_PLIST}\nGOOGLESERVICE_INFO_ALPHA=${PROJECT_DIR}/${TARGET_NAME}/Firebase/Alpha/${GOOGLESERVICE_INFO_PLIST}\nGOOGLESERVICE_INFO_BETA=${PROJECT_DIR}/${TARGET_NAME}/Firebase/Beta/${GOOGLESERVICE_INFO_PLIST}\n\n# Make sure the debug version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_DEBUG}\"\nif [ ! -f $GOOGLESERVICE_INFO_DEBUG ]\nthen\n    echo \"No Debug GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Make sure the release version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_RELEASE}\"\nif [ ! -f $GOOGLESERVICE_INFO_RELEASE ]\nthen\n    echo \"No Release GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Make sure the alpha version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_ALPHA}\"\nif [ ! -f $GOOGLESERVICE_INFO_ALPHA ]\nthen\n    echo \"No Alpha GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Make sure the beta version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_BETA}\"\nif [ ! -f $GOOGLESERVICE_INFO_BETA ]\nthen\n    echo \"No Beta GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Get a reference to the destination location for the GoogleService-Info.plist\nPLIST_DESTINATION=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\necho \"Will copy ${GOOGLESERVICE_INFO_PLIST} to final destination: ${PLIST_DESTINATION}\"\n\nif [ \"${CONFIGURATION}\" == \"Release\" ]\nthen\n    echo \"Using ${GOOGLESERVICE_INFO_RELEASE}\"\n    cp \"${GOOGLESERVICE_INFO_RELEASE}\" \"${PLIST_DESTINATION}\"\nfi\n\nif [ \"${CONFIGURATION}\" == \"Debug\" ]\nthen\n    echo \"Using ${GOOGLESERVICE_INFO_DEBUG}\"\n    cp \"${GOOGLESERVICE_INFO_DEBUG}\" \"${PLIST_DESTINATION}\"\nfi\n\nif [ \"${CONFIGURATION}\" == \"Alpha\" ]\nthen\n    echo \"Using ${GOOGLESERVICE_INFO_ALPHA}\"\n    cp \"${GOOGLESERVICE_INFO_ALPHA}\" \"${PLIST_DESTINATION}\"\nfi\n\nif [ \"${CONFIGURATION}\" == \"Beta\" ]\nthen\n    echo \"Using ${GOOGLESERVICE_INFO_BETA}\"\n    cp \"${GOOGLESERVICE_INFO_BETA}\" \"${PLIST_DESTINATION}\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1245E16428EF91EB00A6CC52 /* Sources */ = {
