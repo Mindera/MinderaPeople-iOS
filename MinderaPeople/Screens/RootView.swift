@@ -106,21 +106,25 @@ struct RootView: View {
                 VStack {
                     Spacer()
                     VStack {
-                        Image(systemName: "globe")
+                        Image("minderaLogo")
                             .imageScale(.large)
                             .foregroundColor(.accentColor)
-                        Text("Hello, world!")
                     }
                     Spacer()
-                    GoogleSignInButton()
-                        .frame(height: 48)
-                        .onTapGesture {
-                            viewStore.send(.logInButtonTapped)
-                        }
-                        .alert(
-                            self.store.scope(state: \.alert),
-                            dismiss: .alertDismissTapped
-                        )
+                    Button {
+                        viewStore.send(.logInButtonTapped)
+                    } label: {
+                        Text("Login with Google Account")
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color(hex: "#1040E8"))
+                    }
+                    .frame(height: 40)
+                    .cornerRadius(4)
+                    .alert(
+                        self.store.scope(state: \.alert),
+                        dismiss: .alertDismissTapped
+                    )
                 }
                 .padding()
                 .navigationDestination(
