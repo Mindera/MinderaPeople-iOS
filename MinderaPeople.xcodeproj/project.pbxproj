@@ -126,7 +126,7 @@
 			children = (
 				1245E16B28EF91EB00A6CC52 /* MinderaPeopleApp.swift */,
 				12AE5BC428F7895600BD2744 /* Screens */,
-				1F9F69822919426000F1ABDD /* Utilities */,
+				1F9F69822919426000F1ABDD /* Dependencies */,
 				12AE5BC328F788DD00BD2744 /* Resources */,
 			);
 			path = MinderaPeople;
@@ -196,13 +196,13 @@
 			path = UserDefaultsClient;
 			sourceTree = "<group>";
 		};
-		1F9F69822919426000F1ABDD /* Utilities */ = {
+		1F9F69822919426000F1ABDD /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
 				1F76A19D2923AA4400155169 /* UserDefaultsClient */,
 				1F76A194292234F500155169 /* BiometricAuthenticatorClient */,
 			);
-			path = Utilities;
+			path = Dependencies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
