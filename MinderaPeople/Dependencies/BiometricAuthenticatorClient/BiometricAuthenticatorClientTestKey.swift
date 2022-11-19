@@ -10,7 +10,7 @@ extension DependencyValues {
 
 extension BiometricAuthenticatorClient: TestDependencyKey {
     public static let previewValue = Self.noop
-    
+
     public static let testValue = Self(
         biometricAuthenticationEnabled: XCTUnimplemented("\(Self.self).biometricAuthenticationEnabled"),
         authenticate: XCTUnimplemented("\(Self.self).authenticate"),
@@ -23,10 +23,9 @@ extension BiometricAuthenticatorClient: TestDependencyKey {
 extension BiometricAuthenticatorClient {
     public static let noop = Self(
         biometricAuthenticationEnabled: { true },
-        authenticate: { true },
-        setAuthenticationTimeLimit: {_ in },
-        enableBiometricAuthentication: {_ in },
-        updateLastSuccessfulAuthenticationDate: {_ in }
+        authenticate: { _ in true },
+        setAuthenticationTimeLimit: { _ in },
+        enableBiometricAuthentication: { _ in },
+        updateLastSuccessfulAuthenticationDate: { _ in }
     )
 }
-
