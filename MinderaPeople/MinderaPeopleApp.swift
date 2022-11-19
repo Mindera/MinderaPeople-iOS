@@ -11,7 +11,7 @@ struct MinderaPeopleApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootView(store: .init(initialState: .init(), reducer: feature.body))
+            RootView(store: .init(initialState: .init(), reducer: feature))
         }
     }
 }

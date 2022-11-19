@@ -1,8 +1,18 @@
-import Dependencies
+import ComposableArchitecture
 import Firebase
 import GoogleSignIn
 
-class AuthenticationService {
+extension AuthenticationServiceClient: DependencyKey {
+    public static var liveValue: Self {
+        let authenticationService = AuthenticationService()
+        return Self(
+            signIn: { try await authenticationService.signIn() },
+            signOut: { try await authenticationService.signOut() }
+        )
+    }
+}
+
+private actor AuthenticationService {
     func signIn() async throws -> User {
         // TODO: google and firebase instance should be injected in other to test this service
         if GIDSignIn.sharedInstance.hasPreviousSignIn() {
@@ -69,7 +79,7 @@ class AuthenticationService {
                     continuation.resume(throwing: AuthenticationServiceError.noUserFound)
                     return
                 }
-                continuation.resume(returning: user)
+                continuation.resume(returning: .init(user))
             }
         }
     }
@@ -80,14 +90,15 @@ class AuthenticationService {
     }
 }
 
-extension DependencyValues {
-    var authenticationService: AuthenticationService {
-        get { self[AuthenticationService.self] }
-        set { self[AuthenticationService.self] = newValue }
+private extension User {
+    init(_ data: FirebaseAuth.User) {
+        uid = data.uid
+        isAnonymous = data.isAnonymous
+        phoneNumber = data.phoneNumber
+        email = data.email
+        displayName = data.displayName
+        isEmailVerified = data.isEmailVerified
+        photoURL = data.photoURL
+        refreshToken = data.refreshToken
     }
-}
-
-// TODO: we should add proper mocked values
-extension AuthenticationService: TestDependencyKey {
-    static var testValue = AuthenticationService()
 }
