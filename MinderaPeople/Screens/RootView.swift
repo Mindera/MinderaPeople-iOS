@@ -4,6 +4,7 @@ import ComposableArchitecture
 import Firebase
 import GoogleSignIn
 import SwiftUI
+import MinderaPeople_iOS_DesignSystem
 
 struct RootFeature: ReducerProtocol {
     struct State: Equatable {
@@ -97,16 +98,11 @@ struct RootView: View {
                         .foregroundColor(.accentColor)
                 }
                 Spacer()
-                Button {
+                MinderaButton(.title("Login with Google Account")) {
                     viewStore.send(.logInButtonTapped)
-                } label: {
-                    Text("Login with Google Account")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color(hex: "#1040E8"))
                 }
-                .frame(height: 40)
-                .cornerRadius(4)
+                .contentMode(.fill)
+                .padding(.horizontal, 40)
                 .alert(
                     self.store.scope(state: \.alert),
                     dismiss: .alertDismissTapped
