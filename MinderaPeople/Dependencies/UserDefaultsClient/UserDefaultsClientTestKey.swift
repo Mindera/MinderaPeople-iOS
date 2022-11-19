@@ -4,7 +4,7 @@ import XCTestDynamicOverlay
 
 extension UserDefaultsClient: TestDependencyKey {
     public static let previewValue = Self.noop
-    
+
     public static let testValue = Self(
         boolForKey: XCTUnimplemented("\(Self.self).boolForKey", placeholder: false),
         dataForKey: XCTUnimplemented("\(Self.self).dataForKey", placeholder: nil),
@@ -26,7 +26,7 @@ extension UserDefaultsClient {
         dataForKey: { _ in nil },
         doubleForKey: { _ in 0 },
         integerForKey: { _ in 0 },
-        dateForKey: {_ in nil },
+        dateForKey: { _ in nil },
         remove: { _ in },
         setBool: { _, _ in },
         setData: { _, _ in },

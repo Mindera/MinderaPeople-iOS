@@ -47,7 +47,7 @@ struct BiometricAuthenticationFeature: ReducerProtocol {
                 print("Received error: \(error)")
                 return .none
                 
-            case .enableAuthenticationChanged(let enabled):
+            case let .enableAuthenticationChanged(enabled):
                 state.authenticationEnabled = enabled
                 return .run { send in
                     if !enabled {
