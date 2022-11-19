@@ -157,6 +157,15 @@
 			path = MinderaPeopleUITests;
 			sourceTree = "<group>";
 		};
+		127DC93429293C8200728015 /* AuthenticationDebugView */ = {
+			isa = PBXGroup;
+			children = (
+				1F9F6985291BD68400F1ABDD /* LocalAuthenticatorView.swift */,
+				1F9F69832919428B00F1ABDD /* BiometricAuthenticationFeature.swift */,
+			);
+			path = AuthenticationDebugView;
+			sourceTree = "<group>";
+		};
 		12AE5BC328F788DD00BD2744 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,9 +178,8 @@
 		12AE5BC428F7895600BD2744 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				127DC93429293C8200728015 /* AuthenticationDebugView */,
 				1245E16D28EF91EB00A6CC52 /* RootView.swift */,
-				1F9F6985291BD68400F1ABDD /* LocalAuthenticatorView.swift */,
-				1F9F69832919428B00F1ABDD /* BiometricAuthenticationFeature.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
