@@ -3,11 +3,11 @@ import SwiftUI
 
 @main
 struct MinderaPeopleApp: App {
-    private let store = StoreOf<BiometricAuthenticationFeature>(initialState: .init(), reducer: BiometricAuthenticationFeature().body)
+    private let store = StoreOf<RootReducer>(initialState: .init(), reducer: RootReducer())
 
     var body: some Scene {
         WindowGroup {
-            LocalAuthenticatorView(store: store)
+            RootView(store: store)
         }
     }
 }
