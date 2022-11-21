@@ -3,8 +3,8 @@
 import ComposableArchitecture
 import Firebase
 import GoogleSignIn
-import SwiftUI
 import MinderaPeople_iOS_DesignSystem
+import SwiftUI
 
 struct RootFeature: ReducerProtocol {
     struct State: Equatable {
@@ -75,6 +75,8 @@ struct RootFeature: ReducerProtocol {
             return "noUserFound"
         case .missingFirebaseClientId:
             return "missingFirebaseClientId"
+        case let .googleSignOutFailure(error):
+            return error
         }
     }
 }
