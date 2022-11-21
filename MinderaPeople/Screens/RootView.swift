@@ -5,7 +5,7 @@ import Firebase
 import GoogleSignIn
 import MinderaPeople_iOS_DesignSystem
 import SwiftUI
-// test
+
 struct RootFeature: ReducerProtocol {
     struct State: Equatable {
         var signInState: SignInState = .unauthorized
