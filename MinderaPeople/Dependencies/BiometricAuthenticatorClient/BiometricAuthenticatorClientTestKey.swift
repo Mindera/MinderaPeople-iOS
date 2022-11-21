@@ -1,13 +1,6 @@
 import ComposableArchitecture
 import XCTestDynamicOverlay
 
-extension DependencyValues {
-    public var biometricAuthenticator: BiometricAuthenticatorClient {
-        get { self[BiometricAuthenticatorClient.self] }
-        set { self[BiometricAuthenticatorClient.self] = newValue }
-    }
-}
-
 extension BiometricAuthenticatorClient: TestDependencyKey {
     public static let previewValue = Self.noop
 

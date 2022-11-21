@@ -12,3 +12,10 @@ public struct BiometricAuthenticatorClient {
         try await authenticate(force)
     }
 }
+
+extension DependencyValues {
+    public var biometricAuthenticator: BiometricAuthenticatorClient {
+        get { self[BiometricAuthenticatorClient.self] }
+        set { self[BiometricAuthenticatorClient.self] = newValue }
+    }
+}

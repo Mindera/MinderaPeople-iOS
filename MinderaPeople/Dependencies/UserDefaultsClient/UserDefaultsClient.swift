@@ -20,23 +20,4 @@ public struct UserDefaultsClient {
     public var setDouble: @Sendable (Double, String) async -> Void
     public var setInteger: @Sendable (Int, String) async -> Void
     public var setDate: @Sendable (Date?, String) async -> Void
-
-    public var isBiometricAuthenticationEnabled: Bool {
-        boolForKey(biometricAuthenticationEnabled)
-    }
-
-    public func setBiometricAuthenticationEnabled(_ bool: Bool) async {
-        await setBool(bool, biometricAuthenticationEnabled)
-    }
-
-    public var lastBiometricAuthenticationDate: Date? {
-        dateForKey(lastBiometricAuthenticationDateKey)
-    }
-
-    public func setLastBiometricAuthenticationDate(_ date: Date?) async {
-        await setDate(date, lastBiometricAuthenticationDateKey)
-    }
 }
-
-let biometricAuthenticationEnabled = "biometricAuthenticationEnabled"
-let lastBiometricAuthenticationDateKey = "lastBiometricAuthenticationDateKey"
