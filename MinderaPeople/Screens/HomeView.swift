@@ -55,7 +55,7 @@ struct HomeFeature: ReducerProtocol {
 struct HomeView: View {
     @Environment(\.presentationMode) var presentationMode
     let store: StoreOf<HomeFeature>
-    let viewStore: ViewStoreOf<HomeFeature>
+    @ObservedObject var viewStore: ViewStoreOf<HomeFeature>
 
     init(store: StoreOf<HomeFeature>) {
         self.store = store

@@ -99,7 +99,7 @@ struct RootFeature: ReducerProtocol {
 
 struct RootView: View {
     let store: StoreOf<RootFeature>
-    let viewStore: ViewStoreOf<RootFeature>
+    @ObservedObject var viewStore: ViewStoreOf<RootFeature>
 
     init(store: StoreOf<RootFeature>) {
         self.store = store
