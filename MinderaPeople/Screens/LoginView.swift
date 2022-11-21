@@ -1,12 +1,10 @@
-//
-
 import ComposableArchitecture
 import Firebase
 import GoogleSignIn
 import MinderaPeople_iOS_DesignSystem
 import SwiftUI
 
-struct RootFeature: ReducerProtocol {
+struct LoginFeature: ReducerProtocol {
     struct State: Equatable {
         var signInState: SignInState = .unauthorized
         var alert: AlertState<Action>?
@@ -97,11 +95,11 @@ struct RootFeature: ReducerProtocol {
     }
 }
 
-struct RootView: View {
-    let store: StoreOf<RootFeature>
-    @ObservedObject var viewStore: ViewStoreOf<RootFeature>
+struct LoginView: View {
+    let store: StoreOf<LoginFeature>
+    @ObservedObject var viewStore: ViewStoreOf<LoginFeature>
 
-    init(store: StoreOf<RootFeature>) {
+    init(store: StoreOf<LoginFeature>) {
         self.store = store
         viewStore = .init(store)
     }
@@ -150,14 +148,14 @@ struct RootView: View {
     }
 }
 
-extension RootFeature.State {
-    static func mock(signInState: RootFeature.SignInState = .unauthorized) -> Self {
+extension LoginFeature.State {
+    static func mock(signInState: LoginFeature.SignInState = .unauthorized) -> Self {
         .init(signInState: signInState)
     }
 }
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView(store: .init(initialState: .mock(), reducer: RootFeature()))
+        LoginView(store: .init(initialState: .mock(), reducer: LoginFeature()))
     }
 }
