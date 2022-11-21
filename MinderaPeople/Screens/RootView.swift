@@ -18,6 +18,8 @@ struct RootFeature: ReducerProtocol {
     }
 
     enum Action: Equatable {
+        case onAppear
+        case userPersistenceResponse(TaskResult<User>)
         case logInButtonTapped
         case signInResponse(TaskResult<User>)
         case homePageDismiss
@@ -29,6 +31,21 @@ struct RootFeature: ReducerProtocol {
     var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
             switch action {
+            case .onAppear:
+                return .task {
+                    if let user = await authenticationService.user() {
+                        return .userPersistenceResponse(.success(user))
+                    }
+                    return .userPersistenceResponse(.failure(AuthenticationServiceError.noUserFound))
+                }
+
+            case .userPersistenceResponse(.failure):
+                return .none
+
+            case let .userPersistenceResponse(.success(user)):
+                state.signInState = .authorized(user)
+                return .none
+
             case .logInButtonTapped:
                 return .task {
                     await .signInResponse(
@@ -49,7 +66,6 @@ struct RootFeature: ReducerProtocol {
                 return .none
 
             case let .signInResponse(.success(user)):
-//                state.homeState = HomeFeature.State()
                 state.signInState = .authorized(user)
                 return .none
 
@@ -126,6 +142,9 @@ struct RootView: View {
                     )
             ) {
                 HomeView(store: .init(initialState: .init(), reducer: HomeFeature()))
+            }
+            .onAppear {
+                viewStore.send(.onAppear)
             }
         }
     }

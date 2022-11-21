@@ -6,6 +6,7 @@ extension AuthenticationServiceClient: DependencyKey {
     public static var liveValue: Self {
         let authenticationService = AuthenticationService()
         return Self(
+            user: { await authenticationService.user() },
             signIn: { try await authenticationService.signIn() },
             signOut: { try await authenticationService.signOut() }
         )
@@ -13,6 +14,11 @@ extension AuthenticationServiceClient: DependencyKey {
 }
 
 private actor AuthenticationService {
+    func user() async -> User? {
+        guard let firebaseUser = Auth.auth().currentUser else { return nil }
+        return .init(firebaseUser)
+    }
+
     func signIn() async throws -> User {
         // TODO: google and firebase instance should be injected in other to test this service
         if GIDSignIn.sharedInstance.hasPreviousSignIn() {
