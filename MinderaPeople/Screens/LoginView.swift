@@ -108,11 +108,10 @@ struct LoginView: View {
         NavigationStack {
             VStack {
                 Spacer()
-                VStack {
-                    Image("minderaLogo")
-                        .imageScale(.large)
-                        .foregroundColor(.accentColor)
-                }
+                Image("minderaLogo")
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+
                 Spacer()
                 MinderaButton(.title("Login with Google Account")) {
                     viewStore.send(.logInButtonTapped)
@@ -125,6 +124,7 @@ struct LoginView: View {
                 )
             }
             .padding()
+            .navigationBarBackButtonHidden()
             .navigationDestination(
                 isPresented: viewStore
                     .binding(
@@ -154,7 +154,7 @@ extension LoginFeature.State {
     }
 }
 
-struct RootView_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView(store: .init(initialState: .mock(), reducer: LoginFeature()))
     }

@@ -7,11 +7,11 @@ import SwiftUI
 struct MinderaPeopleApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
-    private let feature = LoginFeature()
+    private let feature = RootFeature()
 
     var body: some Scene {
         WindowGroup {
-            LoginView(store: .init(initialState: .init(), reducer: feature))
+            RootView(store: .init(initialState: .init(), reducer: feature))
         }
     }
 }
