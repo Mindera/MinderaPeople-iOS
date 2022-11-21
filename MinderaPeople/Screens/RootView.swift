@@ -30,6 +30,8 @@ struct RootFeature: ReducerProtocol {
                     }
                     return .userPersistenceResponse(.failure(AuthenticationServiceError.noUserFound))
                 }
+                .delay(for: .seconds(1.5), scheduler: RunLoop.main)
+                .eraseToEffect()
 
             case .userPersistenceResponse(.failure):
                 state.signInState = .unauthorized
