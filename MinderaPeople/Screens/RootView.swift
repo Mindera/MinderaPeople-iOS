@@ -1,15 +1,10 @@
-//
-
 import ComposableArchitecture
-import Firebase
-import GoogleSignIn
 import MinderaPeople_iOS_DesignSystem
 import SwiftUI
 
 struct RootFeature: ReducerProtocol {
     struct State: Equatable {
-        var signInState: SignInState = .unauthorized
-        var alert: AlertState<Action>?
+        var signInState: SignInState?
     }
 
     enum SignInState: Equatable {
@@ -18,10 +13,9 @@ struct RootFeature: ReducerProtocol {
     }
 
     enum Action: Equatable {
-        case logInButtonTapped
-        case signInResponse(TaskResult<User>)
-        case homePageDismiss
-        case alertDismissTapped
+        case onAppear
+        case userPersistenceResponse(TaskResult<User>)
+        case noAction
     }
 
     @Dependency(\.authenticationService) var authenticationService
@@ -29,61 +23,34 @@ struct RootFeature: ReducerProtocol {
     var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
             switch action {
-            case .logInButtonTapped:
+            case .onAppear:
                 return .task {
-                    await .signInResponse(
-                        TaskResult {
-                            try await authenticationService.signIn()
-                        }
-                    )
+                    if let user = await authenticationService.user() {
+                        return .userPersistenceResponse(.success(user))
+                    }
+                    return .userPersistenceResponse(.failure(AuthenticationServiceError.noUserFound))
                 }
+                .delay(for: .seconds(1.5), scheduler: RunLoop.main)
+                .eraseToEffect()
 
-            case let .signInResponse(.failure(error)):
-                guard let errorText = authError(from: error) else { return .none }
-                state.alert = AlertState(
-                    title: TextState("Something went wrong"),
-                    message: TextState(errorText),
-                    primaryButton: .default(TextState("Retry"), action: .send(.logInButtonTapped)),
-                    secondaryButton: .cancel(TextState("Ok"), action: .send(.alertDismissTapped))
-                )
-                return .none
-
-            case let .signInResponse(.success(user)):
-//                state.homeState = HomeFeature.State()
-                state.signInState = .authorized(user)
-                return .none
-
-            case .homePageDismiss:
+            case .userPersistenceResponse(.failure):
                 state.signInState = .unauthorized
                 return .none
 
-            case .alertDismissTapped:
-                state.alert = nil
+            case let .userPersistenceResponse(.success(user)):
+                state.signInState = .authorized(user)
+                return .none
+
+            case .noAction:
                 return .none
             }
-        }
-    }
-
-    private func authError(from error: Error) -> String? {
-        guard let authError = error as? AuthenticationServiceError else { return nil }
-        switch authError {
-        case let .googleSignInFailure(error):
-            return error
-        case .noAuthenticationToken:
-            return "noAuthenticationToken"
-        case .noUserFound:
-            return "noUserFound"
-        case .missingFirebaseClientId:
-            return "missingFirebaseClientId"
-        case let .googleSignOutFailure(error):
-            return error
         }
     }
 }
 
 struct RootView: View {
     let store: StoreOf<RootFeature>
-    let viewStore: ViewStoreOf<RootFeature>
+    @ObservedObject var viewStore: ViewStoreOf<RootFeature>
 
     init(store: StoreOf<RootFeature>) {
         self.store = store
@@ -94,51 +61,66 @@ struct RootView: View {
         NavigationStack {
             VStack {
                 Spacer()
-                VStack {
-                    Image("minderaLogo")
-                        .imageScale(.large)
-                        .foregroundColor(.accentColor)
-                }
+                Image("minderaLogo")
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+
                 Spacer()
-                MinderaButton(.title("Login with Google Account")) {
-                    viewStore.send(.logInButtonTapped)
-                }
-                .contentMode(.fill)
-                .padding(.horizontal, 40)
-                .alert(
-                    self.store.scope(state: \.alert),
-                    dismiss: .alertDismissTapped
-                )
             }
-            .padding()
+            .navigationDestination(
+                isPresented: viewStore
+                    .binding(
+                        get: { state in
+                            switch state.signInState {
+                            case .none,
+                                 .unauthorized:
+                                return false
+                            case .authorized:
+                                return true
+                            }
+                        },
+                        send: .noAction
+                    )
+            ) {
+                HomeView(store: .init(initialState: .init(), reducer: HomeFeature()))
+            }
             .navigationDestination(
                 isPresented: viewStore
                     .binding(
                         get: { state in
                             switch state.signInState {
                             case .unauthorized:
-                                return false
-                            case .authorized:
                                 return true
+                            case .none,
+                                 .authorized:
+                                return false
                             }
                         },
-                        send: .homePageDismiss
+                        send: .noAction
                     )
             ) {
-                HomeView(store: .init(initialState: .init(), reducer: HomeFeature()))
+                LoginView(store: .init(initialState: .init(), reducer: LoginFeature()))
+            }
+            .onAppear {
+                viewStore.send(.onAppear)
             }
         }
     }
 }
 
 extension RootFeature.State {
-    static func mock(signInState: RootFeature.SignInState = .unauthorized) -> Self {
+    static func mock(signInState: RootFeature.SignInState? = nil) -> Self {
         .init(signInState: signInState)
     }
 }
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView(store: .init(initialState: .mock(), reducer: RootFeature()))
+        RootView(
+            store: .init(
+                initialState: .mock(),
+                reducer: RootFeature()
+            )
+        )
     }
 }

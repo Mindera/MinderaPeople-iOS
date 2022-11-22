@@ -5,6 +5,7 @@ import SwiftUI
 
 struct HomeFeature: ReducerProtocol {
     struct State: Equatable {
+        var isPresented = true
         var alert: AlertState<Action>?
     }
 
@@ -31,7 +32,7 @@ struct HomeFeature: ReducerProtocol {
                 }
 
             case .signOutResponseSuccess:
-                // TODO: navigate back
+                state.isPresented = false
                 return .none
 
             case let .signOutResponseFailure(error):
@@ -52,8 +53,9 @@ struct HomeFeature: ReducerProtocol {
 }
 
 struct HomeView: View {
+    @Environment(\.presentationMode) var presentationMode
     let store: StoreOf<HomeFeature>
-    let viewStore: ViewStoreOf<HomeFeature>
+    @ObservedObject var viewStore: ViewStoreOf<HomeFeature>
 
     init(store: StoreOf<HomeFeature>) {
         self.store = store
@@ -85,6 +87,11 @@ struct HomeView: View {
             .padding()
         }
         .navigationBarBackButtonHidden()
+        .onChange(of: viewStore.isPresented) { newValue in
+            if !newValue {
+                presentationMode.wrappedValue.dismiss()
+            }
+        }
     }
 }
 

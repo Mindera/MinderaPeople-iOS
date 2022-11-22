@@ -10,7 +10,7 @@
 		12366EB6291DB07600A920AB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 12366EB5291DB07600A920AB /* FirebaseAuth */; };
 		12366EBA291DD04A00A920AB /* AuthenticationServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12366EB9291DD04A00A920AB /* AuthenticationServiceError.swift */; };
 		1245E16C28EF91EB00A6CC52 /* MinderaPeopleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E16B28EF91EB00A6CC52 /* MinderaPeopleApp.swift */; };
-		1245E16E28EF91EB00A6CC52 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E16D28EF91EB00A6CC52 /* RootView.swift */; };
+		1245E16E28EF91EB00A6CC52 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E16D28EF91EB00A6CC52 /* LoginView.swift */; };
 		1245E17028EF91ED00A6CC52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1245E16F28EF91ED00A6CC52 /* Assets.xcassets */; };
 		1245E17328EF91ED00A6CC52 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1245E17228EF91ED00A6CC52 /* Preview Assets.xcassets */; };
 		1245E17D28EF91ED00A6CC52 /* MinderaPeopleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E17C28EF91ED00A6CC52 /* MinderaPeopleTests.swift */; };
@@ -28,6 +28,7 @@
 		127DC93B29294AFC00728015 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127DC93A29294AFC00728015 /* User.swift */; };
 		127DC93E292954CF00728015 /* MinderaPeople-iOS-DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 127DC93D292954CF00728015 /* MinderaPeople-iOS-DesignSystem */; };
 		12B72C1D29141BC7009963B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B72C1C29141BC7009963B8 /* AppDelegate.swift */; };
+		12BD112D292C1B5300D91255 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BD112C292C1B5300D91255 /* RootView.swift */; };
 		9A7D37A7291A6A5900151691 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9A7D37A6291A6A5900151691 /* GoogleSignIn */; };
 		9A7D37A9291A6A5900151691 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9A7D37A8291A6A5900151691 /* GoogleSignInSwift */; };
 		9A7E8711291D3102005B50B4 /* AuthenticationServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7E8710291D3102005B50B4 /* AuthenticationServiceClient.swift */; };
@@ -55,7 +56,7 @@
 		12366EB9291DD04A00A920AB /* AuthenticationServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceError.swift; sourceTree = "<group>"; };
 		1245E16828EF91EB00A6CC52 /* MinderaPeople.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinderaPeople.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1245E16B28EF91EB00A6CC52 /* MinderaPeopleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleApp.swift; sourceTree = "<group>"; };
-		1245E16D28EF91EB00A6CC52 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		1245E16D28EF91EB00A6CC52 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		1245E16F28EF91ED00A6CC52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1245E17228EF91ED00A6CC52 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1245E17828EF91ED00A6CC52 /* MinderaPeopleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinderaPeopleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +68,7 @@
 		127DC9372929426900728015 /* AuthenticationServiceClientTestKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceClientTestKey.swift; sourceTree = "<group>"; };
 		127DC93A29294AFC00728015 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		12B72C1C29141BC7009963B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		12BD112C292C1B5300D91255 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		9A7E8710291D3102005B50B4 /* AuthenticationServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceClient.swift; sourceTree = "<group>"; };
 		9AE4EBE0291E93170098BCA3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9AE4EBF529253CBE0098BCA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -201,8 +203,9 @@
 		12AE5BC428F7895600BD2744 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				1245E16D28EF91EB00A6CC52 /* RootView.swift */,
+				1245E16D28EF91EB00A6CC52 /* LoginView.swift */,
 				9AE4EBE0291E93170098BCA3 /* HomeView.swift */,
+				12BD112C292C1B5300D91255 /* RootView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -427,9 +430,10 @@
 				127DC9362929425000728015 /* AuthenticationServiceClientLiveKey.swift in Sources */,
 				9AE4EBE1291E93170098BCA3 /* HomeView.swift in Sources */,
 				9A7E8711291D3102005B50B4 /* AuthenticationServiceClient.swift in Sources */,
+				12BD112D292C1B5300D91255 /* RootView.swift in Sources */,
 				127DC9382929426900728015 /* AuthenticationServiceClientTestKey.swift in Sources */,
 				12B72C1D29141BC7009963B8 /* AppDelegate.swift in Sources */,
-				1245E16E28EF91EB00A6CC52 /* RootView.swift in Sources */,
+				1245E16E28EF91EB00A6CC52 /* LoginView.swift in Sources */,
 				1245E16C28EF91EB00A6CC52 /* MinderaPeopleApp.swift in Sources */,
 				127DC93B29294AFC00728015 /* User.swift in Sources */,
 			);
