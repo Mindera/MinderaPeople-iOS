@@ -14,6 +14,7 @@ struct HomeFeature: ReducerProtocol {
         case signOutResponseSuccess
         case signOutResponseFailure(AuthenticationServiceError)
         case alertDismissTapped
+        case noAction
     }
 
     @Dependency(\.authenticationService) var authenticationService
@@ -47,13 +48,15 @@ struct HomeFeature: ReducerProtocol {
             case .alertDismissTapped:
                 state.alert = nil
                 return .none
+                
+            case .noAction:
+                return .none
             }
         }
     }
 }
 
 struct HomeView: View {
-    @Environment(\.presentationMode) var presentationMode
     let store: StoreOf<HomeFeature>
     @ObservedObject var viewStore: ViewStoreOf<HomeFeature>
 
@@ -87,10 +90,14 @@ struct HomeView: View {
             .padding()
         }
         .navigationBarBackButtonHidden()
-        .onChange(of: viewStore.isPresented) { newValue in
-            if !newValue {
-                presentationMode.wrappedValue.dismiss()
-            }
+        .navigationDestination(
+            isPresented: viewStore
+                .binding(
+                    get: { !$0.isPresented },
+                    send: .noAction
+                )
+        ) {
+            LoginView(store: .init(initialState: .init(), reducer: LoginFeature()))
         }
     }
 }
