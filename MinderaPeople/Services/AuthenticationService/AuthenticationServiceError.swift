@@ -4,4 +4,5 @@ enum AuthenticationServiceError: Error, Equatable {
     case noAuthenticationToken
     case noUserFound
     case missingFirebaseClientId
+    case userCanceledSignInFlow
 }

@@ -51,7 +51,11 @@ private actor AuthenticationService {
                     presenting: rootViewController
                 ) { user, error in
                     if let error = error {
-                        continuation.resume(throwing: AuthenticationServiceError.googleSignInFailure(error.localizedDescription))
+                        guard (error as NSError).code == GIDSignInError.Code.canceled.rawValue else {
+                            continuation.resume(throwing: AuthenticationServiceError.googleSignInFailure(error.localizedDescription))
+                            return
+                        }
+                        continuation.resume(throwing: AuthenticationServiceError.userCanceledSignInFlow)
                     } else {
                         continuation.resume(returning: user)
                     }

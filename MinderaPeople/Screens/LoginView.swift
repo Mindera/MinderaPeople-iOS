@@ -8,6 +8,7 @@ struct LoginFeature: ReducerProtocol {
     struct State: Equatable {
         var signInState: SignInState = .unauthorized
         var alert: AlertState<Action>?
+        var isLoading = false
     }
 
     enum SignInState: Equatable {
@@ -28,6 +29,7 @@ struct LoginFeature: ReducerProtocol {
         Reduce { state, action in
             switch action {
             case .logInButtonTapped:
+                state.isLoading = true
                 return .task {
                     await .signInResponse(
                         TaskResult {
@@ -35,8 +37,9 @@ struct LoginFeature: ReducerProtocol {
                         }
                     )
                 }
-
+                
             case let .signInResponse(.failure(error)):
+                state.isLoading = false
                 guard let errorText = authError(from: error) else { return .none }
                 state.alert = AlertState(
                     title: TextState("Something went wrong"),
@@ -74,6 +77,8 @@ struct LoginFeature: ReducerProtocol {
             return "missingFirebaseClientId"
         case let .googleSignOutFailure(error):
             return error
+        case .userCanceledSignInFlow:
+            return nil
         }
     }
 }
@@ -90,21 +95,25 @@ struct LoginView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Spacer()
-                Image("minderaLogo")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
-
-                Spacer()
-                MinderaButton(.title("Login with Google Account")) {
-                    viewStore.send(.logInButtonTapped)
+                if viewStore.isLoading {
+                    LoaderView()
+                } else {
+                    Spacer()
+                    Image("minderaLogo")
+                        .imageScale(.large)
+                        .foregroundColor(.accentColor)
+                    
+                    Spacer()
+                    MinderaButton(.title("Login with Google Account")) {
+                        viewStore.send(.logInButtonTapped)
+                    }
+                    .contentMode(.fill)
+                    .padding(.horizontal, 40)
+                    .alert(
+                        self.store.scope(state: \.alert),
+                        dismiss: .alertDismissTapped
+                    )
                 }
-                .contentMode(.fill)
-                .padding(.horizontal, 40)
-                .alert(
-                    self.store.scope(state: \.alert),
-                    dismiss: .alertDismissTapped
-                )
             }
             .padding()
             .navigationBarBackButtonHidden()
