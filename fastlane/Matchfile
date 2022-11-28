@@ -1,0 +1,4 @@
+git_url("git@bitbucket.org:mindera/ios-certificates.git")
+git_branch("mindera-people")
+username ENV["APPLE_ID"]
+app_identifier ENV["APP_IDENTIFIER"]
