@@ -6,10 +6,10 @@ platform :ios do
 	lane :run_unit_tests do 
 		run_tests(
 			workspace: ENV["WORKSPACE"],
-	        device: ENV["DEVICE"],
+			device: ENV["DEVICE"],
 			scheme: ENV["UT_SCHEME"],
 			derived_data_path: ENV["DERIVED_DATA_PATH"]
-			)
+		)
 	end
 
 	desc "Run all UI tests" 
@@ -19,34 +19,34 @@ platform :ios do
 			device: ENV["DEVICE"],
 			scheme: ENV["UIT_SCHEME"],
 			derived_data_path: ENV["DERIVED_DATA_PATH"]
-			)
+		)
 	end
 
 	desc "Read and install development code signing certificates and provisioning profiles"
 	lane :fetch_development_code_signing do
-		match(
-	  		type:"development",
+		sync_code_signing(
+	  		type: "development",
 	  		readonly: true,
 	  		generate_apple_certs: false
 	  	)
 	  	update_code_signing_settings(
 	  		code_sign_identity: "iPhone Development",
-	  		profile_name: ""
-	  		)
+	  		profile_name: ENV["DEVELOPMENT_PROFILE_NAME"]
+	  	)
 		update_project_team
 	end
 
 	desc "Read and install production code signing certificates and provisioning profiles"
 	lane :fetch_production_code_signing do
-		match(
-	  		type:"appstore", 
+		sync_code_signing(
+			type: "appstore", 
 	  		readonly: true,
 	  		generate_apple_certs: false
 	  	)
 	  	update_code_signing_settings(
 	  		code_sign_identity: "iPhone Distribution", 
 	  		profile_name: ENV["PRODUCTION_PROFILE_NAME"]
-	  		)
+	  	)
 		update_project_team
 	end
 
