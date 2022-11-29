@@ -47,6 +47,14 @@ Read and install development code signing certificates and provisioning profiles
 
 Read and install production code signing certificates and provisioning profiles
 
+### ios fetch_and_increment_build_number
+
+```sh
+[bundle exec] fastlane ios fetch_and_increment_build_number
+```
+
+
+
 ### ios beta
 
 ```sh
