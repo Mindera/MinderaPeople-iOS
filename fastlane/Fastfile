@@ -63,10 +63,9 @@ platform :ios do
 	end
 
 	lane :fetch_and_increment_build_number do
-		api_key = lane_context[SharedValues::APP_STORE_CONNECT_API_KEY]
 		current_version = get_version_number
 		latest_build_number = latest_testflight_build_number(
-			api_key: api_key,
+			api_key: ENV["APP_STORE_CONNECT_API_KEY"],
 			version: current_version,
 			app_identifier: ENV["APP_IDENTIFIER"]
 		)
@@ -77,8 +76,7 @@ platform :ios do
 
 	desc "Distribute Testflight build"
 	lane :beta do
-		api_key = lane_context[SharedValues::APP_STORE_CONNECT_API_KEY]
-		
+
 		run_unit_tests
 		run_ui_tests
 
@@ -87,7 +85,7 @@ platform :ios do
 		app_store_connect_api_key(
 			key_id: ENV["ASC_KEY_ID"],
 			issuer_id: ENV["ASC_ISSUER_ID"],
-			key_content: api_key,
+			key_content: ENV["APP_STORE_CONNECT_API_KEY"],
 			is_key_content_base64: true,
 			in_house: false
 		)
