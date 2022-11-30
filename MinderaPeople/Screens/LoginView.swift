@@ -47,20 +47,17 @@ struct LoginFeature: ReducerProtocol {
                     primaryButton: .default(TextState("Retry"), action: .send(.logInButtonTapped)),
                     secondaryButton: .cancel(TextState("Ok"), action: .send(.alertDismissTapped))
                 )
-                return .none
 
             case let .signInResponse(.success(user)):
                 state.signInState = .authorized(user)
-                return .none
 
             case .homePageDismiss:
                 state.signInState = .unauthorized
-                return .none
 
             case .alertDismissTapped:
                 state.alert = nil
-                return .none
             }
+            return .none
         }
     }
 

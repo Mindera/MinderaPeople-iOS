@@ -35,15 +35,14 @@ struct RootFeature: ReducerProtocol {
 
             case .userPersistenceResponse(.failure):
                 state.signInState = .unauthorized
-                return .none
 
             case let .userPersistenceResponse(.success(user)):
                 state.signInState = .authorized(user)
-                return .none
 
             case .noAction:
-                return .none
+                break
             }
+            return .none
         }
     }
 }

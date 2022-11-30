@@ -32,7 +32,6 @@ struct HomeFeature: ReducerProtocol {
 
             case .signOutResponseSuccess:
                 state.isPresented = false
-                return .none
 
             case let .signOutResponseFailure(error):
                 state.alert = AlertState(
@@ -41,15 +40,14 @@ struct HomeFeature: ReducerProtocol {
                     primaryButton: .default(TextState("Retry"), action: .send(.logOutButtonTapped)),
                     secondaryButton: .cancel(TextState("Ok"), action: .send(.alertDismissTapped))
                 )
-                return .none
 
             case .alertDismissTapped:
                 state.alert = nil
-                return .none
-                
+
             case .noAction:
-                return .none
+                break
             }
+            return .none
         }
     }
 }
