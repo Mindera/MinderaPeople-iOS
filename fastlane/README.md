@@ -31,30 +31,6 @@ Run all unit tests
 
 Run all UI tests
 
-### ios fetch_development_code_signing
-
-```sh
-[bundle exec] fastlane ios fetch_development_code_signing
-```
-
-Read and install development code signing certificates and provisioning profiles
-
-### ios fetch_production_code_signing
-
-```sh
-[bundle exec] fastlane ios fetch_production_code_signing
-```
-
-Read and install production code signing certificates and provisioning profiles
-
-### ios fetch_and_increment_build_number
-
-```sh
-[bundle exec] fastlane ios fetch_and_increment_build_number
-```
-
-
-
 ### ios beta
 
 ```sh
