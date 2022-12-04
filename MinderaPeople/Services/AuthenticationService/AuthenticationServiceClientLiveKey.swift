@@ -94,9 +94,10 @@ private actor AuthenticationService {
         }
     }
 
-    func signOut() async throws {
+    func signOut() async throws -> VoidEquatable {
         GIDSignIn.sharedInstance.signOut()
         try Auth.auth().signOut()
+        return .init()
     }
 }
 

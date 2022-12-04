@@ -16,6 +16,6 @@ extension AuthenticationServiceClient {
     public static let noop = Self(
         user: { .stub() },
         signIn: { .stub() },
-        signOut: { }
+        signOut: { .stub() }
     )
 }

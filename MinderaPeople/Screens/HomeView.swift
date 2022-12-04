@@ -9,8 +9,7 @@ struct HomeFeature: ReducerProtocol {
 
     enum Action: Equatable {
         case logOutButtonTapped
-        case signOutResponseSuccess
-        case signOutResponseFailure(AuthenticationServiceError)
+        case signOutResponse(TaskResult<VoidEquatable>)
         case alertDismissTapped
         case noAction
     }
@@ -22,18 +21,15 @@ struct HomeFeature: ReducerProtocol {
             switch action {
             case .logOutButtonTapped:
                 return .task {
-                    do {
-                        try await authenticationService.signOut()
-                    } catch {
-                        return .signOutResponseFailure(.googleSignOutFailure(error.localizedDescription))
-                    }
-                    return .signOutResponseSuccess
+                    await .signOutResponse(
+                        TaskResult {
+                            try await authenticationService.signOut()
+                        }
+                    )
                 }
 
-            case .signOutResponseSuccess:
-                state.isPresented = false
-
-            case let .signOutResponseFailure(error):
+            case let .signOutResponse(.failure(error)):
+                let error = AuthenticationServiceError.googleSignOutFailure(error.localizedDescription)
                 state.alert = AlertState(
                     title: TextState("Something went wrong"),
                     message: TextState(error.localizedDescription),
@@ -41,6 +37,9 @@ struct HomeFeature: ReducerProtocol {
                     secondaryButton: .cancel(TextState("Ok"), action: .send(.alertDismissTapped))
                 )
 
+            case .signOutResponse(.success):
+                state.isPresented = false
+                
             case .alertDismissTapped:
                 state.alert = nil
 

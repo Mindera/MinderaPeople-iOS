@@ -30,6 +30,7 @@
 		12B72C1D29141BC7009963B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B72C1C29141BC7009963B8 /* AppDelegate.swift */; };
 		12BD112D292C1B5300D91255 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BD112C292C1B5300D91255 /* RootView.swift */; };
 		9A093430292EB39700CF5CB7 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A09342F292EB39700CF5CB7 /* LoaderView.swift */; };
+		9A1D4E34293CD24E002F1CD2 /* VoidEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1D4E33293CD24E002F1CD2 /* VoidEquatable.swift */; };
 		9A7D37A7291A6A5900151691 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9A7D37A6291A6A5900151691 /* GoogleSignIn */; };
 		9A7D37A9291A6A5900151691 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9A7D37A8291A6A5900151691 /* GoogleSignInSwift */; };
 		9A7E8711291D3102005B50B4 /* AuthenticationServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7E8710291D3102005B50B4 /* AuthenticationServiceClient.swift */; };
@@ -73,6 +74,7 @@
 		12B72C1C29141BC7009963B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12BD112C292C1B5300D91255 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		9A09342F292EB39700CF5CB7 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		9A1D4E33293CD24E002F1CD2 /* VoidEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidEquatable.swift; sourceTree = "<group>"; };
 		9A7E8710291D3102005B50B4 /* AuthenticationServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceClient.swift; sourceTree = "<group>"; };
 		9AE4EBE0291E93170098BCA3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9AE4EBF729253CBE0098BCA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				127DC93A29294AFC00728015 /* User.swift */,
+				9A1D4E33293CD24E002F1CD2 /* VoidEquatable.swift */,
 				12366EB9291DD04A00A920AB /* AuthenticationServiceError.swift */,
 				9A7E8710291D3102005B50B4 /* AuthenticationServiceClient.swift */,
 				127DC9352929425000728015 /* AuthenticationServiceClientLiveKey.swift */,
@@ -433,6 +436,7 @@
 				12BD112D292C1B5300D91255 /* RootView.swift in Sources */,
 				127DC9382929426900728015 /* AuthenticationServiceClientTestKey.swift in Sources */,
 				12B72C1D29141BC7009963B8 /* AppDelegate.swift in Sources */,
+				9A1D4E34293CD24E002F1CD2 /* VoidEquatable.swift in Sources */,
 				1245E16E28EF91EB00A6CC52 /* LoginView.swift in Sources */,
 				1245E16C28EF91EB00A6CC52 /* MinderaPeopleApp.swift in Sources */,
 				127DC93B29294AFC00728015 /* User.swift in Sources */,
