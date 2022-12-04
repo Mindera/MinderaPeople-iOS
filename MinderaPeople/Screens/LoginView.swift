@@ -19,7 +19,6 @@ struct LoginFeature: ReducerProtocol {
     enum Action: Equatable {
         case logInButtonTapped
         case signInResponse(TaskResult<User>)
-        case homePageDismiss
         case alertDismissTapped
     }
 
@@ -40,7 +39,7 @@ struct LoginFeature: ReducerProtocol {
                 
             case let .signInResponse(.failure(error)):
                 state.isLoading = false
-                guard let errorText = authError(from: error) else { return .none }
+                guard let errorText = AuthenticationServiceError.authError(from: error) else { return .none }
                 state.alert = AlertState(
                     title: TextState("Something went wrong"),
                     message: TextState(errorText),
@@ -51,31 +50,10 @@ struct LoginFeature: ReducerProtocol {
             case let .signInResponse(.success(user)):
                 state.signInState = .authorized(user)
 
-            case .homePageDismiss:
-                state.signInState = .unauthorized
-
             case .alertDismissTapped:
                 state.alert = nil
             }
             return .none
-        }
-    }
-
-    private func authError(from error: Error) -> String? {
-        guard let authError = error as? AuthenticationServiceError else { return nil }
-        switch authError {
-        case let .googleSignInFailure(error):
-            return error
-        case .noAuthenticationToken:
-            return "noAuthenticationToken"
-        case .noUserFound:
-            return "noUserFound"
-        case .missingFirebaseClientId:
-            return "missingFirebaseClientId"
-        case let .googleSignOutFailure(error):
-            return error
-        case .userCanceledSignInFlow:
-            return nil
         }
     }
 }
@@ -115,18 +93,18 @@ struct LoginView: View {
             .padding()
             .navigationBarBackButtonHidden()
             .navigationDestination(
-                isPresented: viewStore
-                    .binding(
-                        get: { state in
-                            switch state.signInState {
-                            case .unauthorized:
-                                return false
-                            case .authorized:
-                                return true
-                            }
-                        },
-                        send: .homePageDismiss
-                    )
+                isPresented:
+                        .init(
+                            get: {
+                                switch viewStore.signInState {
+                                case .unauthorized:
+                                    return false
+                                case .authorized:
+                                    return true
+                                }
+                            },
+                            set: { _ in }
+                        )
             ) {
                 HomeView(store: .init(initialState: .init(), reducer: HomeFeature()))
             }
