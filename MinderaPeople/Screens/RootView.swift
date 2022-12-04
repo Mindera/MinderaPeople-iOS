@@ -15,7 +15,6 @@ struct RootFeature: ReducerProtocol {
     enum Action: Equatable {
         case onAppear
         case userPersistenceResponse(TaskResult<User>)
-        case noAction
     }
 
     @Dependency(\.authenticationService) var authenticationService
@@ -38,10 +37,8 @@ struct RootFeature: ReducerProtocol {
 
             case let .userPersistenceResponse(.success(user)):
                 state.signInState = .authorized(user)
-
-            case .noAction:
-                break
             }
+
             return .none
         }
     }
@@ -67,36 +64,36 @@ struct RootView: View {
                 Spacer()
             }
             .navigationDestination(
-                isPresented: viewStore
-                    .binding(
-                        get: { state in
-                            switch state.signInState {
-                            case .none,
-                                 .unauthorized:
-                                return false
-                            case .authorized:
-                                return true
-                            }
-                        },
-                        send: .noAction
-                    )
+                isPresented:
+                        .init(
+                            get: {
+                                switch viewStore.signInState {
+                                case .none,
+                                     .unauthorized:
+                                    return false
+                                case .authorized:
+                                    return true
+                                }
+                            },
+                            set: { _ in }
+                        )
             ) {
                 HomeView(store: .init(initialState: .init(), reducer: HomeFeature()))
             }
             .navigationDestination(
-                isPresented: viewStore
-                    .binding(
-                        get: { state in
-                            switch state.signInState {
-                            case .unauthorized:
-                                return true
-                            case .none,
-                                 .authorized:
-                                return false
-                            }
-                        },
-                        send: .noAction
-                    )
+                isPresented:
+                        .init(
+                            get: {
+                                switch viewStore.signInState {
+                                case .unauthorized:
+                                    return true
+                                case .none,
+                                     .authorized:
+                                    return false
+                                }
+                            },
+                            set: { _ in }
+                        )
             ) {
                 LoginView(store: .init(initialState: .init(), reducer: LoginFeature()))
             }

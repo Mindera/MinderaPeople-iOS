@@ -11,7 +11,6 @@ struct HomeFeature: ReducerProtocol {
         case logOutButtonTapped
         case signOutResponse(TaskResult<VoidEquatable>)
         case alertDismissTapped
-        case noAction
     }
 
     @Dependency(\.authenticationService) var authenticationService
@@ -42,10 +41,8 @@ struct HomeFeature: ReducerProtocol {
                 
             case .alertDismissTapped:
                 state.alert = nil
-
-            case .noAction:
-                break
             }
+
             return .none
         }
     }
@@ -86,11 +83,11 @@ struct HomeView: View {
         }
         .navigationBarBackButtonHidden()
         .navigationDestination(
-            isPresented: viewStore
-                .binding(
-                    get: { !$0.isPresented },
-                    send: .noAction
-                )
+            isPresented:
+                    .init(
+                        get: { !viewStore[keyPath: \.isPresented] },
+                        set: { _ in }
+                    )
         ) {
             LoginView(store: .init(initialState: .init(), reducer: LoginFeature()))
         }
