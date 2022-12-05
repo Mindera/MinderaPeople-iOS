@@ -13,7 +13,9 @@ extension AuthenticationServiceClient: DependencyKey {
     }
 }
 
-private actor AuthenticationService {
+private struct AuthenticationService {
+    let signInInstance = GIDSignIn.sharedInstance
+
     func user() async -> User? {
         guard let firebaseUser = Auth.auth().currentUser else { return nil }
         return .init(firebaseUser)
@@ -21,19 +23,8 @@ private actor AuthenticationService {
 
     func signIn() async throws -> User {
         // TODO: google and firebase instance should be injected in other to test this service
-        if GIDSignIn.sharedInstance.hasPreviousSignIn() {
-            let user = try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<GIDGoogleUser?, Error>) in
-                GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
-                    if let error = error {
-                        continuation.resume(throwing: AuthenticationServiceError.googleSignInFailure(error.localizedDescription))
-                    } else {
-                        continuation.resume(returning: user)
-                    }
-                }
-            }
-
-            return try await authenticateUser(for: user)
-        } else {
+        guard
+            signInInstance.hasPreviousSignIn() else {
             guard
                 let clientID = FirebaseApp.app()?.options.clientID,
                 let windowScene = await UIApplication.shared.connectedScenes.first as? UIWindowScene,
@@ -44,26 +35,11 @@ private actor AuthenticationService {
 
             let configuration = GIDConfiguration(clientID: clientID)
 
-            let user = try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<GIDGoogleUser?, Error>) in
-                // TODO: this triggers a warning because we are using rootViewController from background thread. Check solution.
-                GIDSignIn.sharedInstance.signIn(
-                    with: configuration,
-                    presenting: rootViewController
-                ) { user, error in
-                    if let error = error {
-                        guard (error as NSError).code == GIDSignInError.Code.canceled.rawValue else {
-                            continuation.resume(throwing: AuthenticationServiceError.googleSignInFailure(error.localizedDescription))
-                            return
-                        }
-                        continuation.resume(throwing: AuthenticationServiceError.userCanceledSignInFlow)
-                    } else {
-                        continuation.resume(returning: user)
-                    }
-                }
-            }
-
-            return try await authenticateUser(for: user)
+            return try await authenticateUser(for: signInInstance.signInUser(configuration: configuration,
+                                                                             rootViewController: rootViewController))
         }
+        
+        return try await authenticateUser(for: signInInstance.restorePreviousSignInUser())
     }
 
     private func authenticateUser(for user: GIDGoogleUser?) async throws -> User {
@@ -95,14 +71,14 @@ private actor AuthenticationService {
     }
 
     func signOut() async throws -> VoidEquatable {
-        GIDSignIn.sharedInstance.signOut()
+        signInInstance.signOut()
         try Auth.auth().signOut()
         return .init()
     }
 }
 
 private extension User {
-    init(_ data: FirebaseAuth.User) {
+    init(_ data: Firebase.User) {
         uid = data.uid
         isAnonymous = data.isAnonymous
         phoneNumber = data.phoneNumber

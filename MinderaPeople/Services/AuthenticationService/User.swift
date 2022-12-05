@@ -7,10 +7,11 @@ public struct User: Equatable {
     let photoURL: URL?
     let phoneNumber: String?
     let email: String?
-    let displayName: String?
     let isEmailVerified: Bool
+    let displayName: String?
 }
 
+#if DEBUG
 extension User {
     static func stub(
         uid: String = UUID().uuidString,
@@ -29,8 +30,9 @@ extension User {
             photoURL: photoURL,
             phoneNumber: phoneNumber,
             email: email,
-            displayName: displayName,
-            isEmailVerified: isEmailVerified
+            isEmailVerified: isEmailVerified,
+            displayName: displayName
         )
     }
 }
+#endif 

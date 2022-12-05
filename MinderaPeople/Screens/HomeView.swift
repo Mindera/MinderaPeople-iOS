@@ -28,7 +28,7 @@ struct HomeFeature: ReducerProtocol {
                 }
 
             case let .signOutResponse(.failure(error)):
-                let error = AuthenticationServiceError.googleSignOutFailure(error.localizedDescription)
+                let error = AuthenticationServiceError.googleSignOutFailure(error)
                 state.alert = AlertState(
                     title: TextState("Something went wrong"),
                     message: TextState(error.localizedDescription),

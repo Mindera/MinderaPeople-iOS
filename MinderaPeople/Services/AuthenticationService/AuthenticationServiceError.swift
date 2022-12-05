@@ -1,6 +1,6 @@
-enum AuthenticationServiceError: Error, Equatable {
-    case googleSignInFailure(String)
-    case googleSignOutFailure(String)
+enum AuthenticationServiceError: Error {
+    case googleSignInFailure(Error)
+    case googleSignOutFailure(Error)
     case noAuthenticationToken
     case noUserFound
     case missingFirebaseClientId
@@ -11,8 +11,8 @@ extension AuthenticationServiceError {
     static func authError(from error: Error) -> String? {
         guard let authError = error as? Self else { return nil }
         switch authError {
-        case let .googleSignInFailure(errorText), let .googleSignOutFailure(errorText):
-            return errorText
+        case let .googleSignInFailure(error), let .googleSignOutFailure(error):
+            return error.localizedDescription
         case .noAuthenticationToken:
             return "noAuthenticationToken"
         case .noUserFound:
