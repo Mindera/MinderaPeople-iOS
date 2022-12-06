@@ -1,3 +1,5 @@
+// UserDefaults wrapper credits: Pointfree
+// https://github.com/pointfreeco/isowords/tree/main/Sources/UserDefaultsClient
 import Dependencies
 import Foundation
 

@@ -2,9 +2,9 @@ import ComposableArchitecture
 import Foundation
 import LocalAuthentication
 
-enum BiometricAuthenticatorError: Error, Equatable {
-    case userCancelled(String)
-    case biometricNotEnrolled(String)
+enum BiometricAuthenticatorError: Error {
+    case userCancelled(Error?)
+    case biometricNotEnrolled(Error?)
     case biometricAuthenticationNotEnabled
 }
 
@@ -52,13 +52,14 @@ private actor BiometricAuthenticator {
             do {
                 return try await context.evaluatePolicy(
                     .deviceOwnerAuthenticationWithBiometrics,
+                    // TODO: Add localization
                     localizedReason: "We need to verify your identity"
                 )
             } catch {
-                throw BiometricAuthenticatorError.userCancelled(error.localizedDescription)
+                throw BiometricAuthenticatorError.userCancelled(error)
             }
         } else {
-            throw BiometricAuthenticatorError.biometricNotEnrolled(error?.localizedDescription ?? "")
+            throw BiometricAuthenticatorError.biometricNotEnrolled(error)
         }
     }
 }

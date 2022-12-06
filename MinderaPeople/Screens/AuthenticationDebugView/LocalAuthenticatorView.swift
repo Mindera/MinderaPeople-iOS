@@ -8,7 +8,8 @@ struct LocalAuthenticatorView: View {
         WithViewStore(store) { viewStore in
             VStack {
                 Text(viewStore.text)
-                    .foregroundColor(viewStore.textColor)
+                .foregroundColor(viewStore.textColor)
+                // TODO: Add localization
                 Toggle("Enable biometric authentication",
                        isOn: viewStore.binding(
                            get: \.authenticationEnabled,
@@ -19,7 +20,6 @@ struct LocalAuthenticatorView: View {
             }
             .onAppear {
                 viewStore.send(.onAppear)
-                viewStore.send(.authenticate)
             }
         }
     }

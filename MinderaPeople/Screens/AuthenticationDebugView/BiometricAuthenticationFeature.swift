@@ -1,10 +1,12 @@
 import ComposableArchitecture
 import SwiftUI
+import AlicerceLogging
 
 struct BiometricAuthenticationFeature: ReducerProtocol {
     
     struct State: Equatable {
         var isAuthenticated: Bool = false
+        // TODO: Add localization
         var text: String { isAuthenticated ? "Unlocked" : "Locked" }
         var textColor: Color { isAuthenticated ? .green : .red }
         var authenticationEnabled: Bool = false
@@ -18,16 +20,22 @@ struct BiometricAuthenticationFeature: ReducerProtocol {
     }
 
     @Dependency(\.biometricAuthenticator) var biometricAuthenticator
+    @Dependency(\.date) var date
+    @Dependency(\.logger) var logger
     
     var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
             switch action {
             case .onAppear:
-                state.authenticationEnabled = biometricAuthenticator.biometricAuthenticationEnabled()
-                return .run { send in
-                    await biometricAuthenticator.setAuthenticationTimeLimit(300)
+                let isAuthenticationEnabled = biometricAuthenticator.biometricAuthenticationEnabled()
+                state.authenticationEnabled = isAuthenticationEnabled
+                guard isAuthenticationEnabled else {
+                    return .none
                 }
-  
+                return .task {
+                    await biometricAuthenticator.setAuthenticationTimeLimit(300)
+                    return .authenticate
+                }
             case .authenticate:
                 return .task {
                     await .authenticateResponse(
@@ -40,11 +48,11 @@ struct BiometricAuthenticationFeature: ReducerProtocol {
             case let .authenticateResponse(.success(authenticated)):
                 state.isAuthenticated = authenticated
                 return .run { _ in
-                    await biometricAuthenticator.updateLastSuccessfulAuthenticationDate(authenticated ? Date() : nil)
+                    await biometricAuthenticator.updateLastSuccessfulAuthenticationDate(authenticated ? date() : nil)
                 }
                 
             case let .authenticateResponse(.failure(error)):
-                print("Received error: \(error)")
+                logger.logError(error.localizedDescription)
                 return .none
                 
             case let .enableAuthenticationChanged(enabled):
