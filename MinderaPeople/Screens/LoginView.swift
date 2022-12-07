@@ -40,12 +40,9 @@ struct LoginFeature: ReducerProtocol {
             case let .signInResponse(.failure(error)):
                 state.isLoading = false
                 guard let errorText = AuthenticationServiceError.authError(from: error) else { return .none }
-                state.alert = AlertState(
-                    title: TextState("Something went wrong"),
-                    message: TextState(errorText),
-                    primaryButton: .default(TextState("Retry"), action: .send(.logInButtonTapped)),
-                    secondaryButton: .cancel(TextState("Ok"), action: .send(.alertDismissTapped))
-                )
+                state.alert = AlertState.configure(message: errorText,
+                                                   defaultAction: .logInButtonTapped,
+                                                   cancelAction: .alertDismissTapped)
 
             case let .signInResponse(.success(user)):
                 state.signInState = .authorized(user)

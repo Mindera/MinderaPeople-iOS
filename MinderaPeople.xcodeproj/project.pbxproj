@@ -38,6 +38,7 @@
 		9AD5FCA929339CF7000E5927 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9AD5FCA829339CF7000E5927 /* FirebaseAuth */; };
 		9AD5FCAB29339D15000E5927 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9AD5FCAA29339D15000E5927 /* GoogleSignIn */; };
 		9AE4EBE1291E93170098BCA3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE4EBE0291E93170098BCA3 /* HomeView.swift */; };
+		9AF467602940DF52007EC256 /* AlertState+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF4675F2940DF52007EC256 /* AlertState+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		9AE4EBE0291E93170098BCA3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9AE4EBF729253CBE0098BCA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9AE4EBFB29253CBE0098BCA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9AF4675F2940DF52007EC256 /* AlertState+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertState+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				9A08FAAD293E268100FFD967 /* GIDSignIn+Extension.swift */,
+				9AF4675F2940DF52007EC256 /* AlertState+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AF467602940DF52007EC256 /* AlertState+Extension.swift in Sources */,
 				12366EBA291DD04A00A920AB /* AuthenticationServiceError.swift in Sources */,
 				9A093430292EB39700CF5CB7 /* LoaderView.swift in Sources */,
 				127DC9362929425000728015 /* AuthenticationServiceClientLiveKey.swift in Sources */,
