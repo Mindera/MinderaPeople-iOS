@@ -10,6 +10,15 @@ struct RootFeature: ReducerProtocol {
     enum SignInState: Equatable {
         case authorized(User)
         case unauthorized
+        
+        var isAuthorized: Bool {
+            switch self {
+            case .authorized:
+                return true
+            case .unauthorized:
+                return false
+            }
+        }
     }
 
     enum Action: Equatable {
@@ -66,15 +75,7 @@ struct RootView: View {
             .navigationDestination(
                 isPresented:
                         .init(
-                            get: {
-                                switch viewStore.signInState {
-                                case .none,
-                                     .unauthorized:
-                                    return false
-                                case .authorized:
-                                    return true
-                                }
-                            },
+                            get: { viewStore.signInState?.isAuthorized ?? false },
                             set: { _ in }
                         )
             ) {
@@ -83,15 +84,7 @@ struct RootView: View {
             .navigationDestination(
                 isPresented:
                         .init(
-                            get: {
-                                switch viewStore.signInState {
-                                case .unauthorized:
-                                    return true
-                                case .none,
-                                     .authorized:
-                                    return false
-                                }
-                            },
+                            get: { viewStore.signInState?.isAuthorized == false },
                             set: { _ in }
                         )
             ) {
