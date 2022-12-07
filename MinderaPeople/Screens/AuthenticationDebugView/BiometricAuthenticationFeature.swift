@@ -58,10 +58,11 @@ struct BiometricAuthenticationFeature: ReducerProtocol {
             case let .enableAuthenticationChanged(enabled):
                 state.authenticationEnabled = enabled
                 return .run { send in
-                    if !enabled {
-                        await biometricAuthenticator.updateLastSuccessfulAuthenticationDate(nil)
-                    }
                     await biometricAuthenticator.enableBiometricAuthentication(enabled)
+                    guard enabled else {
+                        await biometricAuthenticator.updateLastSuccessfulAuthenticationDate(nil)
+                        return
+                    }
                 }
             }
         }
