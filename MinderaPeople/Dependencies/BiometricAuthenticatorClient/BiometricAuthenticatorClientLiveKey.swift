@@ -11,7 +11,7 @@ enum BiometricAuthenticatorError: Error {
 extension BiometricAuthenticatorClient: DependencyKey {
     public static var liveValue: Self {
         let userDefaults = UserDefaultsClient.liveValue
-        let biometricAuthenticator = BiometricAuthenticator(userDefaults: userDefaults)
+        let biometricAuthenticator = BiometricAuthenticator(userDefaults: userDefaults, referenceDate: Date())
         return Self(
             biometricAuthenticationEnabled: { userDefaults.isBiometricAuthenticationEnabled },
             authenticate: { force in try await biometricAuthenticator.authenticate(force: force) },
@@ -26,9 +26,11 @@ private actor BiometricAuthenticator {
     private let context = LAContext()
     private var authenticationTimeLimit: TimeInterval = 0
     private let userDefaults: UserDefaultsClient
+    private let referenceDate: Date
 
-    init(userDefaults: UserDefaultsClient) {
+    init(userDefaults: UserDefaultsClient, referenceDate: Date) {
         self.userDefaults = userDefaults
+        self.referenceDate = referenceDate
     }
 
     func setAuthenticationTimeLimit(_ limit: TimeInterval) async {
@@ -41,7 +43,7 @@ private actor BiometricAuthenticator {
         if
             !force,
             let lastAuthenticationDate = userDefaults.lastBiometricAuthenticationDate {
-            let elapsedTime = Date().timeIntervalSince(lastAuthenticationDate)
+            let elapsedTime = referenceDate.timeIntervalSince(lastAuthenticationDate)
             if elapsedTime < authenticationTimeLimit {
                 return true
             }
