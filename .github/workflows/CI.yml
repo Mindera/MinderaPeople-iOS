@@ -1,0 +1,45 @@
+name: "CI"
+
+on: 
+  push:
+    branches:
+      - development
+  pull_request:
+    branches:
+      - development
+
+env:
+  IOS_DESTINATION: "platform=iOS Simulator,name=iPhone 14 Pro,OS=latest"
+
+jobs:
+  env-details:
+    name: Environment details
+    runs-on: macos-12
+    steps:
+      - name: xcode version
+        run: xcodebuild -version -sdk
+
+      - name: list simulators
+        run: |
+          xcrun simctl delete unavailable
+          xcrun simctl list
+
+  build_test:
+    name: Run tests
+    runs-on: macos-latest
+    env:
+      GIT_BRANCH: ${{ secrets.GIT_BRANCH }}
+      GIT_URL: ${{ secrets.GIT_URL }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Run unit tests
+        run: |
+          set -o pipefail
+          fastlane run_unit_tests
+          
+      - name: Run UI tests
+        run: |
+          set -o pipefail
+          fastlane run_ui_tests

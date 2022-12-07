@@ -1,0 +1,37 @@
+name: iOS binary build & upload
+ 
+on:
+ workflow_dispatch:
+ 
+jobs:
+ deploy:
+   runs-on: macos-latest
+   steps:
+     - uses: actions/checkout@v2
+ 
+     - name: Set up ruby env
+       uses: ruby/setup-ruby@v1
+       with:
+         ruby-version: 2.7.2
+         bundler-cache: true
+    
+     - name: Build & upload iOS binary
+       run: bundle exec fastlane ios beta
+       env:
+         APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
+         ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+         ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+         APPLE_ID: ${{ secrets.APPLE_ID }}
+         GIT_BRANCH: ${{ secrets.GIT_BRANCH }}
+         GIT_URL: ${{ secrets.GIT_URL }}
+         ITC_TEAM_ID: ${{ secrets.ITC_TEAM_ID }}
+         TEAM_ID: ${{ secrets.TEAM_ID }}
+         KEYCHAIN_PATH: ~/Library/Keychains/signing_temp.keychain-db
+ 
+     - name: Upload app-store ipa and dsyms to artifacts
+       uses: actions/upload-artifact@v2
+       with:
+         name: app-store ipa & dsyms
+         path: |
+           ${{ github.workspace }}/build/MinderaPeople.ipa
+           ${{ github.workspace }}/build/*.app.dSYM.zip
