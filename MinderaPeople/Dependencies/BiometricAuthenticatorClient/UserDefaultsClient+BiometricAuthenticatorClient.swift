@@ -1,6 +1,6 @@
 import Foundation
 
-private enum UserDefaultsKeys {
+public enum UserDefaultsKeys {
     static let biometricAuthenticationEnabled = "biometricAuthenticationEnabled"
     static let lastBiometricAuthenticationDateKey = "lastBiometricAuthenticationDateKey"
 }

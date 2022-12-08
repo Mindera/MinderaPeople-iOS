@@ -11,7 +11,7 @@ enum BiometricAuthenticatorError: Error {
 extension BiometricAuthenticatorClient: DependencyKey {
     public static var liveValue: Self {
         let userDefaults = UserDefaultsClient.liveValue
-        let biometricAuthenticator = BiometricAuthenticator(userDefaults: userDefaults, referenceDate: Date())
+        let biometricAuthenticator = BiometricAuthenticator(userDefaults: userDefaults)
         return Self(
             biometricAuthenticationEnabled: { userDefaults.isBiometricAuthenticationEnabled },
             authenticate: { force in try await biometricAuthenticator.authenticate(force: force) },
@@ -22,13 +22,16 @@ extension BiometricAuthenticatorClient: DependencyKey {
     }
 }
 
-private actor BiometricAuthenticator {
-    private let context = LAContext()
+public actor BiometricAuthenticator {
     private var authenticationTimeLimit: TimeInterval = 0
     private let userDefaults: UserDefaultsClient
     private let referenceDate: Date
+    private let context: LAContext
 
-    init(userDefaults: UserDefaultsClient, referenceDate: Date) {
+    init(authenticationContext: LAContext = LAContext(),
+         userDefaults: UserDefaultsClient,
+         referenceDate: Date = Date()) {
+        self.context = authenticationContext
         self.userDefaults = userDefaults
         self.referenceDate = referenceDate
     }

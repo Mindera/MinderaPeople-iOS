@@ -24,6 +24,8 @@
 		1F3CB0D8293F77EF00A863BD /* LoggerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB0D7293F77EE00A863BD /* LoggerClient.swift */; };
 		1F3CB0DA293F7A6300A863BD /* LoggerClientLiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB0D9293F7A6300A863BD /* LoggerClientLiveKey.swift */; };
 		1F3CB0DC293F7A7000A863BD /* LoggerClientTestKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB0DB293F7A7000A863BD /* LoggerClientTestKey.swift */; };
+		1F3CB0E02941E3D700A863BD /* BiometricAuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB0DF2941E3D700A863BD /* BiometricAuthenticatorTests.swift */; };
+		1F3CB0E22941F9DF00A863BD /* LAContextMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB0E12941F9DF00A863BD /* LAContextMock.swift */; };
 		1F76A19829223F9700155169 /* BiometricAuthenticatorClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F76A19729223F9700155169 /* BiometricAuthenticatorClient.swift */; };
 		1F76A19A29227A1900155169 /* BiometricAuthenticatorClientLiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F76A19929227A1900155169 /* BiometricAuthenticatorClientLiveKey.swift */; };
 		1F76A19C2922865D00155169 /* BiometricAuthenticatorClientTestKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F76A19B2922865D00155169 /* BiometricAuthenticatorClientTestKey.swift */; };
@@ -66,6 +68,8 @@
 		1F3CB0D7293F77EE00A863BD /* LoggerClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerClient.swift; sourceTree = "<group>"; };
 		1F3CB0D9293F7A6300A863BD /* LoggerClientLiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerClientLiveKey.swift; sourceTree = "<group>"; };
 		1F3CB0DB293F7A7000A863BD /* LoggerClientTestKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerClientTestKey.swift; sourceTree = "<group>"; };
+		1F3CB0DF2941E3D700A863BD /* BiometricAuthenticatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticatorTests.swift; sourceTree = "<group>"; };
+		1F3CB0E12941F9DF00A863BD /* LAContextMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAContextMock.swift; sourceTree = "<group>"; };
 		1F76A19729223F9700155169 /* BiometricAuthenticatorClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticatorClient.swift; sourceTree = "<group>"; };
 		1F76A19929227A1900155169 /* BiometricAuthenticatorClientLiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticatorClientLiveKey.swift; sourceTree = "<group>"; };
 		1F76A19B2922865D00155169 /* BiometricAuthenticatorClientTestKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticatorClientTestKey.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 		1245E17B28EF91ED00A6CC52 /* MinderaPeopleTests */ = {
 			isa = PBXGroup;
 			children = (
+				1F3CB0DD2941E3B600A863BD /* Dependencies */,
 				1245E17C28EF91ED00A6CC52 /* MinderaPeopleTests.swift */,
 			);
 			path = MinderaPeopleTests;
@@ -200,6 +205,23 @@
 				1F3CB0DB293F7A7000A863BD /* LoggerClientTestKey.swift */,
 			);
 			path = Logging;
+			sourceTree = "<group>";
+		};
+		1F3CB0DD2941E3B600A863BD /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				1F3CB0DE2941E3BD00A863BD /* BiometricAuthenticator */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		1F3CB0DE2941E3BD00A863BD /* BiometricAuthenticator */ = {
+			isa = PBXGroup;
+			children = (
+				1F3CB0E12941F9DF00A863BD /* LAContextMock.swift */,
+				1F3CB0DF2941E3D700A863BD /* BiometricAuthenticatorTests.swift */,
+			);
+			path = BiometricAuthenticator;
 			sourceTree = "<group>";
 		};
 		1F76A194292234F500155169 /* BiometricAuthenticatorClient */ = {
@@ -397,6 +419,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F3CB0E22941F9DF00A863BD /* LAContextMock.swift in Sources */,
+				1F3CB0E02941E3D700A863BD /* BiometricAuthenticatorTests.swift in Sources */,
 				1245E17D28EF91ED00A6CC52 /* MinderaPeopleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
