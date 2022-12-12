@@ -30,34 +30,22 @@ jobs:
     name: Run unit tests
     runs-on: macos-12
     steps:
-      - name: Set up ruby env
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7.2
-          bundler-cache: true
-
       - name: Checkout
         uses: actions/checkout@v2
         
       - name: Run unit tests
         run: |
           set -o pipefail
-          bundle exec fastlane run_unit_tests
+          fastlane run_unit_tests
 
   run-UI-test:
     name: Run UI tests
     runs-on: macos-12
     steps:
-      - name: Set up ruby env
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7.2
-          bundler-cache: true
-
       - name: Checkout
         uses: actions/checkout@v2
         
       - name: Run UI tests
         run: |
           set -o pipefail
-          bundle exec fastlane run_ui_tests
+          fastlane run_ui_tests
