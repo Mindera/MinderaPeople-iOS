@@ -26,16 +26,16 @@ jobs:
           xcrun simctl delete unavailable
           xcrun simctl list
 
+  run-unit-test:
+    name: Run unit tests
+    runs-on: macos-12
+    steps:
       - name: Set up ruby env
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7.2
           bundler-cache: true
 
-  run-unit-test:
-    name: Run unit tests
-    runs-on: macos-12
-    steps:
       - name: Checkout
         uses: actions/checkout@v2
         
@@ -48,6 +48,12 @@ jobs:
     name: Run UI tests
     runs-on: macos-12
     steps:
+      - name: Set up ruby env
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: true
+
       - name: Checkout
         uses: actions/checkout@v2
         
