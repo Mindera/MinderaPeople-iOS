@@ -26,10 +26,11 @@ jobs:
           xcrun simctl delete unavailable
           xcrun simctl list
 
-      - name: Setup Ruby
-        uses: actions/setup-ruby@v1
+      - name: Set up ruby env
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.6.x'
+          ruby-version: 2.7.2
+          bundler-cache: true
 
   run-unit-test:
     name: Run unit tests

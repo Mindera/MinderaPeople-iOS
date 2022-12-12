@@ -11,10 +11,11 @@ jobs:
    steps:
      - uses: actions/checkout@v2
 
-     - name: Setup Ruby
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: '2.6.x'
+     - name: Set up ruby env
+       uses: ruby/setup-ruby@v1
+       with:
+         ruby-version: 2.7.2
+         bundler-cache: true
     
      - name: Build & upload iOS binary
        run: bundle exec fastlane ios beta
