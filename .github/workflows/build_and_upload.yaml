@@ -10,15 +10,9 @@ jobs:
    runs-on: macos-12
    steps:
      - uses: actions/checkout@v2
-
-     - name: Set up ruby env
-       uses: ruby/setup-ruby@v1
-       with:
-         ruby-version: 2.7.2
-         bundler-cache: true
     
      - name: Build & upload iOS binary
-       run: bundle exec fastlane ios beta
+       run: fastlane ios beta
        env:
          APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
          APP_STORE_CONNECT_API_KEY_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
