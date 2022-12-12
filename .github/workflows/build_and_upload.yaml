@@ -10,6 +10,11 @@ jobs:
    runs-on: macos-12
    steps:
      - uses: actions/checkout@v2
+
+     - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6.x'
     
      - name: Build & upload iOS binary
        run: bundle exec fastlane ios beta

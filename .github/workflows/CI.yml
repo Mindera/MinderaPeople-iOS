@@ -26,6 +26,11 @@ jobs:
           xcrun simctl delete unavailable
           xcrun simctl list
 
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6.x'
+
   run-unit-test:
     name: Run unit tests
     runs-on: macos-12
