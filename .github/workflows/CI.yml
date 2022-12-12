@@ -9,8 +9,10 @@ on:
       - development
 
 env:
+  DEVELOPER_DIR: "/Applications/Xcode_14.1.app/Contents/Developer"
   IOS_DESTINATION: "platform=iOS Simulator,name=iPhone 14 Pro,OS=latest"
-
+  GIT_BRANCH: ${{ secrets.GIT_BRANCH }}
+  GIT_URL: ${{ secrets.GIT_URL }}
 jobs:
   env-details:
     name: Environment details
@@ -24,12 +26,9 @@ jobs:
           xcrun simctl delete unavailable
           xcrun simctl list
 
-  build_test:
-    name: Run tests
-    runs-on: macos-latest
-    env:
-      GIT_BRANCH: ${{ secrets.GIT_BRANCH }}
-      GIT_URL: ${{ secrets.GIT_URL }}
+  run-unit-test:
+    name: Run unit tests
+    runs-on: macos-12
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -37,9 +36,16 @@ jobs:
       - name: Run unit tests
         run: |
           set -o pipefail
-          fastlane run_unit_tests
-          
+          bundle exec fastlane run_unit_tests
+
+  run-UI-test:
+    name: Run UI tests
+    runs-on: macos-12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
       - name: Run UI tests
         run: |
           set -o pipefail
-          fastlane run_ui_tests
+          bundle exec fastlane run_ui_tests
