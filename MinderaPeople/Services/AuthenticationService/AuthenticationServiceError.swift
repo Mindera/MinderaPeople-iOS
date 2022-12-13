@@ -1,4 +1,8 @@
-enum AuthenticationServiceError: Error {
+enum AuthenticationServiceError: Error, Equatable {
+    static func == (lhs: AuthenticationServiceError, rhs: AuthenticationServiceError) -> Bool {
+        lhs.localizedDescription == rhs.localizedDescription
+    }
+    
     case googleSignInFailure(Error)
     case googleSignOutFailure(Error)
     case noAuthenticationToken
