@@ -192,7 +192,7 @@
 		1245E17B28EF91ED00A6CC52 /* MinderaPeopleTests */ = {
 			isa = PBXGroup;
 			children = (
-				9A687B32294621B700745546 /* Dependencies */,
+				9A687B3F2948A21700745546 /* DependenciesTests */,
 				1245E17C28EF91ED00A6CC52 /* MinderaPeopleTests.swift */,
 			);
 			path = MinderaPeopleTests;
@@ -245,14 +245,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		9A687B32294621B700745546 /* Dependencies */ = {
+		9A687B3F2948A21700745546 /* DependenciesTests */ = {
 			isa = PBXGroup;
 			children = (
 				9A687B33294621E500745546 /* AuthenticationServiceTests.swift */,
 				9A687B3729462C2100745546 /* FirebaseAuthMock.swift */,
 				9A687B352946260A00745546 /* GIDSignInMock.swift */,
 			);
-			path = Dependencies;
+			path = DependenciesTests;
 			sourceTree = "<group>";
 		};
 		9AD5FCA729339CF7000E5927 /* Frameworks */ = {
