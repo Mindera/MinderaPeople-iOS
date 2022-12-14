@@ -25,13 +25,12 @@ platform :ios do
     desc "Distribute Testflight build"
     lane :beta do
 
-        fetch_production_code_signing
-
         app_store_connect_api_key(
             is_key_content_base64: true,
             in_house: false
         )
-
+        
+        fetch_production_code_signing
         fetch_and_increment_build_number
 
         build_app(
