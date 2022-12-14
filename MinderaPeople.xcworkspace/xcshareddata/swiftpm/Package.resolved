@@ -131,8 +131,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Mindera/MinderaPeople-iOS-DesignSystem.git",
       "state" : {
-        "branch" : "mpa-15_setup-design-system",
-        "revision" : "705ec96a84c515c3cbc4c9943b46cbbf7e7ab02f"
+        "branch" : "mpa-28_create-toolbar",
+        "revision" : "d19bf6dd7d312048a373869068994e62102f6d84"
       }
     },
     {

@@ -1,16 +1,25 @@
 import ComposableArchitecture
 import SwiftUI
+import MinderaPeople_iOS_DesignSystem
 
 struct HomeFeature: ReducerProtocol {
     struct State: Equatable {
         var isPresented = true
         var alert: AlertState<Action>?
+        var selectedTab: Tab = .dashboard
     }
-
+    
+    enum Tab {
+        case dashboard
+        case calendar
+        case myProfile
+    }
+    
     enum Action: Equatable {
         case logOutButtonTapped
         case signOutResponse(TaskResult<VoidEquatable>)
         case alertDismissTapped
+        case tabButtonPressed(Tab)
     }
 
     @Dependency(\.authenticationService) var authenticationService
@@ -38,6 +47,9 @@ struct HomeFeature: ReducerProtocol {
                 
             case .alertDismissTapped:
                 state.alert = nil
+                
+            case let .tabButtonPressed(tab):
+                state.selectedTab = tab
             }
 
             return .none
@@ -55,15 +67,32 @@ struct HomeView: View {
     }
 
     var body: some View {
-        ZStack {
-            Rectangle()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .ignoresSafeArea()
-                .foregroundColor(.yellow)
-            VStack {
-                Text("Welcome 🚀")
-                    .font(.title)
-                Spacer()
+        TabBarView(selection: viewStore.binding(
+            get: { $0.selectedTab },
+            send: { .tabButtonPressed($0) }))
+        .tab(
+            .dashboard,
+            content: {
+                Text("Dashboard")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.red(._100))
+            },
+            icon: icon("dashboard"),
+            text: text("Dashboard")
+        )
+        .tab(
+            .calendar,
+            content: {
+                Text("Calendar")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.yellow(._100))
+            },
+            icon: icon("calendar"),
+            text: text("Calendar")
+        )
+        .tab(
+            .myProfile,
+            content: {
                 Button {
                     viewStore.send(.logOutButtonTapped)
                 } label: {
@@ -75,9 +104,11 @@ struct HomeView: View {
                                 .foregroundColor(.black)
                         }
                 }
-            }
-            .padding()
-        }
+            },
+            icon: icon("myProfile"),
+            text: text("My Profile")
+        )
+        .shadow(radius: 1)
         .navigationBarBackButtonHidden()
         .navigationDestination(
             isPresented:
@@ -88,6 +119,17 @@ struct HomeView: View {
         ) {
             LoginView(store: .init(initialState: .init(), reducer: LoginFeature()))
         }
+    }
+
+    private func icon(_ name: String) -> some View {
+        Image(name)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 24, height: 24)
+    }
+    
+    private func text(_ text: String) -> some View {
+        Text(text)
     }
 }
 

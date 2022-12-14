@@ -836,7 +836,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Mindera/MinderaPeople-iOS-DesignSystem.git";
 			requirement = {
-				branch = "mpa-15_setup-design-system";
+				branch = "mpa-28_create-toolbar";
 				kind = branch;
 			};
 		};
