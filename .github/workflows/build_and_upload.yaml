@@ -1,15 +1,13 @@
 name: iOS binary build & upload
  
 on:
-  pull_request:
-    branches:
-      - development
+  workflow_dispatch:
  
 env:
   DEVELOPER_DIR: "/Applications/Xcode_14.1.app/Contents/Developer"
 jobs:
  deploy:
-   runs-on: macos-latest
+   runs-on: macos-12
    steps:
      - uses: actions/checkout@v2
     
