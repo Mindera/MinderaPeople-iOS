@@ -1,4 +1,4 @@
-name: iOS binary build & upload
+name: "iOS binary build & upload"
  
 on: [workflow_dispatch]
  
@@ -15,7 +15,7 @@ jobs:
      - name: Build & upload iOS binary
        run: |
           set -o pipefail
-          fastlane ios beta --verbose
+          fastlane beta --verbose
        env:
          APP_STORE_CONNECT_API_KEY_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
          APP_STORE_CONNECT_API_KEY_KEY_ID: ${{ secrets.ASC_KEY_ID }}
