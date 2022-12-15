@@ -1,7 +1,5 @@
 @testable import MinderaPeople
 import XCTest
-import Firebase
-import GoogleSignIn
 
 final class AuthenticationServiceTests: XCTestCase {
     

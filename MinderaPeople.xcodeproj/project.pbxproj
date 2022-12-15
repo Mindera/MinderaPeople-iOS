@@ -34,6 +34,8 @@
 		9A687B34294621E500745546 /* AuthenticationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A687B33294621E500745546 /* AuthenticationServiceTests.swift */; };
 		9A687B362946260A00745546 /* GIDSignInMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A687B352946260A00745546 /* GIDSignInMock.swift */; };
 		9A687B3829462C2100745546 /* FirebaseAuthMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A687B3729462C2100745546 /* FirebaseAuthMock.swift */; };
+		9A687B43294B460E00745546 /* FirebaseAuthProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A687B42294B460E00745546 /* FirebaseAuthProtocol.swift */; };
+		9A687B45294B47E200745546 /* GIDSignInProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A687B44294B47E200745546 /* GIDSignInProtocol.swift */; };
 		9A7D37A7291A6A5900151691 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9A7D37A6291A6A5900151691 /* GoogleSignIn */; };
 		9A7D37A9291A6A5900151691 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9A7D37A8291A6A5900151691 /* GoogleSignInSwift */; };
 		9A7E8711291D3102005B50B4 /* AuthenticationServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7E8710291D3102005B50B4 /* AuthenticationServiceClient.swift */; };
@@ -82,6 +84,8 @@
 		9A687B33294621E500745546 /* AuthenticationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceTests.swift; sourceTree = "<group>"; };
 		9A687B352946260A00745546 /* GIDSignInMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIDSignInMock.swift; sourceTree = "<group>"; };
 		9A687B3729462C2100745546 /* FirebaseAuthMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthMock.swift; sourceTree = "<group>"; };
+		9A687B42294B460E00745546 /* FirebaseAuthProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthProtocol.swift; sourceTree = "<group>"; };
+		9A687B44294B47E200745546 /* GIDSignInProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIDSignInProtocol.swift; sourceTree = "<group>"; };
 		9A7E8710291D3102005B50B4 /* AuthenticationServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceClient.swift; sourceTree = "<group>"; };
 		9AE4EBE0291E93170098BCA3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9AE4EBF729253CBE0098BCA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 				9A7E8710291D3102005B50B4 /* AuthenticationServiceClient.swift */,
 				127DC9352929425000728015 /* AuthenticationServiceClientLiveKey.swift */,
 				127DC9372929426900728015 /* AuthenticationServiceClientTestKey.swift */,
+				9A687B42294B460E00745546 /* FirebaseAuthProtocol.swift */,
+				9A687B44294B47E200745546 /* GIDSignInProtocol.swift */,
 			);
 			path = AuthenticationService;
 			sourceTree = "<group>";
@@ -470,8 +476,10 @@
 				127DC9362929425000728015 /* AuthenticationServiceClientLiveKey.swift in Sources */,
 				9AE4EBE1291E93170098BCA3 /* HomeView.swift in Sources */,
 				9A7E8711291D3102005B50B4 /* AuthenticationServiceClient.swift in Sources */,
+				9A687B45294B47E200745546 /* GIDSignInProtocol.swift in Sources */,
 				12BD112D292C1B5300D91255 /* RootView.swift in Sources */,
 				127DC9382929426900728015 /* AuthenticationServiceClientTestKey.swift in Sources */,
+				9A687B43294B460E00745546 /* FirebaseAuthProtocol.swift in Sources */,
 				12B72C1D29141BC7009963B8 /* AppDelegate.swift in Sources */,
 				9A1D4E34293CD24E002F1CD2 /* VoidEquatable.swift in Sources */,
 				1245E16E28EF91EB00A6CC52 /* LoginView.swift in Sources */,

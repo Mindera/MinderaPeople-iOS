@@ -30,32 +30,6 @@ final class Authentication: FirebaseAuthProtocol {
     }
 }
 
-protocol FirebaseAuthDataResultType {
-    var user: Firebase.User { get }
-}
-
-extension AuthDataResult: FirebaseAuthDataResultType {}
-
-typealias FirebaseAuthDataResultTypeCallback = (FirebaseAuthDataResultType?, Error?) -> Void
-
-protocol GIDSignInProtocol {
-    func hasPreviousSignIn() -> Bool
-    func signIn(with: GIDConfiguration,
-                presenting: UIViewController,
-                callback: GIDSignInCallback?)
-    func restorePreviousSignIn(callback: GIDSignInCallback?)
-    func signOut()
-}
-
-protocol FirebaseAuthProtocol {
-    var currentUser: FirebaseUserType? { get }
-    
-    func signIn(with: AuthCredential, completion: FirebaseAuthDataResultTypeCallback?)
-    func signOut() throws
-}
-
-extension GIDSignIn: GIDSignInProtocol {}
-
 public struct AuthenticationService {
     private let signInService: GIDSignInProtocol
     private let firebaseService: FirebaseAuthProtocol
