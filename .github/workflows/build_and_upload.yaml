@@ -13,7 +13,9 @@ jobs:
      - uses: actions/checkout@v2
     
      - name: Build & upload iOS binary
-       run: fastlane ios beta --verbose
+       run: |
+          set -o pipefail
+          fastlane ios beta --verbose
        env:
          APP_STORE_CONNECT_API_KEY_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
          APP_STORE_CONNECT_API_KEY_KEY_ID: ${{ secrets.ASC_KEY_ID }}
