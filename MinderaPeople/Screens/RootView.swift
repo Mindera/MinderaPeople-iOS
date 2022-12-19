@@ -26,17 +26,18 @@ struct RootFeature: ReducerProtocol {
         case userPersistenceResponse(TaskResult<User>)
     }
 
-    @Dependency(\.authenticationService) var authenticationService
+    @Dependency(\.minderaPeopleService) var minderaPeopleService
 
     var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
             switch action {
             case .onAppear:
                 return .task {
-                    if let user = await authenticationService.user() {
-                        return .userPersistenceResponse(.success(user))
-                    }
-                    return .userPersistenceResponse(.failure(AuthenticationServiceError.noUserFound))
+                    await .userPersistenceResponse(
+                        TaskResult {
+                            try await minderaPeopleService.user()
+                        }
+                    )
                 }
                 .delay(for: .seconds(1.5), scheduler: RunLoop.main)
                 .eraseToEffect()

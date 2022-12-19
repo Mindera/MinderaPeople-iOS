@@ -1,51 +1,71 @@
 import ComposableArchitecture
-import Firebase
-import GoogleSignIn
+import WebKit
 import MinderaPeople_iOS_DesignSystem
 import SwiftUI
 
 struct LoginFeature: ReducerProtocol {
     struct State: Equatable {
         var signInState: SignInState = .unauthorized
-        var alert: AlertState<Action>?
         var isLoading = false
+        var alert: AlertState<Action>?
+        
+        var isShowingWebView = false
     }
-
+    
     enum SignInState: Equatable {
         case authorized(User)
         case unauthorized
+        
+        var isAuthorized: Bool {
+            switch self {
+            case .authorized:
+                return true
+            case .unauthorized:
+                return false
+            }
+        }
     }
 
     enum Action: Equatable {
         case logInButtonTapped
-        case signInResponse(TaskResult<User>)
+        case userResponse(TaskResult<User>)
+        case webViewDismissed
+        case tokenResponse(String)
         case alertDismissTapped
     }
 
-    @Dependency(\.authenticationService) var authenticationService
+    @Dependency(\.minderaPeopleService) var minderaPeopleService
 
     var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
             switch action {
             case .logInButtonTapped:
+                state.isShowingWebView = true
+                
+            case let .tokenResponse(token):
+                UserDefaults.standard.set(token, forKey: "Token")
+                state.isShowingWebView = false
                 state.isLoading = true
                 return .task {
-                    await .signInResponse(
+                    await .userResponse(
                         TaskResult {
-                            try await authenticationService.signIn()
+                            try await minderaPeopleService.user()
                         }
                     )
                 }
                 
-            case let .signInResponse(.failure(error)):
+            case let .userResponse(.failure(error)):
                 state.isLoading = false
-                guard let errorText = AuthenticationServiceError.authError(from: error) else { return .none }
-                state.alert = AlertState.configure(message: errorText,
+                state.alert = AlertState.configure(message: error.localizedDescription,
                                                    defaultAction: .logInButtonTapped,
                                                    cancelAction: .alertDismissTapped)
 
-            case let .signInResponse(.success(user)):
+            case let .userResponse(.success(user)):
+                state.isLoading = false
                 state.signInState = .authorized(user)
+                
+            case .webViewDismissed:
+                state.isShowingWebView = false
 
             case .alertDismissTapped:
                 state.alert = nil
@@ -85,6 +105,15 @@ struct LoginView: View {
                         self.store.scope(state: \.alert),
                         dismiss: .alertDismissTapped
                     )
+                    .sheet(isPresented:
+                            viewStore.binding(
+                        get: \.isShowingWebView,
+                        send: .webViewDismissed
+                    )) {
+                        WebView(request: URLRequest(url: URL(string: "https://people.mindera.com/auth/google?mobile=ios")!)) { token in
+                            viewStore.send(.tokenResponse(token))
+                        }
+                    }
                 }
             }
             .padding()
@@ -92,14 +121,7 @@ struct LoginView: View {
             .navigationDestination(
                 isPresented:
                         .init(
-                            get: {
-                                switch viewStore.signInState {
-                                case .unauthorized:
-                                    return false
-                                case .authorized:
-                                    return true
-                                }
-                            },
+                            get: { viewStore.signInState.isAuthorized },
                             set: { _ in }
                         )
             ) {

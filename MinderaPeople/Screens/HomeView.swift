@@ -9,31 +9,14 @@ struct HomeFeature: ReducerProtocol {
 
     enum Action: Equatable {
         case logOutButtonTapped
-        case signOutResponse(TaskResult<VoidEquatable>)
         case alertDismissTapped
     }
-
-    @Dependency(\.authenticationService) var authenticationService
 
     var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
             switch action {
             case .logOutButtonTapped:
-                return .task {
-                    await .signOutResponse(
-                        TaskResult {
-                            try await authenticationService.signOut()
-                        }
-                    )
-                }
-
-            case let .signOutResponse(.failure(error)):
-                let error = AuthenticationServiceError.googleSignOutFailure(error)
-                state.alert = AlertState.configure(message: error.localizedDescription,
-                                                   defaultAction: .logOutButtonTapped,
-                                                   cancelAction: .alertDismissTapped)
-
-            case .signOutResponse(.success):
+                UserDefaults.standard.removeObject(forKey: "Token")
                 state.isPresented = false
                 
             case .alertDismissTapped:
@@ -82,7 +65,7 @@ struct HomeView: View {
         .navigationDestination(
             isPresented:
                     .init(
-                        get: { !viewStore[keyPath: \.isPresented] },
+                        get: { !viewStore.isPresented },
                         set: { _ in }
                     )
         ) {
