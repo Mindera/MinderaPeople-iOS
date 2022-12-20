@@ -28,6 +28,7 @@
 		12BD112D292C1B5300D91255 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BD112C292C1B5300D91255 /* RootView.swift */; };
 		9A093430292EB39700CF5CB7 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A09342F292EB39700CF5CB7 /* LoaderView.swift */; };
 		9A12FF2629509E0600936783 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12FF2529509E0600936783 /* WebView.swift */; };
+		9A2D286F2950C1D6000039DF /* LoginLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A2D28712950C1D6000039DF /* LoginLocalizable.strings */; };
 		9A41633A294C857D00093FB4 /* AlertState+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A416339294C857D00093FB4 /* AlertState+Extension.swift */; };
 		9A41633D294C867000093FB4 /* MinderaPeopleServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A41633C294C867000093FB4 /* MinderaPeopleServiceClient.swift */; };
 		9A41633F294C869C00093FB4 /* MinderaPeopleServiceClientLiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A41633E294C869C00093FB4 /* MinderaPeopleServiceClientLiveKey.swift */; };
@@ -74,6 +75,7 @@
 		12BD112C292C1B5300D91255 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		9A09342F292EB39700CF5CB7 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		9A12FF2529509E0600936783 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		9A2D28702950C1D6000039DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginLocalizable.strings; sourceTree = "<group>"; };
 		9A416339294C857D00093FB4 /* AlertState+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertState+Extension.swift"; sourceTree = "<group>"; };
 		9A41633C294C867000093FB4 /* MinderaPeopleServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleServiceClient.swift; sourceTree = "<group>"; };
 		9A41633E294C869C00093FB4 /* MinderaPeopleServiceClientLiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleServiceClientLiveKey.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 		12AE5BC328F788DD00BD2744 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9A2D286C2950C12D000039DF /* Localizable */,
 				9A416337294C856000093FB4 /* Helpers */,
 				9AE4EBF329253CBE0098BCA3 /* Firebase */,
 				1245E16F28EF91ED00A6CC52 /* Assets.xcassets */,
@@ -217,6 +220,14 @@
 				9A12FF2529509E0600936783 /* WebView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9A2D286C2950C12D000039DF /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				9A2D28712950C1D6000039DF /* LoginLocalizable.strings */,
+			);
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 		9A416337294C856000093FB4 /* Helpers */ = {
@@ -420,6 +431,7 @@
 			files = (
 				1245E17328EF91ED00A6CC52 /* Preview Assets.xcassets in Resources */,
 				1245E17028EF91ED00A6CC52 /* Assets.xcassets in Resources */,
+				9A2D286F2950C1D6000039DF /* LoginLocalizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +526,17 @@
 			targetProxy = 1245E18328EF91ED00A6CC52 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9A2D28712950C1D6000039DF /* LoginLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A2D28702950C1D6000039DF /* en */,
+			);
+			name = LoginLocalizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1245E18A28EF91ED00A6CC52 /* Debug */ = {
