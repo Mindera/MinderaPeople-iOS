@@ -77,8 +77,8 @@ struct HomeView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color.red(._100))
             },
-            icon: icon("dashboard"),
-            text: text("Dashboard")
+            icon: icon(.dashboard),
+            text: text(.dashboard)
         )
         .tab(
             .calendar,
@@ -87,8 +87,8 @@ struct HomeView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color.yellow(._100))
             },
-            icon: icon("calendar"),
-            text: text("Calendar")
+            icon: icon(.calendar),
+            text: text(.calendar)
         )
         .tab(
             .myProfile,
@@ -105,8 +105,8 @@ struct HomeView: View {
                         }
                 }
             },
-            icon: icon("myProfile"),
-            text: text("My Profile")
+            icon: icon(.myProfile),
+            text: text(.myProfile)
         )
         .shadow(radius: 1)
         .navigationBarBackButtonHidden()
@@ -121,15 +121,36 @@ struct HomeView: View {
         }
     }
 
-    private func icon(_ name: String) -> some View {
-        Image(name)
+    private func icon(_ selectionValue: HomeFeature.Tab) -> some View {
+        var name = ""
+        switch selectionValue {
+        case .dashboard:
+            name = "dashboard"
+        case .calendar:
+            name = "calendar"
+        case .myProfile:
+            name = "myProfile"
+        }
+        return Image(name)
             .resizable()
             .scaledToFit()
             .frame(width: 24, height: 24)
+            .foregroundColor(viewStore.selectedTab == selectionValue ? Color.indigo(._600) : Color.greyBlue(._500))
     }
     
-    private func text(_ text: String) -> some View {
-        Text(text)
+    private func text(_ selectionValue: HomeFeature.Tab) -> some View {
+        var text = ""
+        switch selectionValue {
+        case .dashboard:
+            text = "Dashboard"
+        case .calendar:
+            text = "Calendar"
+        case .myProfile:
+            text = "My Profile"
+        }
+        return Text(text)
+            .customFont(size: .XS)
+            .foregroundColor(viewStore.selectedTab == selectionValue ? Color.indigo(._600) : Color.greyBlue(._500))
     }
 }
 
