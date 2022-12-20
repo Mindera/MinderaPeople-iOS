@@ -96,7 +96,8 @@ struct LoginView: View {
                         .foregroundColor(.accentColor)
                     
                     Spacer()
-                    MinderaButton(.title("Login with Google Account")) {
+                    MinderaButton(.title(String(localized: "login",
+                                                table: "LoginLocalizable"))) {
                         viewStore.send(.logInButtonTapped)
                     }
                     .contentMode(.fill)
