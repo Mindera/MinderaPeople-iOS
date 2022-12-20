@@ -24,6 +24,7 @@ struct RootFeature: ReducerProtocol {
     enum Action: Equatable {
         case onAppear
         case userPersistenceResponse(TaskResult<User>)
+        case signStateUpdated(SignInState)
     }
 
     @Dependency(\.minderaPeopleService) var minderaPeopleService
@@ -47,8 +48,9 @@ struct RootFeature: ReducerProtocol {
 
             case let .userPersistenceResponse(.success(user)):
                 state.signInState = .authorized(user)
+            case let .signStateUpdated(newState):
+                state.signInState = newState
             }
-
             return .none
         }
     }
@@ -66,30 +68,23 @@ struct RootView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Spacer()
-                Image("minderaLogo")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
+                switch viewStore.signInState {
+                case .none:
+                    Spacer()
+                    Image("minderaLogo")
+                        .imageScale(.large)
+                        .foregroundColor(.accentColor)
 
-                Spacer()
-            }
-            .navigationDestination(
-                isPresented:
-                        .init(
-                            get: { viewStore.signInState?.isAuthorized ?? false },
-                            set: { _ in }
-                        )
-            ) {
-                HomeView(store: .init(initialState: .init(), reducer: HomeFeature()))
-            }
-            .navigationDestination(
-                isPresented:
-                        .init(
-                            get: { viewStore.signInState?.isAuthorized == false },
-                            set: { _ in }
-                        )
-            ) {
-                LoginView(store: .init(initialState: .init(), reducer: LoginFeature()))
+                    Spacer()
+                case .authorized:
+                    HomeView(store: .init(initialState: .init(), reducer: HomeFeature(loginStateChanged: { newState in
+                        viewStore.send(.signStateUpdated(newState))
+                    })))
+                case .unauthorized:
+                    LoginView(store: .init(initialState: .init(), reducer: LoginFeature(loginStateChanged: { newState in
+                        viewStore.send(.signStateUpdated(newState))
+                    })))
+                }
             }
             .onAppear {
                 viewStore.send(.onAppear)

@@ -11,13 +11,15 @@ struct HomeFeature: ReducerProtocol {
         case logOutButtonTapped
         case alertDismissTapped
     }
+    
+    var loginStateChanged: (_ newState: RootFeature.SignInState) -> Void
 
     var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
             switch action {
             case .logOutButtonTapped:
                 UserDefaults.standard.removeObject(forKey: "Token")
-                state.isPresented = false
+                loginStateChanged(.unauthorized)
                 
             case .alertDismissTapped:
                 state.alert = nil
@@ -62,20 +64,14 @@ struct HomeView: View {
             .padding()
         }
         .navigationBarBackButtonHidden()
-        .navigationDestination(
-            isPresented:
-                    .init(
-                        get: { !viewStore.isPresented },
-                        set: { _ in }
-                    )
-        ) {
-            LoginView(store: .init(initialState: .init(), reducer: LoginFeature()))
-        }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(store: .init(initialState: .init(), reducer: HomeFeature()))
+        HomeView(store: .init(
+            initialState: .init(),
+            reducer: HomeFeature(loginStateChanged: { _ in })
+        ))
     }
 }
