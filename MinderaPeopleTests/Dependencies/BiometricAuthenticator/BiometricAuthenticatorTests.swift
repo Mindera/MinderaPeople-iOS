@@ -37,8 +37,8 @@ final class BiometricAuthenticatorTests: XCTestCase {
         await sut.setAuthenticationTimeLimit(200)
         do {
             let successful = try await sut.authenticate(force: false)
-            XCTAssertTrue(mockedContext.canEvaluatePolicyCalled)
-            XCTAssertTrue(mockedContext.evaluatePolicyCalled)
+            XCTAssertEqual(mockedContext.canEvaluatePolicyCalledCount, 1)
+            XCTAssertEqual(mockedContext.evaluatePolicyCalledCount, 1)
             XCTAssertEqual(mockedContext.lastCanEvaluatePolicyLAPolicy, .deviceOwnerAuthenticationWithBiometrics)
             XCTAssertEqual(mockedContext.lastEvaluatePolicyLAPolicy, .deviceOwnerAuthenticationWithBiometrics)
             XCTAssertTrue(successful)
@@ -73,8 +73,8 @@ final class BiometricAuthenticatorTests: XCTestCase {
         )
         do {
             let successful = try await sut.authenticate(force: false)
-            XCTAssertFalse(mockedContext.canEvaluatePolicyCalled)
-            XCTAssertFalse(mockedContext.evaluatePolicyCalled)
+            XCTAssertEqual(mockedContext.canEvaluatePolicyCalledCount, 0)
+            XCTAssertEqual(mockedContext.evaluatePolicyCalledCount, 0)
             XCTAssertFalse(successful)
         } catch {
             XCTFail("No errors should be received")
@@ -105,8 +105,8 @@ final class BiometricAuthenticatorTests: XCTestCase {
         do {
             let _ = try await sut.authenticate(force: true)
         } catch {
-            XCTAssertTrue(mockedContext.canEvaluatePolicyCalled)
-            XCTAssertFalse(mockedContext.evaluatePolicyCalled)
+            XCTAssertEqual(mockedContext.canEvaluatePolicyCalledCount, 1)
+            XCTAssertEqual(mockedContext.evaluatePolicyCalledCount, 0)
             XCTAssertNotNil(error)
             XCTAssert(error is BiometricAuthenticatorError)
         }
