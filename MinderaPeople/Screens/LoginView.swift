@@ -1,7 +1,7 @@
 import ComposableArchitecture
 import Firebase
 import GoogleSignIn
-import MinderaPeople_iOS_DesignSystem
+import MinderaDesignSystem
 import SwiftUI
 
 struct LoginFeature: ReducerProtocol {
