@@ -11,6 +11,6 @@ extension MinderaPeopleServiceClient: TestDependencyKey {
 
 extension MinderaPeopleServiceClient {
     public static let noop = Self(
-        user: { .stub() }
+        user: { _ in .stub() }
     )
 }

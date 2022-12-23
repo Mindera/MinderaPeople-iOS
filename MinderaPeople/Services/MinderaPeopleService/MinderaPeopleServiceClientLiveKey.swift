@@ -5,16 +5,16 @@ extension MinderaPeopleServiceClient: DependencyKey {
     public static var liveValue: Self {
         let minderaPeopleService = MinderaPeopleService()
         return Self(
-            user: { try await minderaPeopleService.user() }
+            user: { token in try await minderaPeopleService.user(token: token) }
         )
     }
 }
 
 public struct MinderaPeopleService {
 
-    func user() async throws -> User {
+    func user(token: String?) async throws -> User {
         
-        guard let token = UserDefaults.standard.string(forKey: "Token") else {
+        guard let token = token else {
             throw MinderaPeopleServiceError.noToken
         }
         

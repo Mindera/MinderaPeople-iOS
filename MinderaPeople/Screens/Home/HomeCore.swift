@@ -11,12 +11,13 @@ struct Home: ReducerProtocol {
         case alertDismissTapped
     }
     
+    @Dependency(\.keyChainService) var keyChainService
+    
     var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
                 switch action {
                 case .logOutButtonTapped:
-                    UserDefaults.standard.removeObject(forKey: "Token")
-//                    loginStateChanged(.unauthorized)
+                    keyChainService.remove(.tokenKey)
                     
                 case .alertDismissTapped:
                     state.alert = nil

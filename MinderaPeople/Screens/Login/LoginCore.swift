@@ -5,13 +5,7 @@ struct Login: ReducerProtocol {
     struct State: Equatable {
         var isLoading = false
         var alert: AlertState<Action>?
-        
         var isShowingWebView = false
-    }
-    
-    enum SignInState: Equatable {
-        case authorized(User)
-        case unauthorized
     }
     
     enum Action: Equatable {
@@ -23,6 +17,7 @@ struct Login: ReducerProtocol {
     }
     
     @Dependency(\.minderaPeopleService) var minderaPeopleService
+    @Dependency(\.keyChainService) var keyChainService
     
     var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
@@ -32,12 +27,12 @@ struct Login: ReducerProtocol {
                 state.isLoading = true
                 
             case let .tokenResponse(token):
-                UserDefaults.standard.set(token, forKey: "Token")
+                keyChainService.update(token, .tokenKey)
                 state.isShowingWebView = false
                 return .task {
                     await .userResponse(
                         TaskResult {
-                            try await minderaPeopleService.user()
+                            try await minderaPeopleService.user(token)
                         }
                     )
                 }
