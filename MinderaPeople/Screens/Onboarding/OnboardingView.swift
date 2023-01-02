@@ -3,7 +3,7 @@ import SwiftUI
 
 struct OnboardingView: View {
     let store: StoreOf<Onboarding>
-    
+
     init(store: StoreOf<Onboarding>) {
         self.store = store
     }
@@ -32,4 +32,3 @@ struct OnboardingView_Previews: PreviewProvider {
         ))
     }
 }
-

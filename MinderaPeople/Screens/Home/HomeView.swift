@@ -3,7 +3,7 @@ import SwiftUI
 
 struct HomeView: View {
     let store: StoreOf<Home>
-    
+
     init(store: StoreOf<Home>) {
         self.store = store
     }

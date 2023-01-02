@@ -4,11 +4,11 @@ import SwiftUI
 
 struct RootView: View {
     let store: StoreOf<Root>
-    
+
     public init(store: StoreOf<Root>) {
         self.store = store
     }
-    
+
     public var body: some View {
         SwitchStore(self.store) {
             CaseLet(state: /Root.State.login, action: Root.Action.login) { store in

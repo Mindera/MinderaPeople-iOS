@@ -4,11 +4,11 @@ import SwiftUI
 
 struct LoginView: View {
     let store: StoreOf<Login>
-    
+
     init(store: StoreOf<Login>) {
         self.store = store
     }
-    
+
     var body: some View {
         WithViewStore(self.store) { viewStore in
             NavigationStack {
@@ -21,7 +21,7 @@ struct LoginView: View {
                             Image("minderaLogo")
                                 .imageScale(.large)
                                 .foregroundColor(.accentColor)
-                            
+
                             Spacer()
                             MinderaButton(.title("Login with Google Account")) {
                                 viewStore.send(.logInButtonTapped)
@@ -38,14 +38,14 @@ struct LoginView: View {
             }
             .navigationBarBackButtonHidden()
             .sheet(isPresented:
-                    viewStore.binding(
-                        get: \.isShowingWebView,
-                        send: .webViewDismissed
-                    )) {
-                        WebView(request: URLRequest(url: URL(string: "https://people.mindera.com/auth/google?mobile=ios")!)) { token in
-                            viewStore.send(.tokenResponse(token))
-                        }
+                viewStore.binding(
+                    get: \.isShowingWebView,
+                    send: .webViewDismissed
+                )) {
+                    WebView(request: URLRequest(url: URL(string: "https://people.mindera.com/auth/google?mobile=ios")!)) { token in
+                        viewStore.send(.tokenResponse(token))
                     }
+            }
         }
     }
 }

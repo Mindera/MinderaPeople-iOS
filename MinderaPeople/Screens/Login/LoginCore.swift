@@ -7,7 +7,7 @@ struct Login: ReducerProtocol {
         var alert: AlertState<Action>?
         var isShowingWebView = false
     }
-    
+
     enum Action: Equatable {
         case logInButtonTapped
         case userResponse(TaskResult<User>)
@@ -15,17 +15,17 @@ struct Login: ReducerProtocol {
         case tokenResponse(String)
         case alertDismissTapped
     }
-    
+
     @Dependency(\.minderaPeopleService) var minderaPeopleService
     @Dependency(\.keyChainService) var keyChainService
-    
+
     var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
             switch action {
             case .logInButtonTapped:
                 state.isShowingWebView = true
                 state.isLoading = true
-                
+
             case let .tokenResponse(token):
                 keyChainService.update(token, .tokenKey)
                 state.isShowingWebView = false
@@ -36,16 +36,16 @@ struct Login: ReducerProtocol {
                         }
                     )
                 }
-                
+
             case let .userResponse(.failure(error)):
                 state.isLoading = false
                 state.alert = AlertState.configure(message: error.localizedDescription,
                                                    defaultAction: .logInButtonTapped,
                                                    cancelAction: .alertDismissTapped)
 
-            case let .userResponse(.success(user)):
+            case .userResponse(.success):
                 state.isLoading = false
-                
+
             case .webViewDismissed:
                 state.isShowingWebView = false
                 state.isLoading = false
