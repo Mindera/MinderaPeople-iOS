@@ -39,9 +39,11 @@ struct Login: ReducerProtocol {
 
             case let .userResponse(.failure(error)):
                 state.isLoading = false
-                state.alert = AlertState.configure(message: error.localizedDescription,
-                                                   defaultAction: .logInButtonTapped,
-                                                   cancelAction: .alertDismissTapped)
+                state.alert = AlertState.configure(
+                    message: error.localizedDescription,
+                    defaultAction: .logInButtonTapped,
+                    cancelAction: .alertDismissTapped
+                )
 
             case .userResponse(.success):
                 state.isLoading = false
