@@ -3,26 +3,13 @@ import SwiftUI
 
 struct OnboardingView: View {
     let store: StoreOf<Onboarding>
-
-    struct ViewState: Equatable {
-        var appState: Onboarding.AppState?
-        
-        init(state: Onboarding.State) {
-            self.appState = state.appState
-        }
-    }
-    
-    enum ViewAction {
-        case onAppear
-        case userResponse(TaskResult<User>)
-    }
     
     init(store: StoreOf<Onboarding>) {
         self.store = store
     }
 
     var body: some View {
-        WithViewStore(self.store, observe: ViewState.init, send: Onboarding.Action.init) { viewStore in
+        WithViewStore(self.store) { viewStore in
             VStack {
                 Spacer()
                 Image("minderaLogo")
@@ -33,17 +20,6 @@ struct OnboardingView: View {
             .onAppear {
                 viewStore.send(.onAppear)
             }
-        }
-    }
-}
-
-extension Onboarding.Action {
-    init(action: OnboardingView.ViewAction) {
-        switch action {
-        case .onAppear:
-            self = .onAppear
-        case let .userResponse(result):
-            self = .userResponse(result)
         }
     }
 }

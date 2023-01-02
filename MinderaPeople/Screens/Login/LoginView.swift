@@ -5,32 +5,12 @@ import SwiftUI
 struct LoginView: View {
     let store: StoreOf<Login>
     
-    struct ViewState: Equatable {
-        var isLoading: Bool
-        var alert: AlertState<Login.Action>?
-        var isShowingWebView: Bool
-        
-        init(state: Login.State) {
-            self.alert = state.alert
-            self.isLoading = state.isLoading
-            self.isShowingWebView = state.isShowingWebView
-        }
-    }
-    
-    enum ViewAction {
-        case logInButtonTapped
-        case userResponse(TaskResult<User>)
-        case webViewDismissed
-        case tokenResponse(String)
-        case alertDismissTapped
-    }
-    
     init(store: StoreOf<Login>) {
         self.store = store
     }
     
     var body: some View {
-        WithViewStore(self.store, observe: ViewState.init, send: Login.Action.init) { viewStore in
+        WithViewStore(self.store) { viewStore in
             NavigationStack {
                 Group {
                     if viewStore.isLoading {
@@ -68,23 +48,6 @@ struct LoginView: View {
                     }
         }
     }
-}
-
-extension Login.Action {
-  init(action: LoginView.ViewAction) {
-    switch action {
-    case .logInButtonTapped:
-        self = .logInButtonTapped
-    case let .userResponse(user):
-        self = .userResponse(user)
-    case .webViewDismissed:
-        self = .webViewDismissed
-    case let .tokenResponse(token):
-        self = .tokenResponse(token)
-    case .alertDismissTapped:
-        self = .alertDismissTapped
-    }
-  }
 }
 
 struct LoginView_Previews: PreviewProvider {
