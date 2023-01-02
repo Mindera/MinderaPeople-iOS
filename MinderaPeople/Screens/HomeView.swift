@@ -1,6 +1,6 @@
 import ComposableArchitecture
+import MinderaDesignSystem
 import SwiftUI
-import MinderaPeople_iOS_DesignSystem
 
 struct HomeFeature: ReducerProtocol {
     struct State: Equatable {
@@ -8,13 +8,13 @@ struct HomeFeature: ReducerProtocol {
         var alert: AlertState<Action>?
         var selectedTab: Tab = .dashboard
     }
-    
+
     enum Tab {
         case dashboard
         case calendar
         case myProfile
     }
-    
+
     enum Action: Equatable {
         case logOutButtonTapped
         case signOutResponse(TaskResult<VoidEquatable>)
@@ -44,10 +44,10 @@ struct HomeFeature: ReducerProtocol {
 
             case .signOutResponse(.success):
                 state.isPresented = false
-                
+
             case .alertDismissTapped:
                 state.alert = nil
-                
+
             case let .tabButtonPressed(tab):
                 state.selectedTab = tab
             }
@@ -67,9 +67,12 @@ struct HomeView: View {
     }
 
     var body: some View {
-        TabBarView(selection: viewStore.binding(
-            get: { $0.selectedTab },
-            send: { .tabButtonPressed($0) }))
+        TabBarView(
+            selection: viewStore.binding(
+                get: { $0.selectedTab },
+                send: { .tabButtonPressed($0) }
+            )
+        )
         .tab(
             .dashboard,
             content: {
@@ -112,10 +115,10 @@ struct HomeView: View {
         .navigationBarBackButtonHidden()
         .navigationDestination(
             isPresented:
-                    .init(
-                        get: { !viewStore[keyPath: \.isPresented] },
-                        set: { _ in }
-                    )
+            .init(
+                get: { !viewStore[keyPath: \.isPresented] },
+                set: { _ in }
+            )
         ) {
             LoginView(store: .init(initialState: .init(), reducer: LoginFeature()))
         }
@@ -137,7 +140,7 @@ struct HomeView: View {
             .frame(width: 24, height: 24)
             .foregroundColor(viewStore.selectedTab == selectionValue ? Color.indigo(._600) : Color.greyBlue(._500))
     }
-    
+
     private func text(_ selectionValue: HomeFeature.Tab) -> some View {
         var text = ""
         switch selectionValue {

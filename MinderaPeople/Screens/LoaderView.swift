@@ -1,3 +1,4 @@
+import MinderaDesignSystem
 import SwiftUI
 
 struct LoaderView: View {
@@ -6,7 +7,7 @@ struct LoaderView: View {
             Image("minderaLoader")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            
+
             Text("Please be patient.")
                 .customFont(size: .M, weight: .semiBold)
             Text("We are preparing your space.")

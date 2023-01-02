@@ -1,5 +1,4 @@
 import ComposableArchitecture
-import MinderaPeople_iOS_DesignSystem
 import SwiftUI
 
 struct RootFeature: ReducerProtocol {

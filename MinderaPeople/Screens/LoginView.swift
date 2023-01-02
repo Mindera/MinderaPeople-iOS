@@ -1,7 +1,7 @@
 import ComposableArchitecture
 import Firebase
 import GoogleSignIn
-import MinderaPeople_iOS_DesignSystem
+import MinderaDesignSystem
 import SwiftUI
 
 struct LoginFeature: ReducerProtocol {
@@ -36,7 +36,7 @@ struct LoginFeature: ReducerProtocol {
                         }
                     )
                 }
-                
+
             case let .signInResponse(.failure(error)):
                 state.isLoading = false
                 guard let errorText = AuthenticationServiceError.authError(from: error) else { return .none }
@@ -74,7 +74,7 @@ struct LoginView: View {
                     Image("minderaLogo")
                         .imageScale(.large)
                         .foregroundColor(.accentColor)
-                    
+
                     Spacer()
                     MinderaButton(.title("Login with Google Account")) {
                         viewStore.send(.logInButtonTapped)
@@ -91,17 +91,17 @@ struct LoginView: View {
             .navigationBarBackButtonHidden()
             .navigationDestination(
                 isPresented:
-                        .init(
-                            get: {
-                                switch viewStore.signInState {
-                                case .unauthorized:
-                                    return false
-                                case .authorized:
-                                    return true
-                                }
-                            },
-                            set: { _ in }
-                        )
+                .init(
+                    get: {
+                        switch viewStore.signInState {
+                        case .unauthorized:
+                            return false
+                        case .authorized:
+                            return true
+                        }
+                    },
+                    set: { _ in }
+                )
             ) {
                 HomeView(store: .init(initialState: .init(), reducer: HomeFeature()))
             }

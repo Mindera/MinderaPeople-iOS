@@ -26,9 +26,9 @@
 		127DC9362929425000728015 /* AuthenticationServiceClientLiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127DC9352929425000728015 /* AuthenticationServiceClientLiveKey.swift */; };
 		127DC9382929426900728015 /* AuthenticationServiceClientTestKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127DC9372929426900728015 /* AuthenticationServiceClientTestKey.swift */; };
 		127DC93B29294AFC00728015 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127DC93A29294AFC00728015 /* User.swift */; };
-		127DC93E292954CF00728015 /* MinderaPeople-iOS-DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 127DC93D292954CF00728015 /* MinderaPeople-iOS-DesignSystem */; };
 		12B72C1D29141BC7009963B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B72C1C29141BC7009963B8 /* AppDelegate.swift */; };
 		12BD112D292C1B5300D91255 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BD112C292C1B5300D91255 /* RootView.swift */; };
+		12EE0B002963524100389C76 /* MinderaDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 12EE0AFF2963524100389C76 /* MinderaDesignSystem */; };
 		9A093430292EB39700CF5CB7 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A09342F292EB39700CF5CB7 /* LoaderView.swift */; };
 		9A1D4E34293CD24E002F1CD2 /* VoidEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1D4E33293CD24E002F1CD2 /* VoidEquatable.swift */; };
 		9A687B34294621E500745546 /* AuthenticationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A687B33294621E500745546 /* AuthenticationServiceTests.swift */; };
@@ -94,8 +94,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				127DC93E292954CF00728015 /* MinderaPeople-iOS-DesignSystem in Frameworks */,
 				1245E19F28EF937400A6CC52 /* AlicercePerformanceMetrics in Frameworks */,
+				12EE0B002963524100389C76 /* MinderaDesignSystem in Frameworks */,
 				12366EB6291DB07600A920AB /* FirebaseAuth in Frameworks */,
 				1245E19B28EF937400A6CC52 /* AlicerceLogging in Frameworks */,
 				1245E1A428EF93C900A6CC52 /* ComposableArchitecture in Frameworks */,
@@ -315,7 +315,7 @@
 				9A7D37A6291A6A5900151691 /* GoogleSignIn */,
 				9A7D37A8291A6A5900151691 /* GoogleSignInSwift */,
 				12366EB5291DB07600A920AB /* FirebaseAuth */,
-				127DC93D292954CF00728015 /* MinderaPeople-iOS-DesignSystem */,
+				12EE0AFF2963524100389C76 /* MinderaDesignSystem */,
 			);
 			productName = MinderaPeople;
 			productReference = 1245E16828EF91EB00A6CC52 /* MinderaPeople.app */;
@@ -398,7 +398,7 @@
 				1245E1A228EF93C900A6CC52 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				9A7D37A5291A6A5900151691 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				12366EB4291DB07600A920AB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				127DC93C292954CF00728015 /* XCRemoteSwiftPackageReference "MinderaPeople-iOS-DesignSystem" */,
+				12EE0AFE2963524100389C76 /* XCRemoteSwiftPackageReference "MinderaDesignSystem-iOS" */,
 			);
 			productRefGroup = 1245E16928EF91EB00A6CC52 /* Products */;
 			projectDirPath = "";
@@ -832,12 +832,12 @@
 				minimumVersion = 0.9.0;
 			};
 		};
-		127DC93C292954CF00728015 /* XCRemoteSwiftPackageReference "MinderaPeople-iOS-DesignSystem" */ = {
+		12EE0AFE2963524100389C76 /* XCRemoteSwiftPackageReference "MinderaDesignSystem-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Mindera/MinderaPeople-iOS-DesignSystem.git";
+			repositoryURL = "https://github.com/Mindera/MinderaDesignSystem-iOS.git";
 			requirement = {
-				branch = "mpa-28_create-toolbar";
-				kind = branch;
+				kind = revision;
+				revision = ffa0831d5ee9429fa47d89056d411f8583a29c54;
 			};
 		};
 		9A7D37A5291A6A5900151691 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
@@ -891,10 +891,10 @@
 			package = 1245E1A228EF93C900A6CC52 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
 		};
-		127DC93D292954CF00728015 /* MinderaPeople-iOS-DesignSystem */ = {
+		12EE0AFF2963524100389C76 /* MinderaDesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 127DC93C292954CF00728015 /* XCRemoteSwiftPackageReference "MinderaPeople-iOS-DesignSystem" */;
-			productName = "MinderaPeople-iOS-DesignSystem";
+			package = 12EE0AFE2963524100389C76 /* XCRemoteSwiftPackageReference "MinderaDesignSystem-iOS" */;
+			productName = MinderaDesignSystem;
 		};
 		9A7D37A6291A6A5900151691 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
