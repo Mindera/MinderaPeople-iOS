@@ -127,12 +127,12 @@
       }
     },
     {
-      "identity" : "minderapeople-ios-designsystem",
+      "identity" : "minderadesignsystem-ios",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Mindera/MinderaPeople-iOS-DesignSystem.git",
+      "location" : "https://github.com/Mindera/MinderaDesignSystem-iOS",
       "state" : {
-        "branch" : "mpa-15_setup-design-system",
-        "revision" : "705ec96a84c515c3cbc4c9943b46cbbf7e7ab02f"
+        "revision" : "ffa0831d5ee9429fa47d89056d411f8583a29c54",
+        "version" : "0.0.2"
       }
     },
     {

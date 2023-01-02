@@ -1,5 +1,5 @@
 import ComposableArchitecture
-import MinderaPeople_iOS_DesignSystem
+import MinderaDesignSystem
 import SwiftUI
 
 struct LoginView: View {
