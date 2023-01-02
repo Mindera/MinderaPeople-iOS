@@ -10,7 +10,31 @@ extension MinderaPeopleServiceClient: DependencyKey {
     }
 }
 
+protocol URLSessionDataTaskProtocol {
+    func resume()
+}
+
+extension URLSessionDataTask: URLSessionDataTaskProtocol {}
+
+protocol URLSessionProtocol {
+    func dataTask(with request: URLRequest,
+                  completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTaskProtocol
+}
+
+extension URLSession: URLSessionProtocol {
+    func dataTask(with request: URLRequest,
+                  completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTaskProtocol {
+        return dataTask(with: request, completionHandler: completionHandler)
+    }
+}
+
 public struct MinderaPeopleService {
+    
+    private let session: URLSessionProtocol
+
+    init(session: URLSessionProtocol = URLSession.shared) {
+        self.session = session
+    }
 
     func user(token: String?) async throws -> User {
         
@@ -28,7 +52,8 @@ public struct MinderaPeopleService {
         
         let user: User = try await withCheckedThrowingContinuation { continuation in
             getResult(of: UserResponse.self,
-                      request: request) { result in
+                      request: request,
+                      session: session) { result in
                 switch result {
                 case let .success(user):
                     continuation.resume(returning: User(id: user.person.id,
@@ -46,9 +71,16 @@ public struct MinderaPeopleService {
 }
 
 extension MinderaPeopleService {
-    private func getResult<T: Decodable>(of type: T.Type, request: URLRequest, completion: @escaping ParameterClosure<Result<T, MinderaPeopleServiceError>>) {
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if error == nil, data != nil, let data = data {  // handle error
+    private func getResult<T: Decodable>(of type: T.Type,
+                                         request: URLRequest,
+                                         session: URLSessionProtocol,
+                                         completion: @escaping ParameterClosure<Result<T, MinderaPeopleServiceError>>) {
+        session.dataTask(with: request) { data, response, error in
+            guard error == nil else {
+                completion(.failure(MinderaPeopleServiceError.networkError))
+                return
+            }
+            if data != nil, let data = data {
                 let decoder = JSONDecoder()
                 do {
                     let response = try decoder.decode(T.self, from: data)

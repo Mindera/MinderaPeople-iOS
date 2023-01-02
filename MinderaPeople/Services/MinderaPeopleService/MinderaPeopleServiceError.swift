@@ -6,4 +6,5 @@ enum MinderaPeopleServiceError: Error, Equatable {
     case noToken
     case invalidUrl
     case parseError
+    case networkError
 }
