@@ -1,0 +1,4 @@
+scheme ENV["SCHEME"]
+output_directory("./build")
+output_name("MinderaPeople")
+clean(true)
