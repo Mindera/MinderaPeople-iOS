@@ -5,11 +5,14 @@ import SwiftUI
 struct MinderaPeopleApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
-    private let feature = RootFeature()
+    let store = Store(
+      initialState: Root.State(),
+      reducer: Root()._printChanges()
+    )
 
     var body: some Scene {
         WindowGroup {
-            RootView(store: .init(initialState: .init(), reducer: feature))
+            RootView(store: store)
         }
     }
 }
