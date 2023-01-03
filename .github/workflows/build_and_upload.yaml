@@ -1,7 +1,7 @@
-name: iOS binary build & upload
+name: "iOS binary build & upload"
  
-on:
- workflow_dispatch:
+on: 
+  workflow_dispatch:
  
 env:
   DEVELOPER_DIR: "/Applications/Xcode_14.1.app/Contents/Developer"
@@ -9,20 +9,27 @@ jobs:
  deploy:
    runs-on: macos-12
    steps:
-     - uses: actions/checkout@v2
-    
+     - name: Checkout
+       uses: actions/checkout@v2
+
+     - name: Import Code-Signing Certificates
+       uses: Apple-Actions/import-codesign-certs@v1
+       with:
+         p12-file-base64: ${{ secrets.DISTRIBUTION_SIGNING_KEY }}
+         p12-password: ${{ secrets.MATCH_PASSWORD }}
+
      - name: Build & upload iOS binary
-       run: fastlane ios beta
+       run: fastlane beta
        env:
-         APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
          APP_STORE_CONNECT_API_KEY_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
          APP_STORE_CONNECT_API_KEY_KEY_ID: ${{ secrets.ASC_KEY_ID }}
          APP_STORE_CONNECT_API_KEY_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
          ITUNESCONNECT_USER: ${{ secrets.APPLE_ID }}
-         GIT_BRANCH: ${{ secrets.GIT_BRANCH }}
          GIT_URL: ${{ secrets.GIT_URL }}
+         GIT_BRANCH: ${{ secrets.GIT_BRANCH }}
          ITC_TEAM_ID: ${{ secrets.ITC_TEAM_ID }}
          FASTLANE_TEAM_ID: ${{ secrets.TEAM_ID }}
          FL_PROJECT_TEAM_ID: ${{ secrets.TEAM_ID }}
          LATEST_TESTFLIGHT_BUILD_NUMBER_TEAM_ID: ${{ secrets.TEAM_ID }}
+         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
          KEYCHAIN_PATH: ~/Library/Keychains/signing_temp.keychain-db
