@@ -24,8 +24,8 @@ struct HomeView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(Color.red(._100))
                 },
-                icon: icon(.dashboard, isHighlighted: viewStore.selectedTab == .dashboard),
-                text: text(.dashboard, isHighlighted: viewStore.selectedTab == .dashboard)
+                icon: icon(.dashboard, viewStore),
+                text: text(.dashboard, viewStore)
             )
             .tab(
                 .calendar,
@@ -34,8 +34,8 @@ struct HomeView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(Color.yellow(._100))
                 },
-                icon: icon(.calendar, isHighlighted: viewStore.selectedTab == .calendar),
-                text: text(.calendar, isHighlighted: viewStore.selectedTab == .calendar)
+                icon: icon(.calendar, viewStore),
+                text: text(.calendar, viewStore)
             )
             .tab(
                 .myProfile,
@@ -52,15 +52,16 @@ struct HomeView: View {
                             }
                     }
                 },
-                icon: icon(.myProfile, isHighlighted: viewStore.selectedTab == .myProfile),
-                text: text(.myProfile, isHighlighted: viewStore.selectedTab == .myProfile)
+                icon: icon(.myProfile, viewStore),
+                text: text(.myProfile, viewStore)
             )
             .shadow(radius: 1)
             .navigationBarBackButtonHidden()
         }
     }
     
-    private func icon(_ selectionValue: Home.Tab, isHighlighted: Bool) -> some View {
+    private func icon(_ selectionValue: Home.Tab,
+                      _ viewStore: ViewStore<Home.State, Home.Action>) -> some View {
         var name = ""
         switch selectionValue {
         case .dashboard:
@@ -74,10 +75,11 @@ struct HomeView: View {
             .resizable()
             .scaledToFit()
             .frame(width: 24, height: 24)
-            .foregroundColor(isHighlighted ? Color.indigo(._600) : Color.greyBlue(._500))
+            .foregroundColor(viewStore.selectedTab == selectionValue ? Color.indigo(._600) : Color.greyBlue(._500))
     }
     
-    private func text(_ selectionValue: Home.Tab, isHighlighted: Bool) -> some View {
+    private func text(_ selectionValue: Home.Tab,
+                      _ viewStore: ViewStore<Home.State, Home.Action>) -> some View {
         var text = ""
         switch selectionValue {
         case .dashboard:
@@ -89,7 +91,7 @@ struct HomeView: View {
         }
         return Text(text)
             .customFont(size: .XS)
-            .foregroundColor(isHighlighted ? Color.indigo(._600) : Color.greyBlue(._500))
+            .foregroundColor(viewStore.selectedTab == selectionValue ? Color.indigo(._600) : Color.greyBlue(._500))
     }
 }
 
