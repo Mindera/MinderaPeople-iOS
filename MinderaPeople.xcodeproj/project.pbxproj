@@ -28,6 +28,8 @@
 		1F3CB0E02941E3D700A863BD /* BiometricAuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB0DF2941E3D700A863BD /* BiometricAuthenticatorTests.swift */; };
 		1F3CB0E22941F9DF00A863BD /* LAContextMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB0E12941F9DF00A863BD /* LAContextMock.swift */; };
 		1F40D7922968129A00C0A6EC /* MinderaPeopleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F40D7912968129A00C0A6EC /* MinderaPeopleApp.swift */; };
+		1F4124712965B61A00036866 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1F4124702965B61A00036866 /* FirebaseAuth */; };
+		1F4124732965B61A00036866 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1F4124722965B61A00036866 /* FirebaseCrashlytics */; };
 		1F76A19829223F9700155169 /* BiometricAuthenticatorClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F76A19729223F9700155169 /* BiometricAuthenticatorClient.swift */; };
 		1F76A19A29227A1900155169 /* BiometricAuthenticatorClientLiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F76A19929227A1900155169 /* BiometricAuthenticatorClientLiveKey.swift */; };
 		1F76A19C2922865D00155169 /* BiometricAuthenticatorClientTestKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F76A19B2922865D00155169 /* BiometricAuthenticatorClientTestKey.swift */; };
@@ -44,7 +46,6 @@
 		9A41633F294C869C00093FB4 /* MinderaPeopleServiceClientLiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A41633E294C869C00093FB4 /* MinderaPeopleServiceClientLiveKey.swift */; };
 		9A416341294C86A800093FB4 /* MinderaPeopleServiceClientTestKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A416340294C86A800093FB4 /* MinderaPeopleServiceClientTestKey.swift */; };
 		9A59868E2964957D00850DF5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59868D2964957D00850DF5 /* LoginView.swift */; };
-		9A770B292963493F0076194D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9AD5FCA829339CF7000E5927 /* FirebaseAuth */; };
 		9A770B2A2963493F0076194D /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9AD5FCAA29339D15000E5927 /* GoogleSignIn */; };
 		9A770B2C29634A8D0076194D /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9A770B2B29634A8D0076194D /* GoogleSignInSwift */; };
 		9A770B2F296353420076194D /* MinderaDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 9A770B2E296353420076194D /* MinderaDesignSystem */; };
@@ -143,13 +144,14 @@
 			files = (
 				1245E19F28EF937400A6CC52 /* AlicercePerformanceMetrics in Frameworks */,
 				9A770B2F296353420076194D /* MinderaDesignSystem in Frameworks */,
-				12366EB6291DB07600A920AB /* FirebaseAuth in Frameworks */,
 				1245E19B28EF937400A6CC52 /* AlicerceLogging in Frameworks */,
 				1245E1A428EF93C900A6CC52 /* ComposableArchitecture in Frameworks */,
 				1245E1A128EF937400A6CC52 /* AlicercePersistence in Frameworks */,
 				1245E19D28EF937400A6CC52 /* AlicerceNetwork in Frameworks */,
 				9A7D37A9291A6A5900151691 /* GoogleSignInSwift in Frameworks */,
+				1F4124712965B61A00036866 /* FirebaseAuth in Frameworks */,
 				1245E19728EF937400A6CC52 /* Alicerce in Frameworks */,
+				1F4124732965B61A00036866 /* FirebaseCrashlytics in Frameworks */,
 				1245E19928EF937400A6CC52 /* AlicerceAnalytics in Frameworks */,
 				9A7D37A7291A6A5900151691 /* GoogleSignIn in Frameworks */,
 			);
@@ -168,7 +170,6 @@
 			files = (
 				9A770B2C29634A8D0076194D /* GoogleSignInSwift in Frameworks */,
 				9A770B2A2963493F0076194D /* GoogleSignIn in Frameworks */,
-				9A770B292963493F0076194D /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +490,7 @@
 				1245E16528EF91EB00A6CC52 /* Frameworks */,
 				9AE4EBFC29253D990098BCA3 /* Setup Firebase Environment GoogleService-Info.plist */,
 				1245E16628EF91EB00A6CC52 /* Resources */,
+				1F41246E2965B56400036866 /* Upload dSYM for Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -505,8 +507,9 @@
 				1245E1A328EF93C900A6CC52 /* ComposableArchitecture */,
 				9A7D37A6291A6A5900151691 /* GoogleSignIn */,
 				9A7D37A8291A6A5900151691 /* GoogleSignInSwift */,
-				12366EB5291DB07600A920AB /* FirebaseAuth */,
 				9A770B2E296353420076194D /* MinderaDesignSystem */,
+				1F4124702965B61A00036866 /* FirebaseAuth */,
+				1F4124722965B61A00036866 /* FirebaseCrashlytics */,
 			);
 			productName = MinderaPeople;
 			productReference = 1245E16828EF91EB00A6CC52 /* MinderaPeople.app */;
@@ -527,7 +530,6 @@
 			);
 			name = MinderaPeopleTests;
 			packageProductDependencies = (
-				9AD5FCA829339CF7000E5927 /* FirebaseAuth */,
 				9AD5FCAA29339D15000E5927 /* GoogleSignIn */,
 				9A770B2B29634A8D0076194D /* GoogleSignInSwift */,
 			);
@@ -589,8 +591,8 @@
 				1245E19528EF937400A6CC52 /* XCRemoteSwiftPackageReference "Alicerce" */,
 				1245E1A228EF93C900A6CC52 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				9A7D37A5291A6A5900151691 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
-				12366EB4291DB07600A920AB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				9A770B2D296353420076194D /* XCRemoteSwiftPackageReference "MinderaDesignSystem-iOS" */,
+				1F41246F2965B61A00036866 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 1245E16928EF91EB00A6CC52 /* Products */;
 			projectDirPath = "";
@@ -632,6 +634,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1F41246E2965B56400036866 /* Upload dSYM for Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Upload dSYM for Crashlytics";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
 		9AE4EBFC29253D990098BCA3 /* Setup Firebase Environment GoogleService-Info.plist */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -1037,14 +1059,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		12366EB4291DB07600A920AB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
 		1245E19528EF937400A6CC52 /* XCRemoteSwiftPackageReference "Alicerce" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Mindera/Alicerce.git";
@@ -1059,6 +1073,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.9.0;
+			};
+		};
+		1F41246F2965B61A00036866 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
 			};
 		};
 		9A770B2D296353420076194D /* XCRemoteSwiftPackageReference "MinderaDesignSystem-iOS" */ = {
@@ -1080,11 +1102,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		12366EB5291DB07600A920AB /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 12366EB4291DB07600A920AB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
 		1245E19628EF937400A6CC52 /* Alicerce */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1245E19528EF937400A6CC52 /* XCRemoteSwiftPackageReference "Alicerce" */;
@@ -1120,6 +1137,16 @@
 			package = 1245E1A228EF93C900A6CC52 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
 		};
+		1F4124702965B61A00036866 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F41246F2965B61A00036866 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		1F4124722965B61A00036866 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F41246F2965B61A00036866 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		9A770B2B29634A8D0076194D /* GoogleSignInSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9A7D37A5291A6A5900151691 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
@@ -1139,11 +1166,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9A7D37A5291A6A5900151691 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
-		};
-		9AD5FCA829339CF7000E5927 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 12366EB4291DB07600A920AB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
 		};
 		9AD5FCAA29339D15000E5927 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
