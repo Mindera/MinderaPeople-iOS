@@ -17,7 +17,7 @@ struct Login: ReducerProtocol {
     }
 
     @Dependency(\.minderaPeopleService) var minderaPeopleService
-    @Dependency(\.keyChainService) var keyChainService
+    @Dependency(\.keychainService) var keychainService
 
     var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
@@ -27,7 +27,7 @@ struct Login: ReducerProtocol {
                 state.isLoading = true
 
             case let .tokenResponse(token):
-                keyChainService.update(token, .tokenKey)
+                keychainService.update(token, .tokenKey)
                 state.isShowingWebView = false
                 return .task {
                     await .userResponse(

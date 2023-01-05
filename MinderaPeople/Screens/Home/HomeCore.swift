@@ -19,13 +19,13 @@ struct Home: ReducerProtocol {
         case tabButtonPressed(Tab)
     }
     
-    @Dependency(\.keyChainService) var keyChainService
+    @Dependency(\.keychainService) var keychainService
     
     var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
             switch action {
             case .logOutButtonTapped:
-                keyChainService.remove(.tokenKey)
+                keychainService.remove(.tokenKey)
                 
             case .alertDismissTapped:
                 state.alert = nil

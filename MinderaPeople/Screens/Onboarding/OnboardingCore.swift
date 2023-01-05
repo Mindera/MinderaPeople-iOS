@@ -17,7 +17,7 @@ struct Onboarding: ReducerProtocol {
     }
 
     @Dependency(\.minderaPeopleService) var minderaPeopleService
-    @Dependency(\.keyChainService) var keyChainService
+    @Dependency(\.keychainService) var keychainService
 
     var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
@@ -26,7 +26,7 @@ struct Onboarding: ReducerProtocol {
                 return .task {
                     await .userResponse(
                         TaskResult {
-                            try await minderaPeopleService.user(keyChainService.load(.tokenKey))
+                            try await minderaPeopleService.user(keychainService.load(.tokenKey))
                         }
                     )
                 }

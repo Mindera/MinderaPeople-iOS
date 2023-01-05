@@ -7,7 +7,7 @@ public struct KeyChainServiceClient {
 }
 
 extension DependencyValues {
-    var keyChainService: KeyChainServiceClient {
+    var keychainService: KeyChainServiceClient {
         get { self[KeyChainServiceClient.self] }
         set { self[KeyChainServiceClient.self] = newValue }
     }
