@@ -27,15 +27,20 @@ struct Login: ReducerProtocol {
             state.isLoading = true
             
         case let .tokenResponse(token):
-            keychainService.update(token, .tokenKey)
             state.isShowingWebView = false
-            return .task {
-                await .userResponse(
-                    TaskResult {
-                        try await minderaPeopleService.user(token)
-                    }
-                )
-            }
+            
+            return .merge(
+                .fireAndForget {
+                    keychainService.update(token, .tokenKey)
+                },
+                .task {
+                    await .userResponse(
+                        TaskResult {
+                            try await minderaPeopleService.user(token)
+                        }
+                    )
+                }
+            )
 
         case let .userResponse(.failure(error)):
             state.isLoading = false
