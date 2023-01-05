@@ -7,7 +7,11 @@ struct Root: ReducerProtocol {
         case home(Home.State)
 
         init() {
+#if DEBUG
+            self = .home(.init())
+#else
             self = .onboarding(.init())
+#endif
         }
     }
 
