@@ -4,9 +4,11 @@ import SwiftUI
 
 struct HomeView: View {
     let store: StoreOf<Home>
+    let dashboardStore: StoreOf<Dashboard>
     
     init(store: StoreOf<Home>) {
         self.store = store
+        self.dashboardStore = .init(initialState: .init(), reducer: Dashboard())
     }
     
     var body: some View {
@@ -20,9 +22,7 @@ struct HomeView: View {
             .tab(
                 .dashboard,
                 content: {
-                    Text("Dashboard")
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(Color.red(._100))
+                    DashboardView(store: dashboardStore)
                 },
                 icon: icon(.dashboard, viewStore),
                 text: text(.dashboard, viewStore)
