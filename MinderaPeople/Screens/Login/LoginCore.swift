@@ -6,6 +6,7 @@ struct Login: ReducerProtocol {
         var isLoading = false
         var alert: AlertState<Action>?
         var isShowingWebView = false
+        var userApiUrl = URL(string: "https://people.mindera.com/auth/google?mobile=ios")
     }
 
     enum Action: Equatable {
@@ -19,43 +20,41 @@ struct Login: ReducerProtocol {
     @Dependency(\.minderaPeopleService) var minderaPeopleService
     @Dependency(\.keychainService) var keychainService
 
-    var body: some ReducerProtocol<State, Action> {
-        Reduce { state, action in
-            switch action {
-            case .logInButtonTapped:
-                state.isShowingWebView = true
-                state.isLoading = true
-
-            case let .tokenResponse(token):
-                keychainService.update(token, .tokenKey)
-                state.isShowingWebView = false
-                return .task {
-                    await .userResponse(
-                        TaskResult {
-                            try await minderaPeopleService.user(token)
-                        }
-                    )
-                }
-
-            case let .userResponse(.failure(error)):
-                state.isLoading = false
-                state.alert = AlertState.configure(
-                    message: error.localizedDescription,
-                    defaultAction: .logInButtonTapped,
-                    cancelAction: .alertDismissTapped
+    public func reduce(into state: inout State, action: Action) -> Effect<Action, Never> {
+        switch action {
+        case .logInButtonTapped:
+            state.isShowingWebView = true
+            state.isLoading = true
+            
+        case let .tokenResponse(token):
+            keychainService.update(token, .tokenKey)
+            state.isShowingWebView = false
+            return .task {
+                await .userResponse(
+                    TaskResult {
+                        try await minderaPeopleService.user(token)
+                    }
                 )
-
-            case .userResponse(.success):
-                state.isLoading = false
-
-            case .webViewDismissed:
-                state.isShowingWebView = false
-                state.isLoading = false
-
-            case .alertDismissTapped:
-                state.alert = nil
             }
-            return .none
+
+        case let .userResponse(.failure(error)):
+            state.isLoading = false
+            state.alert = AlertState.configure(
+                message: error.localizedDescription,
+                defaultAction: .logInButtonTapped,
+                cancelAction: .alertDismissTapped
+            )
+            
+        case .userResponse(.success):
+            state.isLoading = false
+            
+        case .webViewDismissed:
+            state.isShowingWebView = false
+            state.isLoading = false
+            
+        case .alertDismissTapped:
+            state.alert = nil
         }
+        return .none
     }
 }

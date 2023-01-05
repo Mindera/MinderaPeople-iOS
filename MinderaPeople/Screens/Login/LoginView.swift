@@ -42,10 +42,12 @@ struct LoginView: View {
                     get: \.isShowingWebView,
                     send: .webViewDismissed
                 )) {
-                    WebView(request: URLRequest(url: URL(string: "https://people.mindera.com/auth/google?mobile=ios")!)) { token in
-                        viewStore.send(.tokenResponse(token))
+                    if let userApiUrl = viewStore.state.userApiUrl {
+                        WebView(request: URLRequest(url: userApiUrl)) { token in
+                            viewStore.send(.tokenResponse(token))
+                        }
                     }
-            }
+                }
         }
     }
 }

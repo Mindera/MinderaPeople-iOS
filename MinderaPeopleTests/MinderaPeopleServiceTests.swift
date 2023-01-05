@@ -8,6 +8,7 @@ final class MinderaPeopleServiceTests: XCTestCase {
     override func setUp() {
         super.setUp()
         mockedURLSession = .init()
+        service = MinderaPeopleService(session: mockedURLSession)
     }
 
     override func tearDown() {
@@ -18,7 +19,6 @@ final class MinderaPeopleServiceTests: XCTestCase {
     
     func testNoTokenPassed() async {
         mockedURLSession.expectedResponse = .userSuccess
-        service = MinderaPeopleService(session: mockedURLSession)
         
         do {
             _ = try await service.user(token: nil)
@@ -29,7 +29,6 @@ final class MinderaPeopleServiceTests: XCTestCase {
     
     func testUserSuccessResponse() async {
         mockedURLSession.expectedResponse = .userSuccess
-        service = MinderaPeopleService(session: mockedURLSession)
         
         do {
             let user = try await service.user(token: "12345")
@@ -41,7 +40,6 @@ final class MinderaPeopleServiceTests: XCTestCase {
     
     func testUserFailureResponse() async {
         mockedURLSession.expectedResponse = .userFailure
-        service = MinderaPeopleService(session: mockedURLSession)
     
         do {
             _ = try await service.user(token: "12345")
@@ -52,7 +50,6 @@ final class MinderaPeopleServiceTests: XCTestCase {
     
     func testNetworkErrorResponse() async {
         mockedURLSession.expectedResponse = .error
-        service = MinderaPeopleService(session: mockedURLSession)
     
         do {
             _ = try await service.user(token: "12345")

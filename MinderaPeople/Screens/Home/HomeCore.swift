@@ -21,20 +21,18 @@ struct Home: ReducerProtocol {
     
     @Dependency(\.keychainService) var keychainService
     
-    var body: some ReducerProtocol<State, Action> {
-        Reduce { state, action in
-            switch action {
-            case .logOutButtonTapped:
-                keychainService.remove(.tokenKey)
-                
-            case .alertDismissTapped:
-                state.alert = nil
-                
-            case let .tabButtonPressed(tab):
-                state.selectedTab = tab
-            }
+    public func reduce(into state: inout State, action: Action) -> Effect<Action, Never> {
+        switch action {
+        case .logOutButtonTapped:
+            keychainService.remove(.tokenKey)
             
-            return .none
+        case .alertDismissTapped:
+            state.alert = nil
+            
+        case let .tabButtonPressed(tab):
+            state.selectedTab = tab
         }
+
+        return .none
     }
 }
