@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		12366EB6291DB07600A920AB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 12366EB5291DB07600A920AB /* FirebaseAuth */; };
-		1245E16C28EF91EB00A6CC52 /* MinderaPeopleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E16B28EF91EB00A6CC52 /* MinderaPeopleApp.swift */; };
 		1245E17028EF91ED00A6CC52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1245E16F28EF91ED00A6CC52 /* Assets.xcassets */; };
 		1245E17328EF91ED00A6CC52 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1245E17228EF91ED00A6CC52 /* Preview Assets.xcassets */; };
-		1245E17D28EF91ED00A6CC52 /* MinderaPeopleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E17C28EF91ED00A6CC52 /* MinderaPeopleTests.swift */; };
 		1245E18728EF91ED00A6CC52 /* MinderaPeopleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E18628EF91ED00A6CC52 /* MinderaPeopleUITests.swift */; };
 		1245E18928EF91ED00A6CC52 /* MinderaPeopleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1245E18828EF91ED00A6CC52 /* MinderaPeopleUITestsLaunchTests.swift */; };
 		1245E19728EF937400A6CC52 /* Alicerce in Frameworks */ = {isa = PBXBuildFile; productRef = 1245E19628EF937400A6CC52 /* Alicerce */; };
@@ -29,6 +27,7 @@
 		1F3CB0DC293F7A7000A863BD /* LoggerClientTestKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB0DB293F7A7000A863BD /* LoggerClientTestKey.swift */; };
 		1F3CB0E02941E3D700A863BD /* BiometricAuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB0DF2941E3D700A863BD /* BiometricAuthenticatorTests.swift */; };
 		1F3CB0E22941F9DF00A863BD /* LAContextMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB0E12941F9DF00A863BD /* LAContextMock.swift */; };
+		1F40D7922968129A00C0A6EC /* MinderaPeopleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F40D7912968129A00C0A6EC /* MinderaPeopleApp.swift */; };
 		1F76A19829223F9700155169 /* BiometricAuthenticatorClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F76A19729223F9700155169 /* BiometricAuthenticatorClient.swift */; };
 		1F76A19A29227A1900155169 /* BiometricAuthenticatorClientLiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F76A19929227A1900155169 /* BiometricAuthenticatorClientLiveKey.swift */; };
 		1F76A19C2922865D00155169 /* BiometricAuthenticatorClientTestKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F76A19B2922865D00155169 /* BiometricAuthenticatorClientTestKey.swift */; };
@@ -87,11 +86,9 @@
 
 /* Begin PBXFileReference section */
 		1245E16828EF91EB00A6CC52 /* MinderaPeople.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinderaPeople.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1245E16B28EF91EB00A6CC52 /* MinderaPeopleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleApp.swift; sourceTree = "<group>"; };
 		1245E16F28EF91ED00A6CC52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1245E17228EF91ED00A6CC52 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1245E17828EF91ED00A6CC52 /* MinderaPeopleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinderaPeopleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1245E17C28EF91ED00A6CC52 /* MinderaPeopleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleTests.swift; sourceTree = "<group>"; };
 		1245E18228EF91ED00A6CC52 /* MinderaPeopleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinderaPeopleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1245E18628EF91ED00A6CC52 /* MinderaPeopleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleUITests.swift; sourceTree = "<group>"; };
 		1245E18828EF91ED00A6CC52 /* MinderaPeopleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -103,6 +100,7 @@
 		1F3CB0DB293F7A7000A863BD /* LoggerClientTestKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerClientTestKey.swift; sourceTree = "<group>"; };
 		1F3CB0DF2941E3D700A863BD /* BiometricAuthenticatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticatorTests.swift; sourceTree = "<group>"; };
 		1F3CB0E12941F9DF00A863BD /* LAContextMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAContextMock.swift; sourceTree = "<group>"; };
+		1F40D7912968129A00C0A6EC /* MinderaPeopleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinderaPeopleApp.swift; sourceTree = "<group>"; };
 		1F76A19729223F9700155169 /* BiometricAuthenticatorClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticatorClient.swift; sourceTree = "<group>"; };
 		1F76A19929227A1900155169 /* BiometricAuthenticatorClientLiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticatorClientLiveKey.swift; sourceTree = "<group>"; };
 		1F76A19B2922865D00155169 /* BiometricAuthenticatorClientTestKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticatorClientTestKey.swift; sourceTree = "<group>"; };
@@ -210,7 +208,7 @@
 		1245E16A28EF91EB00A6CC52 /* MinderaPeople */ = {
 			isa = PBXGroup;
 			children = (
-				1245E16B28EF91EB00A6CC52 /* MinderaPeopleApp.swift */,
+				1F40D7912968129A00C0A6EC /* MinderaPeopleApp.swift */,
 				12B72C1C29141BC7009963B8 /* AppDelegate.swift */,
 				12AE5BC428F7895600BD2744 /* Screens */,
 				12366EB7291DB42500A920AB /* Services */,
@@ -234,7 +232,6 @@
 				9AF7FE8C296344D400DC57FC /* Mocks */,
 				9AF7FE8529632BF500DC57FC /* JSONMocks */,
 				1F3CB0DD2941E3B600A863BD /* Dependencies */,
-				1245E17C28EF91ED00A6CC52 /* MinderaPeopleTests.swift */,
 				9AD6D6E12963586700828233 /* MinderaPeopleServiceTests.swift */,
 			);
 			path = MinderaPeopleTests;
@@ -668,6 +665,7 @@
 				9A41633D294C867000093FB4 /* MinderaPeopleServiceClient.swift in Sources */,
 				9AF7FE5D295392AA00DC57FC /* RootCore.swift in Sources */,
 				9AF7FE662954839800DC57FC /* OnboardingCore.swift in Sources */,
+				1F40D7922968129A00C0A6EC /* MinderaPeopleApp.swift in Sources */,
 				9A41633F294C869C00093FB4 /* MinderaPeopleServiceClientLiveKey.swift in Sources */,
 				9A59868E2964957D00850DF5 /* LoginView.swift in Sources */,
 				9AF7FE7C2955DFA700DC57FC /* KeyChainServiceClientLiveKey.swift in Sources */,
@@ -679,7 +677,6 @@
 				9A12FF2629509E0600936783 /* WebView.swift in Sources */,
 				9AC4A27C294CB17F00A7F1D0 /* MinderaPeopleServiceError.swift in Sources */,
 				9AF7FE60295392EB00DC57FC /* LoginCore.swift in Sources */,
-				1245E16C28EF91EB00A6CC52 /* MinderaPeopleApp.swift in Sources */,
 				127DC93B29294AFC00728015 /* User.swift in Sources */,
 				9AC4A27F294CC58C00A7F1D0 /* UserResponse.swift in Sources */,
 				9AF7FE7E2955DFD400DC57FC /* KeyChainServiceClientTestKey.swift in Sources */,
@@ -692,7 +689,6 @@
 				1F3CB0D8293F77EF00A863BD /* LoggerClient.swift in Sources */,
 				1F76A19F2923AA5E00155169 /* UserDefaultsClient.swift in Sources */,
 				1F76A1A12923AA6700155169 /* UserDefaultsClientLiveKey.swift in Sources */,
-				1245E16C28EF91EB00A6CC52 /* MinderaPeopleApp.swift in Sources */,
 				1F9F69842919428B00F1ABDD /* BiometricAuthenticationFeature.swift in Sources */,
 				1F76A19C2922865D00155169 /* BiometricAuthenticatorClientTestKey.swift in Sources */,
 				1F76A19829223F9700155169 /* BiometricAuthenticatorClient.swift in Sources */,
@@ -706,7 +702,6 @@
 				9AF7FE8E296344ED00DC57FC /* MockURLSession.swift in Sources */,
 				1F3CB0E22941F9DF00A863BD /* LAContextMock.swift in Sources */,
 				1F3CB0E02941E3D700A863BD /* BiometricAuthenticatorTests.swift in Sources */,
-				1245E17D28EF91ED00A6CC52 /* MinderaPeopleTests.swift in Sources */,
 				9AD6D6E22963586700828233 /* MinderaPeopleServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
