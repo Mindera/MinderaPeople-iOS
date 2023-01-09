@@ -10,7 +10,7 @@ class DashboardTests: XCTestCase {
         let error = MinderaPeopleServiceError.noToken
         let testStore = TestStore(initialState: Dashboard.State(), reducer: Dashboard())
         
-        testStore.dependencies.keyChainService.load = { _ in nil }
+        testStore.dependencies.keychainService.load = { _ in nil }
         testStore.dependencies.minderaPeopleService.user = { _ in throw error }
         testStore.dependencies.logger = .noop
         let task = await testStore.send(.onAppear)
@@ -24,7 +24,7 @@ class DashboardTests: XCTestCase {
         let userName = user.name
         let testStore = TestStore(initialState: Dashboard.State(), reducer: Dashboard())
         
-        testStore.dependencies.keyChainService.load = { _ in "12345" }
+        testStore.dependencies.keychainService.load = { _ in "12345" }
         testStore.dependencies.minderaPeopleService.user = { _ in user }
         
         let task = await testStore.send(.onAppear)

@@ -15,7 +15,7 @@ struct Dashboard: ReducerProtocol {
     }
 
     @Dependency(\.minderaPeopleService) var minderaPeopleService
-    @Dependency(\.keyChainService) var keyChainService
+    @Dependency(\.keychainService) var keychainService
     @Dependency(\.logger) var logger
     
     var body: some ReducerProtocol<State, Action> {
@@ -25,7 +25,7 @@ struct Dashboard: ReducerProtocol {
                 return .task {
                     await .userNameFetched(
                         TaskResult {
-                            try await minderaPeopleService.user(keyChainService.load(.tokenKey)).name
+                            try await minderaPeopleService.user(keychainService.load(.tokenKey)).name
                         }
                     )
                 }
