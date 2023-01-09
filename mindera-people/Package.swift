@@ -90,13 +90,12 @@ let package = Package(
         .target(
           name: "LoaderView",
           dependencies: [
-
+            .product(name: "MinderaDesignSystem", package: "minderadesignsystem-ios")
           ]
         ),
         .target(
           name: "WebView",
-          dependencies: [
-          ]
+          dependencies: []
         ),
         .target(
           name: "MinderaPeopleService",
