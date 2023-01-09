@@ -48,6 +48,16 @@
                ReferencedContainer = "container:MinderaPeople.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "MinderaPeopleServiceTests"
+               BuildableName = "MinderaPeopleServiceTests"
+               BlueprintName = "MinderaPeopleServiceTests"
+               ReferencedContainer = "container:mindera-people">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

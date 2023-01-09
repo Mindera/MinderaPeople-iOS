@@ -19,9 +19,7 @@
 		1245E19F28EF937400A6CC52 /* AlicercePerformanceMetrics in Frameworks */ = {isa = PBXBuildFile; productRef = 1245E19E28EF937400A6CC52 /* AlicercePerformanceMetrics */; };
 		1245E1A128EF937400A6CC52 /* AlicercePersistence in Frameworks */ = {isa = PBXBuildFile; productRef = 1245E1A028EF937400A6CC52 /* AlicercePersistence */; };
 		1245E1A428EF93C900A6CC52 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1245E1A328EF93C900A6CC52 /* ComposableArchitecture */; };
-		127DC93B29294AFC00728015 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127DC93A29294AFC00728015 /* User.swift */; };
 		12B72C1D29141BC7009963B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B72C1C29141BC7009963B8 /* AppDelegate.swift */; };
-		12BD112D292C1B5300D91255 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BD112C292C1B5300D91255 /* RootView.swift */; };
 		1F3CB0D8293F77EF00A863BD /* LoggerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB0D7293F77EE00A863BD /* LoggerClient.swift */; };
 		1F3CB0DA293F7A6300A863BD /* LoggerClientLiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB0D9293F7A6300A863BD /* LoggerClientLiveKey.swift */; };
 		1F3CB0DC293F7A7000A863BD /* LoggerClientTestKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CB0DB293F7A7000A863BD /* LoggerClientTestKey.swift */; };
@@ -37,34 +35,14 @@
 		1F9F69842919428B00F1ABDD /* BiometricAuthenticationFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F69832919428B00F1ABDD /* BiometricAuthenticationFeature.swift */; };
 		1F9F6986291BD68400F1ABDD /* LocalAuthenticatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F6985291BD68400F1ABDD /* LocalAuthenticatorView.swift */; };
 		1FFC157E292B73880089D17D /* UserDefaultsClient+BiometricAuthenticatorClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC157D292B73880089D17D /* UserDefaultsClient+BiometricAuthenticatorClient.swift */; };
-		9A093430292EB39700CF5CB7 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A09342F292EB39700CF5CB7 /* LoaderView.swift */; };
-		9A12FF2629509E0600936783 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A12FF2529509E0600936783 /* WebView.swift */; };
-		9A41633A294C857D00093FB4 /* AlertState+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A416339294C857D00093FB4 /* AlertState+Extension.swift */; };
-		9A41633D294C867000093FB4 /* MinderaPeopleServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A41633C294C867000093FB4 /* MinderaPeopleServiceClient.swift */; };
-		9A41633F294C869C00093FB4 /* MinderaPeopleServiceClientLiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A41633E294C869C00093FB4 /* MinderaPeopleServiceClientLiveKey.swift */; };
-		9A416341294C86A800093FB4 /* MinderaPeopleServiceClientTestKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A416340294C86A800093FB4 /* MinderaPeopleServiceClientTestKey.swift */; };
-		9A59868E2964957D00850DF5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A59868D2964957D00850DF5 /* LoginView.swift */; };
+		9A514D9A296B5628006B915A /* RootCore in Frameworks */ = {isa = PBXBuildFile; productRef = 9A514D99296B5628006B915A /* RootCore */; };
+		9A514D9C296B613C006B915A /* RootView in Frameworks */ = {isa = PBXBuildFile; productRef = 9A514D9B296B613C006B915A /* RootView */; };
 		9A770B292963493F0076194D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9AD5FCA829339CF7000E5927 /* FirebaseAuth */; };
 		9A770B2A2963493F0076194D /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9AD5FCAA29339D15000E5927 /* GoogleSignIn */; };
 		9A770B2C29634A8D0076194D /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9A770B2B29634A8D0076194D /* GoogleSignInSwift */; };
 		9A770B2F296353420076194D /* MinderaDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 9A770B2E296353420076194D /* MinderaDesignSystem */; };
 		9A7D37A7291A6A5900151691 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9A7D37A6291A6A5900151691 /* GoogleSignIn */; };
 		9A7D37A9291A6A5900151691 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9A7D37A8291A6A5900151691 /* GoogleSignInSwift */; };
-		9AC4A27C294CB17F00A7F1D0 /* MinderaPeopleServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC4A27B294CB17F00A7F1D0 /* MinderaPeopleServiceError.swift */; };
-		9AC4A27F294CC58C00A7F1D0 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC4A27E294CC58C00A7F1D0 /* UserResponse.swift */; };
-		9AD6D6E22963586700828233 /* MinderaPeopleServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD6D6E12963586700828233 /* MinderaPeopleServiceTests.swift */; };
-		9AE4EBE1291E93170098BCA3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE4EBE0291E93170098BCA3 /* HomeView.swift */; };
-		9AF7FE5D295392AA00DC57FC /* RootCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7FE5C295392AA00DC57FC /* RootCore.swift */; };
-		9AF7FE60295392EB00DC57FC /* LoginCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7FE5F295392EB00DC57FC /* LoginCore.swift */; };
-		9AF7FE632953937500DC57FC /* HomeCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7FE622953937500DC57FC /* HomeCore.swift */; };
-		9AF7FE662954839800DC57FC /* OnboardingCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7FE652954839800DC57FC /* OnboardingCore.swift */; };
-		9AF7FE68295483A300DC57FC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7FE67295483A300DC57FC /* OnboardingView.swift */; };
-		9AF7FE7A2955DF8E00DC57FC /* KeyChainServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7FE792955DF8E00DC57FC /* KeyChainServiceClient.swift */; };
-		9AF7FE7C2955DFA700DC57FC /* KeyChainServiceClientLiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7FE7B2955DFA700DC57FC /* KeyChainServiceClientLiveKey.swift */; };
-		9AF7FE7E2955DFD400DC57FC /* KeyChainServiceClientTestKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7FE7D2955DFD400DC57FC /* KeyChainServiceClientTestKey.swift */; };
-		9AF7FE8729632C3E00DC57FC /* UserSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AF7FE8629632C3E00DC57FC /* UserSuccess.json */; };
-		9AF7FE8B29632F8A00DC57FC /* UserFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AF7FE8A29632F8A00DC57FC /* UserFailure.json */; };
-		9AF7FE8E296344ED00DC57FC /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF7FE8D296344ED00DC57FC /* MockURLSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,9 +70,7 @@
 		1245E18228EF91ED00A6CC52 /* MinderaPeopleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinderaPeopleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1245E18628EF91ED00A6CC52 /* MinderaPeopleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleUITests.swift; sourceTree = "<group>"; };
 		1245E18828EF91ED00A6CC52 /* MinderaPeopleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		127DC93A29294AFC00728015 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		12B72C1C29141BC7009963B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		12BD112C292C1B5300D91255 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1F3CB0D7293F77EE00A863BD /* LoggerClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerClient.swift; sourceTree = "<group>"; };
 		1F3CB0D9293F7A6300A863BD /* LoggerClientLiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerClientLiveKey.swift; sourceTree = "<group>"; };
 		1F3CB0DB293F7A7000A863BD /* LoggerClientTestKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerClientTestKey.swift; sourceTree = "<group>"; };
@@ -110,30 +86,9 @@
 		1F9F69832919428B00F1ABDD /* BiometricAuthenticationFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticationFeature.swift; sourceTree = "<group>"; };
 		1F9F6985291BD68400F1ABDD /* LocalAuthenticatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthenticatorView.swift; sourceTree = "<group>"; };
 		1FFC157D292B73880089D17D /* UserDefaultsClient+BiometricAuthenticatorClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaultsClient+BiometricAuthenticatorClient.swift"; sourceTree = "<group>"; };
-		9A09342F292EB39700CF5CB7 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
-		9A12FF2529509E0600936783 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
-		9A416339294C857D00093FB4 /* AlertState+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertState+Extension.swift"; sourceTree = "<group>"; };
-		9A41633C294C867000093FB4 /* MinderaPeopleServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleServiceClient.swift; sourceTree = "<group>"; };
-		9A41633E294C869C00093FB4 /* MinderaPeopleServiceClientLiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleServiceClientLiveKey.swift; sourceTree = "<group>"; };
-		9A416340294C86A800093FB4 /* MinderaPeopleServiceClientTestKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleServiceClientTestKey.swift; sourceTree = "<group>"; };
-		9A59868D2964957D00850DF5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		9AC4A27B294CB17F00A7F1D0 /* MinderaPeopleServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleServiceError.swift; sourceTree = "<group>"; };
-		9AC4A27E294CC58C00A7F1D0 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
-		9AD6D6E12963586700828233 /* MinderaPeopleServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinderaPeopleServiceTests.swift; sourceTree = "<group>"; };
-		9AE4EBE0291E93170098BCA3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9A31C8D72969D5F300F7302E /* mindera-people */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "mindera-people"; sourceTree = "<group>"; };
 		9AE4EBF729253CBE0098BCA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9AE4EBFB29253CBE0098BCA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		9AF7FE5C295392AA00DC57FC /* RootCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCore.swift; sourceTree = "<group>"; };
-		9AF7FE5F295392EB00DC57FC /* LoginCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCore.swift; sourceTree = "<group>"; };
-		9AF7FE622953937500DC57FC /* HomeCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCore.swift; sourceTree = "<group>"; };
-		9AF7FE652954839800DC57FC /* OnboardingCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCore.swift; sourceTree = "<group>"; };
-		9AF7FE67295483A300DC57FC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		9AF7FE792955DF8E00DC57FC /* KeyChainServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainServiceClient.swift; sourceTree = "<group>"; };
-		9AF7FE7B2955DFA700DC57FC /* KeyChainServiceClientLiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainServiceClientLiveKey.swift; sourceTree = "<group>"; };
-		9AF7FE7D2955DFD400DC57FC /* KeyChainServiceClientTestKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainServiceClientTestKey.swift; sourceTree = "<group>"; };
-		9AF7FE8629632C3E00DC57FC /* UserSuccess.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UserSuccess.json; sourceTree = "<group>"; };
-		9AF7FE8A29632F8A00DC57FC /* UserFailure.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UserFailure.json; sourceTree = "<group>"; };
-		9AF7FE8D296344ED00DC57FC /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1245E19F28EF937400A6CC52 /* AlicercePerformanceMetrics in Frameworks */,
+				9A514D9A296B5628006B915A /* RootCore in Frameworks */,
 				9A770B2F296353420076194D /* MinderaDesignSystem in Frameworks */,
 				12366EB6291DB07600A920AB /* FirebaseAuth in Frameworks */,
 				1245E19B28EF937400A6CC52 /* AlicerceLogging in Frameworks */,
@@ -150,6 +106,7 @@
 				1245E19D28EF937400A6CC52 /* AlicerceNetwork in Frameworks */,
 				9A7D37A9291A6A5900151691 /* GoogleSignInSwift in Frameworks */,
 				1245E19728EF937400A6CC52 /* Alicerce in Frameworks */,
+				9A514D9C296B613C006B915A /* RootView in Frameworks */,
 				1245E19928EF937400A6CC52 /* AlicerceAnalytics in Frameworks */,
 				9A7D37A7291A6A5900151691 /* GoogleSignIn in Frameworks */,
 			);
@@ -175,18 +132,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		12366EB7291DB42500A920AB /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				9AF7FE762955D11900DC57FC /* KeyChainService */,
-				9A41633B294C865600093FB4 /* MinderaPeopleService */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		1245E15F28EF91EB00A6CC52 = {
 			isa = PBXGroup;
 			children = (
+				9A31C8D72969D5F300F7302E /* mindera-people */,
 				1245E16A28EF91EB00A6CC52 /* MinderaPeople */,
 				1245E17B28EF91ED00A6CC52 /* MinderaPeopleTests */,
 				1245E18528EF91ED00A6CC52 /* MinderaPeopleUITests */,
@@ -211,7 +160,6 @@
 				1F40D7912968129A00C0A6EC /* MinderaPeopleApp.swift */,
 				12B72C1C29141BC7009963B8 /* AppDelegate.swift */,
 				12AE5BC428F7895600BD2744 /* Screens */,
-				12366EB7291DB42500A920AB /* Services */,
 				1F9F69822919426000F1ABDD /* Dependencies */,
 				12AE5BC328F788DD00BD2744 /* Resources */,
 			);
@@ -229,10 +177,7 @@
 		1245E17B28EF91ED00A6CC52 /* MinderaPeopleTests */ = {
 			isa = PBXGroup;
 			children = (
-				9AF7FE8C296344D400DC57FC /* Mocks */,
-				9AF7FE8529632BF500DC57FC /* JSONMocks */,
 				1F3CB0DD2941E3B600A863BD /* Dependencies */,
-				9AD6D6E12963586700828233 /* MinderaPeopleServiceTests.swift */,
 			);
 			path = MinderaPeopleTests;
 			sourceTree = "<group>";
@@ -258,7 +203,6 @@
 		12AE5BC328F788DD00BD2744 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9A416337294C856000093FB4 /* Helpers */,
 				9AE4EBF329253CBE0098BCA3 /* Firebase */,
 				1245E16F28EF91ED00A6CC52 /* Assets.xcassets */,
 				1245E17128EF91ED00A6CC52 /* Preview Content */,
@@ -269,11 +213,6 @@
 		12AE5BC428F7895600BD2744 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				9AF7FE5B2953923800DC57FC /* Root */,
-				9AF7FE642954837E00DC57FC /* Onboarding */,
-				9AF7FE5E295392E200DC57FC /* Login */,
-				9AF7FE612953936B00DC57FC /* Home */,
-				9A09342F292EB39700CF5CB7 /* LoaderView.swift */,
 				127DC93429293C8200728015 /* AuthenticationDebugView */,
 			);
 			path = Screens;
@@ -337,52 +276,6 @@
 			path = Dependencies;
 			sourceTree = "<group>";
 		};
-		9A12FF2429509DED00936783 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				9A12FF2529509E0600936783 /* WebView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		9A416337294C856000093FB4 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				9A12FF2429509DED00936783 /* Views */,
-				9A416338294C856F00093FB4 /* Extensions */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		9A416338294C856F00093FB4 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				9A416339294C857D00093FB4 /* AlertState+Extension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		9A41633B294C865600093FB4 /* MinderaPeopleService */ = {
-			isa = PBXGroup;
-			children = (
-				9AC4A27D294CC57B00A7F1D0 /* Responses */,
-				9A41633C294C867000093FB4 /* MinderaPeopleServiceClient.swift */,
-				9A41633E294C869C00093FB4 /* MinderaPeopleServiceClientLiveKey.swift */,
-				9A416340294C86A800093FB4 /* MinderaPeopleServiceClientTestKey.swift */,
-				9AC4A27B294CB17F00A7F1D0 /* MinderaPeopleServiceError.swift */,
-			);
-			path = MinderaPeopleService;
-			sourceTree = "<group>";
-		};
-		9AC4A27D294CC57B00A7F1D0 /* Responses */ = {
-			isa = PBXGroup;
-			children = (
-				9AC4A27E294CC58C00A7F1D0 /* UserResponse.swift */,
-				127DC93A29294AFC00728015 /* User.swift */,
-			);
-			path = Responses;
-			sourceTree = "<group>";
-		};
 		9AD5FCA729339CF7000E5927 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,69 +308,6 @@
 			path = Debug;
 			sourceTree = "<group>";
 		};
-		9AF7FE5B2953923800DC57FC /* Root */ = {
-			isa = PBXGroup;
-			children = (
-				9AF7FE5C295392AA00DC57FC /* RootCore.swift */,
-				12BD112C292C1B5300D91255 /* RootView.swift */,
-			);
-			path = Root;
-			sourceTree = "<group>";
-		};
-		9AF7FE5E295392E200DC57FC /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				9AF7FE5F295392EB00DC57FC /* LoginCore.swift */,
-				9A59868D2964957D00850DF5 /* LoginView.swift */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		9AF7FE612953936B00DC57FC /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				9AF7FE622953937500DC57FC /* HomeCore.swift */,
-				9AE4EBE0291E93170098BCA3 /* HomeView.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		9AF7FE642954837E00DC57FC /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				9AF7FE652954839800DC57FC /* OnboardingCore.swift */,
-				9AF7FE67295483A300DC57FC /* OnboardingView.swift */,
-			);
-			path = Onboarding;
-			sourceTree = "<group>";
-		};
-		9AF7FE762955D11900DC57FC /* KeyChainService */ = {
-			isa = PBXGroup;
-			children = (
-				9AF7FE792955DF8E00DC57FC /* KeyChainServiceClient.swift */,
-				9AF7FE7B2955DFA700DC57FC /* KeyChainServiceClientLiveKey.swift */,
-				9AF7FE7D2955DFD400DC57FC /* KeyChainServiceClientTestKey.swift */,
-			);
-			path = KeyChainService;
-			sourceTree = "<group>";
-		};
-		9AF7FE8529632BF500DC57FC /* JSONMocks */ = {
-			isa = PBXGroup;
-			children = (
-				9AF7FE8629632C3E00DC57FC /* UserSuccess.json */,
-				9AF7FE8A29632F8A00DC57FC /* UserFailure.json */,
-			);
-			path = JSONMocks;
-			sourceTree = "<group>";
-		};
-		9AF7FE8C296344D400DC57FC /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				9AF7FE8D296344ED00DC57FC /* MockURLSession.swift */,
-			);
-			path = Mocks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -507,6 +337,8 @@
 				9A7D37A8291A6A5900151691 /* GoogleSignInSwift */,
 				12366EB5291DB07600A920AB /* FirebaseAuth */,
 				9A770B2E296353420076194D /* MinderaDesignSystem */,
+				9A514D99296B5628006B915A /* RootCore */,
+				9A514D9B296B613C006B915A /* RootView */,
 			);
 			productName = MinderaPeople;
 			productReference = 1245E16828EF91EB00A6CC52 /* MinderaPeople.app */;
@@ -617,8 +449,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AF7FE8729632C3E00DC57FC /* UserSuccess.json in Resources */,
-				9AF7FE8B29632F8A00DC57FC /* UserFailure.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,28 +488,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A416341294C86A800093FB4 /* MinderaPeopleServiceClientTestKey.swift in Sources */,
-				9AF7FE7A2955DF8E00DC57FC /* KeyChainServiceClient.swift in Sources */,
-				9AF7FE632953937500DC57FC /* HomeCore.swift in Sources */,
-				9A093430292EB39700CF5CB7 /* LoaderView.swift in Sources */,
-				9A41633D294C867000093FB4 /* MinderaPeopleServiceClient.swift in Sources */,
-				9AF7FE5D295392AA00DC57FC /* RootCore.swift in Sources */,
-				9AF7FE662954839800DC57FC /* OnboardingCore.swift in Sources */,
 				1F40D7922968129A00C0A6EC /* MinderaPeopleApp.swift in Sources */,
-				9A41633F294C869C00093FB4 /* MinderaPeopleServiceClientLiveKey.swift in Sources */,
-				9A59868E2964957D00850DF5 /* LoginView.swift in Sources */,
-				9AF7FE7C2955DFA700DC57FC /* KeyChainServiceClientLiveKey.swift in Sources */,
-				9AE4EBE1291E93170098BCA3 /* HomeView.swift in Sources */,
-				9A41633A294C857D00093FB4 /* AlertState+Extension.swift in Sources */,
-				12BD112D292C1B5300D91255 /* RootView.swift in Sources */,
 				12B72C1D29141BC7009963B8 /* AppDelegate.swift in Sources */,
-				9AF7FE68295483A300DC57FC /* OnboardingView.swift in Sources */,
-				9A12FF2629509E0600936783 /* WebView.swift in Sources */,
-				9AC4A27C294CB17F00A7F1D0 /* MinderaPeopleServiceError.swift in Sources */,
-				9AF7FE60295392EB00DC57FC /* LoginCore.swift in Sources */,
-				127DC93B29294AFC00728015 /* User.swift in Sources */,
-				9AC4A27F294CC58C00A7F1D0 /* UserResponse.swift in Sources */,
-				9AF7FE7E2955DFD400DC57FC /* KeyChainServiceClientTestKey.swift in Sources */,
 				1F3CB0DC293F7A7000A863BD /* LoggerClientTestKey.swift in Sources */,
 				1FFC157E292B73880089D17D /* UserDefaultsClient+BiometricAuthenticatorClient.swift in Sources */,
 				1F9F6986291BD68400F1ABDD /* LocalAuthenticatorView.swift in Sources */,
@@ -699,10 +509,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AF7FE8E296344ED00DC57FC /* MockURLSession.swift in Sources */,
 				1F3CB0E22941F9DF00A863BD /* LAContextMock.swift in Sources */,
 				1F3CB0E02941E3D700A863BD /* BiometricAuthenticatorTests.swift in Sources */,
-				9AD6D6E22963586700828233 /* MinderaPeopleServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1119,6 +927,14 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1245E1A228EF93C900A6CC52 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		9A514D99296B5628006B915A /* RootCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RootCore;
+		};
+		9A514D9B296B613C006B915A /* RootView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RootView;
 		};
 		9A770B2B29634A8D0076194D /* GoogleSignInSwift */ = {
 			isa = XCSwiftPackageProductDependency;

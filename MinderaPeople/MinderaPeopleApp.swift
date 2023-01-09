@@ -1,5 +1,7 @@
 import ComposableArchitecture
 import SwiftUI
+import RootCore
+import RootView
 
 @main
 struct MinderaPeopleApp: App {
