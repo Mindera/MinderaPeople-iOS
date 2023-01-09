@@ -11,7 +11,6 @@ struct Dashboard: ReducerProtocol {
     enum Action: Equatable {
         case onAppear
         case userNameFetched(TaskResult<String>)
-        case notificationsResponse(TaskResult<Bool>)
         case none
     }
 
@@ -34,12 +33,6 @@ struct Dashboard: ReducerProtocol {
                 state.greetingMessage = "Hello, \(userName)"
                 return .none
             case .userNameFetched(.failure(let error)):
-                logger.logError(error.localizedDescription)
-                return .none
-            case .notificationsResponse(.success(let hasNotifications)):
-                state.hasNotifications = hasNotifications
-                return .none
-            case .notificationsResponse(.failure(let error)):
                 logger.logError(error.localizedDescription)
                 return .none
             case .none:

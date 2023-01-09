@@ -31,6 +31,7 @@
 		1F4124712965B61A00036866 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1F4124702965B61A00036866 /* FirebaseAuth */; };
 		1F4124732965B61A00036866 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1F4124722965B61A00036866 /* FirebaseCrashlytics */; };
 		1F4124752965B8CF00036866 /* DashboardCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4124742965B8CF00036866 /* DashboardCore.swift */; };
+		1F41247A2966E04000036866 /* DashboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4124792966E04000036866 /* DashboardTests.swift */; };
 		1F76A19829223F9700155169 /* BiometricAuthenticatorClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F76A19729223F9700155169 /* BiometricAuthenticatorClient.swift */; };
 		1F76A19A29227A1900155169 /* BiometricAuthenticatorClientLiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F76A19929227A1900155169 /* BiometricAuthenticatorClientLiveKey.swift */; };
 		1F76A19C2922865D00155169 /* BiometricAuthenticatorClientTestKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F76A19B2922865D00155169 /* BiometricAuthenticatorClientTestKey.swift */; };
@@ -105,6 +106,7 @@
 		1F3CB0E12941F9DF00A863BD /* LAContextMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAContextMock.swift; sourceTree = "<group>"; };
 		1F40D7912968129A00C0A6EC /* MinderaPeopleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinderaPeopleApp.swift; sourceTree = "<group>"; };
 		1F4124742965B8CF00036866 /* DashboardCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCore.swift; sourceTree = "<group>"; };
+		1F4124792966E04000036866 /* DashboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTests.swift; sourceTree = "<group>"; };
 		1F76A19729223F9700155169 /* BiometricAuthenticatorClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticatorClient.swift; sourceTree = "<group>"; };
 		1F76A19929227A1900155169 /* BiometricAuthenticatorClientLiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticatorClientLiveKey.swift; sourceTree = "<group>"; };
 		1F76A19B2922865D00155169 /* BiometricAuthenticatorClientTestKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticatorClientTestKey.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 		1245E17B28EF91ED00A6CC52 /* MinderaPeopleTests */ = {
 			isa = PBXGroup;
 			children = (
+				1F41247B2966E04600036866 /* Screens */,
 				9AF7FE8C296344D400DC57FC /* Mocks */,
 				9AF7FE8529632BF500DC57FC /* JSONMocks */,
 				1F3CB0DD2941E3B600A863BD /* Dependencies */,
@@ -311,6 +314,22 @@
 				1F3CB0DF2941E3D700A863BD /* BiometricAuthenticatorTests.swift */,
 			);
 			path = BiometricAuthenticator;
+			sourceTree = "<group>";
+		};
+		1F4124782966DF5A00036866 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				1F4124792966E04000036866 /* DashboardTests.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		1F41247B2966E04600036866 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				1F4124782966DF5A00036866 /* Dashboard */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		1F51A9C7295F151800A214AF /* Dashboard */ = {
@@ -740,6 +759,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F41247A2966E04000036866 /* DashboardTests.swift in Sources */,
 				9AF7FE8E296344ED00DC57FC /* MockURLSession.swift in Sources */,
 				1F3CB0E22941F9DF00A863BD /* LAContextMock.swift in Sources */,
 				1F3CB0E02941E3D700A863BD /* BiometricAuthenticatorTests.swift in Sources */,
