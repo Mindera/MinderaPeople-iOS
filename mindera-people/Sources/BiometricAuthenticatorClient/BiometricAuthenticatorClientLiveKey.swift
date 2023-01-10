@@ -1,6 +1,7 @@
 import ComposableArchitecture
 import Foundation
 import LocalAuthentication
+import UserDefaultsClient
 
 enum BiometricAuthenticatorError: Error {
     case userCancelled(Error?)

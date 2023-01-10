@@ -1,4 +1,5 @@
 import Foundation
+import UserDefaultsClient
 
 public enum UserDefaultsKeys {
     static let biometricAuthenticationEnabled = "biometricAuthenticationEnabled"

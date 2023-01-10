@@ -1,7 +1,8 @@
 import LocalAuthentication
 import XCTest
+import UserDefaultsClient
 
-@testable import MinderaPeople
+@testable import BiometricAuthenticatorClient
 
 final class BiometricAuthenticatorTests: XCTestCase {
     private var mockedContext: LAContextMock!

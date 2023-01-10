@@ -29,7 +29,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1245E17728EF91ED00A6CC52"
@@ -55,6 +55,16 @@
                BlueprintIdentifier = "MinderaPeopleServiceTests"
                BuildableName = "MinderaPeopleServiceTests"
                BlueprintName = "MinderaPeopleServiceTests"
+               ReferencedContainer = "container:mindera-people">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BiometricAuthenticatorTests"
+               BuildableName = "BiometricAuthenticatorTests"
+               BlueprintName = "BiometricAuthenticatorTests"
                ReferencedContainer = "container:mindera-people">
             </BuildableReference>
          </TestableReference>
